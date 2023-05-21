@@ -41,7 +41,9 @@
 
 작년에 우리 팀은 국제 창작 자동차 경진대회 전기차부문 자율주행 파트에서 참가했으며, 상위 2개팀에게 부여하는 특별상을 수상했습니다. 작년 대회에 대한 자세한 내용은 '22_LKAS' 폴더를 참조하시기 바랍니다.
 
-![image](https://github.com/Deep-of-Machine/Self-Driving-Car-Cone-Keeping-Assistance-System/assets/90141741/f5c46194-d7c5-40a1-be00-40f960268675)
+<img src="https://github.com/Deep-of-Machine/Self-Driving-Car-Cone-Keeping-Assistance-System/assets/90141741/cd593be4-ebb5-42f4-b0af-a06efa4a6ad3" width="600" height="400">
+
+
 
 
 ---
@@ -81,7 +83,7 @@ S자 곡선 차선 모양의 경기장에서 출발신호와 함께 장애물을
 
 종합 주행 성능 미션은 자율주행 상태에서 250m/lap 포장도로 주행 코스를 2바퀴 총 500m를 반 시계방향으로 주행하는 것입니다.
 
-![image](https://github.com/Deep-of-Machine/Self-Driving-Car-Cone-Keeping-Assistance-System/assets/90141741/cc7c8a31-594d-4efb-b167-c4c9077b8bce)
+<img src="https://github.com/Deep-of-Machine/Self-Driving-Car-Cone-Keeping-Assistance-System/assets/90141741/cc7c8a31-594d-4efb-b167-c4c9077b8bce" width="600" height="400">
 
 
 ---
