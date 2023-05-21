@@ -1,0 +1,25 @@
+<launch>
+    <node name="servo_node"         pkg="rosserial_python"      type="serial_node.py">
+    <param name="port"              type="string"               value="/dev/ttyUSB1"/>
+    <param name="baud"              type="int"                  value="57600"/>
+    </node>
+
+    <node name="linear_node"        pkg="rosserial_python"      type="serial_node.py">
+    <param name="port"              type="string"               value="/dev/ttyACM0"/>
+    <param name="baud"              type="int"                  value="57600"/>
+    </node>
+
+    <node name="asms_node"          pkg="rosserial_python"      type="serial_node.py">
+    <param name="port"              type="string"               value="/dev/ttyACM1"/>
+    <param name="baud"              type="int"                  value="57600"/>
+    </node>
+
+    <node name="motor_node"         pkg="rosserial_python"      type="serial_node.py">
+    <param name="port"              type="string"               value="/dev/ttyACM2"/>
+    <param name="baud"              type="int"                  value="57600"/>
+    </node>
+
+    <node name="detect_steering"        pkg="baqu4_run"      type="LaneDetector_16.py"/>
+    <node name="webcam_pub"             pkg="baqu4_run"      type="webcam_pub.py"/>
+    <node name="asms"                   pkg="baqu4_run"      type="asms.py"/>
+</launch>
