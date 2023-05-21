@@ -41,6 +41,9 @@
 
 작년에 우리 팀은 국제 창작 자동차 경진대회 전기차부문 자율주행 파트에서 참가했으며, 상위 2개팀에게 부여하는 특별상을 수상했습니다. 작년 대회에 대한 자세한 내용은 '22_LKAS' 폴더를 참조하시기 바랍니다.
 
+![image](https://github.com/Deep-of-Machine/Self-Driving-Car-Cone-Keeping-Assistance-System/assets/90141741/f5c46194-d7c5-40a1-be00-40f960268675)
+
+
 ---
 
 ## 🚀 2023 대회 미션
@@ -53,11 +56,16 @@
 
 자동차가 40km/h 이상의 속도에서 제동 시 제동한계선 (6m) 이내에 안전하게 제동할 수 있는지 평가합니다. 세부적으로는 첫번째로 원격 제동 검사로 E-Stop 제동 리모컨으로 정지합니다. 두번째로는 제동 구역 끝에 있는 콘을 라이다 또는 카메라를 이용하여 인식하여 정지합니다.
 
+![image](https://github.com/Deep-of-Machine/Self-Driving-Car-Cone-Keeping-Assistance-System/assets/90141741/f896bb15-6b7d-4b8f-b831-4e02c9adb411)
+
 ---
 
 ### 2️⃣ 가속 성능
 
 경기장에서 출발신호와 함께 출발하여 가속하며, 자율주행 상태에서 5m 폭의 직진 차선을 따라 150m 길이의 경기 코스를 가능한 빠른 시간 내에 완주하는 것입니다.
+
+![image](https://github.com/Deep-of-Machine/Self-Driving-Car-Cone-Keeping-Assistance-System/assets/90141741/57ae2f71-58eb-447e-bc5c-613d820a75e5)
+
 
 ---
 
@@ -65,11 +73,16 @@
 
 S자 곡선 차선 모양의 경기장에서 출발신호와 함께 장애물을 피하면서 지정된 경로를 주행하여 도착할 때 까지의 추돌한 콘의 개수를 측정합니다.
 
+![image](https://github.com/Deep-of-Machine/Self-Driving-Car-Cone-Keeping-Assistance-System/assets/90141741/61a9e96e-35a1-4811-99d7-24a1ee496b9a)
+
 ---
 
 ### 4️⃣ 종합주행성능
 
 종합 주행 성능 미션은 자율주행 상태에서 250m/lap 포장도로 주행 코스를 2바퀴 총 500m를 반 시계방향으로 주행하는 것입니다.
+
+![image](https://github.com/Deep-of-Machine/Self-Driving-Car-Cone-Keeping-Assistance-System/assets/90141741/cc7c8a31-594d-4efb-b167-c4c9077b8bce)
+
 
 ---
 
