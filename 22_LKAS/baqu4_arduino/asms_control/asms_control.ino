@@ -3,7 +3,7 @@
 #include <SoftwareSerial.h>
 #include <Adafruit_NeoPixel.h>
 #include <DFRobotDFPlayerMini.h>
-
+//no rosserial
 SoftwareSerial lora(10, 11);
 
 // e-stop in car #1
