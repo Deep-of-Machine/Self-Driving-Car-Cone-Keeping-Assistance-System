@@ -53,6 +53,10 @@ if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/lidar_pkg" TYPE PROGRAM FILES "/home/hsh/Self-Driving-Car-Cone-Keeping-Assistance-System/build/lidar_pkg/catkin_generated/installspace/pcd_subscriber.py")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/lidar_pkg" TYPE PROGRAM FILES "/home/hsh/Self-Driving-Car-Cone-Keeping-Assistance-System/build/lidar_pkg/catkin_generated/installspace/pcd_downsampling.py")
+endif()
+
+if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/lidar_pkg" TYPE PROGRAM FILES "/home/hsh/Self-Driving-Car-Cone-Keeping-Assistance-System/build/lidar_pkg/catkin_generated/installspace/pcd_car_remove.py")
 endif()
 

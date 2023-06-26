@@ -12,7 +12,7 @@ def pointcloud_callback(msg):
     for point in pc_array:
         x, y, z, intensity = point
         distance = np.sqrt(x**2 + y**2 + z**2)  # Calculate Euclidean distance
-        if distance < distance_threshold:  # Set your desired distance threshold
+        if (distance < distance_threshold) and (abs(x) > 1 or abs(y) > 2):  # Set your desired distance threshold
             filtered_pc_array.append(point)
     
     filtered_pc_array = np.array(filtered_pc_array)
