@@ -7,4 +7,9 @@
 # new environment variables
 
 # modified environment variables
+export CMAKE_PREFIX_PATH="/home/hsh/Self-Driving-Car-Cone-Keeping-Assistance-System/devel:$CMAKE_PREFIX_PATH"
+export LD_LIBRARY_PATH="/home/hsh/Self-Driving-Car-Cone-Keeping-Assistance-System/devel/lib:$LD_LIBRARY_PATH"
+export PKG_CONFIG_PATH="/home/hsh/Self-Driving-Car-Cone-Keeping-Assistance-System/devel/lib/pkgconfig:$PKG_CONFIG_PATH"
 export PWD='/home/hsh/Self-Driving-Car-Cone-Keeping-Assistance-System/build'
+export ROSLISP_PACKAGE_DIRECTORIES='/home/hsh/Self-Driving-Car-Cone-Keeping-Assistance-System/devel/share/common-lisp'
+export ROS_PACKAGE_PATH="/home/hsh/Self-Driving-Car-Cone-Keeping-Assistance-System/src:$ROS_PACKAGE_PATH"
