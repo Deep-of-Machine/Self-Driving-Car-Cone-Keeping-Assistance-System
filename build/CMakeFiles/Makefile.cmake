@@ -22,7 +22,7 @@ set(CMAKE_MAKEFILE_DEPENDS
   "/home/hsh/Self-Driving-Car-Cone-Keeping-Assistance-System/src/CMakeLists.txt"
   "/home/hsh/Self-Driving-Car-Cone-Keeping-Assistance-System/src/lidar_pkg/CMakeLists.txt"
   "/home/hsh/Self-Driving-Car-Cone-Keeping-Assistance-System/src/lidar_pkg/package.xml"
-  "/home/hsh/Self-Driving-Car-Cone-Keeping-Assistance-System/src/lidar_pkg/src/pcd_car_remove.py"
+  "/home/hsh/Self-Driving-Car-Cone-Keeping-Assistance-System/src/lidar_pkg/src/pcd_clustering.py"
   "/home/hsh/Self-Driving-Car-Cone-Keeping-Assistance-System/src/lidar_pkg/src/pcd_downsampling.py"
   "/opt/ros/noetic/share/catkin/cmake/all.cmake"
   "/opt/ros/noetic/share/catkin/cmake/assert.cmake"

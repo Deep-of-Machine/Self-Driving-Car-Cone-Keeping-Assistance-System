@@ -12,9 +12,10 @@ def pointcloud_callback(msg):
     for point in pc_array:
         x, y, z, intensity = point
         distance = np.sqrt(x**2 + y**2 + z**2)  # Calculate Euclidean distance
-        if (distance < distance_threshold) and (abs(x) > 1 or abs(y) > 2.1):  # Set your desired distance threshold
-            ##wlauswprj
+        if (z >-0.37+0.0001*y) and (abs(x) > 1 or abs(y) > 2.1) and (y<0):# Set your desired distance threshold
+            point = (x, y, z + 0.4, intensity)  # Increase z coordinate by 0.3
             filtered_pc_array.append(point)
+
 
     
     filtered_pc_array = np.array(filtered_pc_array)
@@ -36,4 +37,5 @@ def listener():
 if __name__ == '__main__':
     pub = rospy.Publisher('/filtered_point_cloud', PointCloud2, queue_size=10)
     distance_threshold = 3  # Set your desired distance threshold
+
     listener()

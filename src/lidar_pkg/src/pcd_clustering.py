@@ -6,7 +6,7 @@ from sklearn.cluster import DBSCAN
 
 def cluster_objects(pc_array):
     # Perform clustering to extract object centroids
-    clustering = DBSCAN(eps=0.2, min_samples=10)  # Adjust parameters as needed
+    clustering = DBSCAN(eps=0.09, min_samples=4)  # Adjust parameters as needed
     labels = clustering.fit_predict(pc_array[:, :3])
     
     unique_labels = np.unique(labels)
