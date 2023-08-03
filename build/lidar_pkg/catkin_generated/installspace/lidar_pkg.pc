@@ -1,8 +1,0 @@
-prefix=/home/hsh/Self-Driving-Car-Cone-Keeping-Assistance-System/install
-
-Name: lidar_pkg
-Description: Description of lidar_pkg
-Version: 0.0.0
-Cflags: 
-Libs: -L${prefix}/lib -llidar_pkg
-Requires: roscpp rospy std_msgs message_runtime

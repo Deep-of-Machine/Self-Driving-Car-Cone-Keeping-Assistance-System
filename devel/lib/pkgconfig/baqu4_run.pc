@@ -1,8 +1,0 @@
-prefix=/home/hsh/Self-Driving-Car-Cone-Keeping-Assistance-System/devel
-
-Name: baqu4_run
-Description: Description of baqu4_run
-Version: 0.0.0
-Cflags: 
-Libs: -L${prefix}/lib 
-Requires: 
