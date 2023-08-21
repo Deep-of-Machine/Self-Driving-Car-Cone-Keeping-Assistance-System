@@ -14,6 +14,7 @@ from utils.general import check_img_size, check_requirements, check_imshow, non_
 from utils.plots import plot_one_box
 from utils.torch_utils import select_device, load_classifier, time_synchronized, TracedModel
 
+import rospy
 
 def detect(save_img=False):
     source, weights, view_img, save_txt, imgsz, trace = opt.source, opt.weights, opt.view_img, opt.save_txt, opt.img_size, not opt.no_trace
@@ -125,7 +126,13 @@ def detect(save_img=False):
                             f.write(('%g ' * len(line)).rstrip() % line + '\n')
 
                     if save_img or view_img:  # Add bbox to image
+                        cone = []
                         label = f'{names[int(cls)]} {conf:.2f}'
+                        x_mean = ( xyxy[0] + xyxy[2] ) / 2
+                        y_mean = ( xyxy[1] + xyxy[3] ) / 2
+                        cone.append([x_mean, y_mean, label])
+                        print(x_mean, y_mean, label)
+                        rospy.Publisher(cone)
                         plot_one_box(xyxy, im0, label=label, color=colors[int(cls)], line_thickness=1)
 
             # Print time (inference + NMS)
@@ -164,6 +171,7 @@ def detect(save_img=False):
 
 
 if __name__ == '__main__':
+    
     parser = argparse.ArgumentParser()
     parser.add_argument('--weights', nargs='+', type=str, default='yolov7.pt', help='model.pt path(s)')
     parser.add_argument('--source', type=str, default='inference/images', help='source')  # file/folder, 0 for webcam
