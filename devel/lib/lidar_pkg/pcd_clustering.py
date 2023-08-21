@@ -1,9 +1,9 @@
-#!/usr/bin/python3
+#!/usr/local/bin/python3
 # -*- coding: utf-8 -*-
 # generated from catkin/cmake/template/script.py.in
 # creates a relay to a python script source file, acting as that file.
 # The purpose is that of a symlink
-python_script = '/home/ubuntu/Self-Driving-Car-Cone-Keeping-Assistance-System/src/lidar_pkg/src/pcd_clustering.py'
+python_script = '/home/baqu/Self-Driving-Car-Cone-Keeping-Assistance-System/src/lidar_pkg/src/pcd_clustering.py'
 with open(python_script, 'r') as fh:
     context = {
         '__builtins__': __builtins__,

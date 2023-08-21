@@ -1,8 +1,8 @@
-# Install script for directory: /home/ubuntu/Self-Driving-Car-Cone-Keeping-Assistance-System/src/lidar_pkg
+# Install script for directory: /home/baqu/Self-Driving-Car-Cone-Keeping-Assistance-System/src/lidar_pkg
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
-  set(CMAKE_INSTALL_PREFIX "/home/ubuntu/Self-Driving-Car-Cone-Keeping-Assistance-System/install")
+  set(CMAKE_INSTALL_PREFIX "/home/baqu/Self-Driving-Car-Cone-Keeping-Assistance-System/install")
 endif()
 string(REGEX REPLACE "/$" "" CMAKE_INSTALL_PREFIX "${CMAKE_INSTALL_PREFIX}")
 
@@ -37,26 +37,31 @@ if(NOT DEFINED CMAKE_CROSSCOMPILING)
   set(CMAKE_CROSSCOMPILING "FALSE")
 endif()
 
-if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/pkgconfig" TYPE FILE FILES "/home/ubuntu/Self-Driving-Car-Cone-Keeping-Assistance-System/build/lidar_pkg/catkin_generated/installspace/lidar_pkg.pc")
+# Set default install directory permissions.
+if(NOT DEFINED CMAKE_OBJDUMP)
+  set(CMAKE_OBJDUMP "/usr/bin/objdump")
 endif()
 
-if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
+if(CMAKE_INSTALL_COMPONENT STREQUAL "Unspecified" OR NOT CMAKE_INSTALL_COMPONENT)
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/pkgconfig" TYPE FILE FILES "/home/baqu/Self-Driving-Car-Cone-Keeping-Assistance-System/build/lidar_pkg/catkin_generated/installspace/lidar_pkg.pc")
+endif()
+
+if(CMAKE_INSTALL_COMPONENT STREQUAL "Unspecified" OR NOT CMAKE_INSTALL_COMPONENT)
   file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/lidar_pkg/cmake" TYPE FILE FILES
-    "/home/ubuntu/Self-Driving-Car-Cone-Keeping-Assistance-System/build/lidar_pkg/catkin_generated/installspace/lidar_pkgConfig.cmake"
-    "/home/ubuntu/Self-Driving-Car-Cone-Keeping-Assistance-System/build/lidar_pkg/catkin_generated/installspace/lidar_pkgConfig-version.cmake"
+    "/home/baqu/Self-Driving-Car-Cone-Keeping-Assistance-System/build/lidar_pkg/catkin_generated/installspace/lidar_pkgConfig.cmake"
+    "/home/baqu/Self-Driving-Car-Cone-Keeping-Assistance-System/build/lidar_pkg/catkin_generated/installspace/lidar_pkgConfig-version.cmake"
     )
 endif()
 
-if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/lidar_pkg" TYPE FILE FILES "/home/ubuntu/Self-Driving-Car-Cone-Keeping-Assistance-System/src/lidar_pkg/package.xml")
+if(CMAKE_INSTALL_COMPONENT STREQUAL "Unspecified" OR NOT CMAKE_INSTALL_COMPONENT)
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/lidar_pkg" TYPE FILE FILES "/home/baqu/Self-Driving-Car-Cone-Keeping-Assistance-System/src/lidar_pkg/package.xml")
 endif()
 
-if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/lidar_pkg" TYPE PROGRAM FILES "/home/ubuntu/Self-Driving-Car-Cone-Keeping-Assistance-System/build/lidar_pkg/catkin_generated/installspace/pcd_downsampling.py")
+if(CMAKE_INSTALL_COMPONENT STREQUAL "Unspecified" OR NOT CMAKE_INSTALL_COMPONENT)
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/lidar_pkg" TYPE PROGRAM FILES "/home/baqu/Self-Driving-Car-Cone-Keeping-Assistance-System/build/lidar_pkg/catkin_generated/installspace/pcd_downsampling.py")
 endif()
 
-if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/lidar_pkg" TYPE PROGRAM FILES "/home/ubuntu/Self-Driving-Car-Cone-Keeping-Assistance-System/build/lidar_pkg/catkin_generated/installspace/pcd_clustering.py")
+if(CMAKE_INSTALL_COMPONENT STREQUAL "Unspecified" OR NOT CMAKE_INSTALL_COMPONENT)
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/lidar_pkg" TYPE PROGRAM FILES "/home/baqu/Self-Driving-Car-Cone-Keeping-Assistance-System/build/lidar_pkg/catkin_generated/installspace/pcd_clustering.py")
 endif()
 
