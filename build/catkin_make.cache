@@ -1,2 +1,2 @@
 22_LKAS/baqu4_main:lidar_pkg
--DCATKIN_DEVEL_PREFIX=/home/hsh/Self-Driving-Car-Cone-Keeping-Assistance-System/devel -DCMAKE_INSTALL_PREFIX=/home/hsh/Self-Driving-Car-Cone-Keeping-Assistance-System/install -G Unix Makefiles
+-DCATKIN_DEVEL_PREFIX=/home/baqu/Self-Driving-Car-Cone-Keeping-Assistance-System/devel -DCMAKE_INSTALL_PREFIX=/home/baqu/Self-Driving-Car-Cone-Keeping-Assistance-System/install -G Unix Makefiles
