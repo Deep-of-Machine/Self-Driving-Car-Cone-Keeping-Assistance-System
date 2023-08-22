@@ -4,6 +4,7 @@ import rospy
 import sensor_msgs.point_cloud2 as pc2
 from sensor_msgs.msg import PointCloud2
 import numpy as np
+from lidar_pkg.msg import lidar_lavacon
 
 def remove_ground(data):
     pc_data = pc2.read_points(data, skip_nans=True, field_names=("x", "y", "z"))
