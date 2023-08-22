@@ -1,12 +1,12 @@
 (cl:in-package lidar_pkg-msg)
-(cl:export '(LIDAR_MID_X-VAL
-          LIDAR_MID_X
-          LIDAR_MID_Y-VAL
-          LIDAR_MID_Y
-          LIDAR_MID_Z-VAL
-          LIDAR_MID_Z
-          LIDAR_CON_NAME-VAL
-          LIDAR_CON_NAME
-          LIDAR_CON_COLOR-VAL
-          LIDAR_CON_COLOR
+(cl:export '(CON_MID_X-VAL
+          CON_MID_X
+          CON_MID_Y-VAL
+          CON_MID_Y
+          CON_MID_Z-VAL
+          CON_MID_Z
+          CON_NAME-VAL
+          CON_NAME
+          CON_COLOR-VAL
+          CON_COLOR
 ))

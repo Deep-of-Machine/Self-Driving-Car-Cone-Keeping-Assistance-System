@@ -8,16 +8,16 @@ import struct
 
 
 class lavacon(genpy.Message):
-  _md5sum = "8869dac3714f40275d5d1c09afbfd6f5"
+  _md5sum = "d7d5d863398db1715dabc8c59e13dbfe"
   _type = "lidar_pkg/lavacon"
   _has_header = False  # flag to mark the presence of a Header object
-  _full_text = """float64 lidar_mid_X
-float64 lidar_mid_y
-float64 lidar_mid_z
-string lidar_con_name
-string lidar_con_color
+  _full_text = """float64 con_mid_X
+float64 con_mid_y
+float64 con_mid_z
+string con_name
+string con_color
 """
-  __slots__ = ['lidar_mid_X','lidar_mid_y','lidar_mid_z','lidar_con_name','lidar_con_color']
+  __slots__ = ['con_mid_X','con_mid_y','con_mid_z','con_name','con_color']
   _slot_types = ['float64','float64','float64','string','string']
 
   def __init__(self, *args, **kwds):
@@ -28,7 +28,7 @@ string lidar_con_color
     changes.  You cannot mix in-order arguments and keyword arguments.
 
     The available fields are:
-       lidar_mid_X,lidar_mid_y,lidar_mid_z,lidar_con_name,lidar_con_color
+       con_mid_X,con_mid_y,con_mid_z,con_name,con_color
 
     :param args: complete set of field values, in .msg order
     :param kwds: use keyword arguments corresponding to message field names
@@ -37,22 +37,22 @@ string lidar_con_color
     if args or kwds:
       super(lavacon, self).__init__(*args, **kwds)
       # message fields cannot be None, assign default values for those that are
-      if self.lidar_mid_X is None:
-        self.lidar_mid_X = 0.
-      if self.lidar_mid_y is None:
-        self.lidar_mid_y = 0.
-      if self.lidar_mid_z is None:
-        self.lidar_mid_z = 0.
-      if self.lidar_con_name is None:
-        self.lidar_con_name = ''
-      if self.lidar_con_color is None:
-        self.lidar_con_color = ''
+      if self.con_mid_X is None:
+        self.con_mid_X = 0.
+      if self.con_mid_y is None:
+        self.con_mid_y = 0.
+      if self.con_mid_z is None:
+        self.con_mid_z = 0.
+      if self.con_name is None:
+        self.con_name = ''
+      if self.con_color is None:
+        self.con_color = ''
     else:
-      self.lidar_mid_X = 0.
-      self.lidar_mid_y = 0.
-      self.lidar_mid_z = 0.
-      self.lidar_con_name = ''
-      self.lidar_con_color = ''
+      self.con_mid_X = 0.
+      self.con_mid_y = 0.
+      self.con_mid_z = 0.
+      self.con_name = ''
+      self.con_color = ''
 
   def _get_types(self):
     """
@@ -67,14 +67,14 @@ string lidar_con_color
     """
     try:
       _x = self
-      buff.write(_get_struct_3d().pack(_x.lidar_mid_X, _x.lidar_mid_y, _x.lidar_mid_z))
-      _x = self.lidar_con_name
+      buff.write(_get_struct_3d().pack(_x.con_mid_X, _x.con_mid_y, _x.con_mid_z))
+      _x = self.con_name
       length = len(_x)
       if python3 or type(_x) == unicode:
         _x = _x.encode('utf-8')
         length = len(_x)
       buff.write(struct.Struct('<I%ss'%length).pack(length, _x))
-      _x = self.lidar_con_color
+      _x = self.con_color
       length = len(_x)
       if python3 or type(_x) == unicode:
         _x = _x.encode('utf-8')
@@ -95,25 +95,25 @@ string lidar_con_color
       _x = self
       start = end
       end += 24
-      (_x.lidar_mid_X, _x.lidar_mid_y, _x.lidar_mid_z,) = _get_struct_3d().unpack(str[start:end])
+      (_x.con_mid_X, _x.con_mid_y, _x.con_mid_z,) = _get_struct_3d().unpack(str[start:end])
       start = end
       end += 4
       (length,) = _struct_I.unpack(str[start:end])
       start = end
       end += length
       if python3:
-        self.lidar_con_name = str[start:end].decode('utf-8', 'rosmsg')
+        self.con_name = str[start:end].decode('utf-8', 'rosmsg')
       else:
-        self.lidar_con_name = str[start:end]
+        self.con_name = str[start:end]
       start = end
       end += 4
       (length,) = _struct_I.unpack(str[start:end])
       start = end
       end += length
       if python3:
-        self.lidar_con_color = str[start:end].decode('utf-8', 'rosmsg')
+        self.con_color = str[start:end].decode('utf-8', 'rosmsg')
       else:
-        self.lidar_con_color = str[start:end]
+        self.con_color = str[start:end]
       return self
     except struct.error as e:
       raise genpy.DeserializationError(e)  # most likely buffer underfill
@@ -127,14 +127,14 @@ string lidar_con_color
     """
     try:
       _x = self
-      buff.write(_get_struct_3d().pack(_x.lidar_mid_X, _x.lidar_mid_y, _x.lidar_mid_z))
-      _x = self.lidar_con_name
+      buff.write(_get_struct_3d().pack(_x.con_mid_X, _x.con_mid_y, _x.con_mid_z))
+      _x = self.con_name
       length = len(_x)
       if python3 or type(_x) == unicode:
         _x = _x.encode('utf-8')
         length = len(_x)
       buff.write(struct.Struct('<I%ss'%length).pack(length, _x))
-      _x = self.lidar_con_color
+      _x = self.con_color
       length = len(_x)
       if python3 or type(_x) == unicode:
         _x = _x.encode('utf-8')
@@ -156,25 +156,25 @@ string lidar_con_color
       _x = self
       start = end
       end += 24
-      (_x.lidar_mid_X, _x.lidar_mid_y, _x.lidar_mid_z,) = _get_struct_3d().unpack(str[start:end])
+      (_x.con_mid_X, _x.con_mid_y, _x.con_mid_z,) = _get_struct_3d().unpack(str[start:end])
       start = end
       end += 4
       (length,) = _struct_I.unpack(str[start:end])
       start = end
       end += length
       if python3:
-        self.lidar_con_name = str[start:end].decode('utf-8', 'rosmsg')
+        self.con_name = str[start:end].decode('utf-8', 'rosmsg')
       else:
-        self.lidar_con_name = str[start:end]
+        self.con_name = str[start:end]
       start = end
       end += 4
       (length,) = _struct_I.unpack(str[start:end])
       start = end
       end += length
       if python3:
-        self.lidar_con_color = str[start:end].decode('utf-8', 'rosmsg')
+        self.con_color = str[start:end].decode('utf-8', 'rosmsg')
       else:
-        self.lidar_con_color = str[start:end]
+        self.con_color = str[start:end]
       return self
     except struct.error as e:
       raise genpy.DeserializationError(e)  # most likely buffer underfill

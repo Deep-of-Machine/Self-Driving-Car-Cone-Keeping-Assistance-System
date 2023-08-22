@@ -136,8 +136,15 @@ endif()
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for each subdirectory.
   include("/home/baqu/Self-Driving-Car-Cone-Keeping-Assistance-System/build/gtest/cmake_install.cmake")
+  include("/home/baqu/Self-Driving-Car-Cone-Keeping-Assistance-System/build/ublox_f9p/ntrip_ros/cmake_install.cmake")
+  include("/home/baqu/Self-Driving-Car-Cone-Keeping-Assistance-System/build/ublox_f9p/rtcm_msgs/cmake_install.cmake")
+  include("/home/baqu/Self-Driving-Car-Cone-Keeping-Assistance-System/build/ublox/ublox/cmake_install.cmake")
   include("/home/baqu/Self-Driving-Car-Cone-Keeping-Assistance-System/build/lidar_pkg/cmake_install.cmake")
   include("/home/baqu/Self-Driving-Car-Cone-Keeping-Assistance-System/build/22_LKAS/baqu4_main/cmake_install.cmake")
+  include("/home/baqu/Self-Driving-Car-Cone-Keeping-Assistance-System/build/ublox/ublox_serialization/cmake_install.cmake")
+  include("/home/baqu/Self-Driving-Car-Cone-Keeping-Assistance-System/build/ublox/ublox_msgs/cmake_install.cmake")
+  include("/home/baqu/Self-Driving-Car-Cone-Keeping-Assistance-System/build/ublox/ublox_gps/cmake_install.cmake")
+  include("/home/baqu/Self-Driving-Car-Cone-Keeping-Assistance-System/build/ublox/ublox_msg_filters/cmake_install.cmake")
 
 endif()
 

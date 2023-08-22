@@ -9,6 +9,8 @@ from lidar_pkg.msg import lidar_lavacon
 def remove_ground(data):
     pc_data = pc2.read_points(data, skip_nans=True, field_names=("x", "y", "z"))
     pc_array = np.array(list(pc_data))
+    #lidar_pub = rospy.publisher('lidar_lavacon',lidar_lavacon, que_size =10)
+    #msg = lidar_lavacon()
 
     # Define ground threshold
     ground_threshold = -0.65  # Lidar Height

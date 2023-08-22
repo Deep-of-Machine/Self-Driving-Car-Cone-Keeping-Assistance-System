@@ -24,37 +24,37 @@ struct lavacon_
   typedef lavacon_<ContainerAllocator> Type;
 
   lavacon_()
-    : lidar_mid_X(0.0)
-    , lidar_mid_y(0.0)
-    , lidar_mid_z(0.0)
-    , lidar_con_name()
-    , lidar_con_color()  {
+    : con_mid_X(0.0)
+    , con_mid_y(0.0)
+    , con_mid_z(0.0)
+    , con_name()
+    , con_color()  {
     }
   lavacon_(const ContainerAllocator& _alloc)
-    : lidar_mid_X(0.0)
-    , lidar_mid_y(0.0)
-    , lidar_mid_z(0.0)
-    , lidar_con_name(_alloc)
-    , lidar_con_color(_alloc)  {
+    : con_mid_X(0.0)
+    , con_mid_y(0.0)
+    , con_mid_z(0.0)
+    , con_name(_alloc)
+    , con_color(_alloc)  {
   (void)_alloc;
     }
 
 
 
-   typedef double _lidar_mid_X_type;
-  _lidar_mid_X_type lidar_mid_X;
+   typedef double _con_mid_X_type;
+  _con_mid_X_type con_mid_X;
 
-   typedef double _lidar_mid_y_type;
-  _lidar_mid_y_type lidar_mid_y;
+   typedef double _con_mid_y_type;
+  _con_mid_y_type con_mid_y;
 
-   typedef double _lidar_mid_z_type;
-  _lidar_mid_z_type lidar_mid_z;
+   typedef double _con_mid_z_type;
+  _con_mid_z_type con_mid_z;
 
-   typedef std::basic_string<char, std::char_traits<char>, typename std::allocator_traits<ContainerAllocator>::template rebind_alloc<char>> _lidar_con_name_type;
-  _lidar_con_name_type lidar_con_name;
+   typedef std::basic_string<char, std::char_traits<char>, typename std::allocator_traits<ContainerAllocator>::template rebind_alloc<char>> _con_name_type;
+  _con_name_type con_name;
 
-   typedef std::basic_string<char, std::char_traits<char>, typename std::allocator_traits<ContainerAllocator>::template rebind_alloc<char>> _lidar_con_color_type;
-  _lidar_con_color_type lidar_con_color;
+   typedef std::basic_string<char, std::char_traits<char>, typename std::allocator_traits<ContainerAllocator>::template rebind_alloc<char>> _con_color_type;
+  _con_color_type con_color;
 
 
 
@@ -85,11 +85,11 @@ return s;
 template<typename ContainerAllocator1, typename ContainerAllocator2>
 bool operator==(const ::lidar_pkg::lavacon_<ContainerAllocator1> & lhs, const ::lidar_pkg::lavacon_<ContainerAllocator2> & rhs)
 {
-  return lhs.lidar_mid_X == rhs.lidar_mid_X &&
-    lhs.lidar_mid_y == rhs.lidar_mid_y &&
-    lhs.lidar_mid_z == rhs.lidar_mid_z &&
-    lhs.lidar_con_name == rhs.lidar_con_name &&
-    lhs.lidar_con_color == rhs.lidar_con_color;
+  return lhs.con_mid_X == rhs.con_mid_X &&
+    lhs.con_mid_y == rhs.con_mid_y &&
+    lhs.con_mid_z == rhs.con_mid_z &&
+    lhs.con_name == rhs.con_name &&
+    lhs.con_color == rhs.con_color;
 }
 
 template<typename ContainerAllocator1, typename ContainerAllocator2>
@@ -146,12 +146,12 @@ struct MD5Sum< ::lidar_pkg::lavacon_<ContainerAllocator> >
 {
   static const char* value()
   {
-    return "8869dac3714f40275d5d1c09afbfd6f5";
+    return "d7d5d863398db1715dabc8c59e13dbfe";
   }
 
   static const char* value(const ::lidar_pkg::lavacon_<ContainerAllocator>&) { return value(); }
-  static const uint64_t static_value1 = 0x8869dac3714f4027ULL;
-  static const uint64_t static_value2 = 0x5d5d1c09afbfd6f5ULL;
+  static const uint64_t static_value1 = 0xd7d5d863398db171ULL;
+  static const uint64_t static_value2 = 0x5dabc8c59e13dbfeULL;
 };
 
 template<class ContainerAllocator>
@@ -170,11 +170,11 @@ struct Definition< ::lidar_pkg::lavacon_<ContainerAllocator> >
 {
   static const char* value()
   {
-    return "float64 lidar_mid_X\n"
-"float64 lidar_mid_y\n"
-"float64 lidar_mid_z\n"
-"string lidar_con_name\n"
-"string lidar_con_color\n"
+    return "float64 con_mid_X\n"
+"float64 con_mid_y\n"
+"float64 con_mid_z\n"
+"string con_name\n"
+"string con_color\n"
 ;
   }
 
@@ -193,11 +193,11 @@ namespace serialization
   {
     template<typename Stream, typename T> inline static void allInOne(Stream& stream, T m)
     {
-      stream.next(m.lidar_mid_X);
-      stream.next(m.lidar_mid_y);
-      stream.next(m.lidar_mid_z);
-      stream.next(m.lidar_con_name);
-      stream.next(m.lidar_con_color);
+      stream.next(m.con_mid_X);
+      stream.next(m.con_mid_y);
+      stream.next(m.con_mid_z);
+      stream.next(m.con_name);
+      stream.next(m.con_color);
     }
 
     ROS_DECLARE_ALLINONE_SERIALIZER
@@ -216,16 +216,16 @@ struct Printer< ::lidar_pkg::lavacon_<ContainerAllocator> >
 {
   template<typename Stream> static void stream(Stream& s, const std::string& indent, const ::lidar_pkg::lavacon_<ContainerAllocator>& v)
   {
-    s << indent << "lidar_mid_X: ";
-    Printer<double>::stream(s, indent + "  ", v.lidar_mid_X);
-    s << indent << "lidar_mid_y: ";
-    Printer<double>::stream(s, indent + "  ", v.lidar_mid_y);
-    s << indent << "lidar_mid_z: ";
-    Printer<double>::stream(s, indent + "  ", v.lidar_mid_z);
-    s << indent << "lidar_con_name: ";
-    Printer<std::basic_string<char, std::char_traits<char>, typename std::allocator_traits<ContainerAllocator>::template rebind_alloc<char>>>::stream(s, indent + "  ", v.lidar_con_name);
-    s << indent << "lidar_con_color: ";
-    Printer<std::basic_string<char, std::char_traits<char>, typename std::allocator_traits<ContainerAllocator>::template rebind_alloc<char>>>::stream(s, indent + "  ", v.lidar_con_color);
+    s << indent << "con_mid_X: ";
+    Printer<double>::stream(s, indent + "  ", v.con_mid_X);
+    s << indent << "con_mid_y: ";
+    Printer<double>::stream(s, indent + "  ", v.con_mid_y);
+    s << indent << "con_mid_z: ";
+    Printer<double>::stream(s, indent + "  ", v.con_mid_z);
+    s << indent << "con_name: ";
+    Printer<std::basic_string<char, std::char_traits<char>, typename std::allocator_traits<ContainerAllocator>::template rebind_alloc<char>>>::stream(s, indent + "  ", v.con_name);
+    s << indent << "con_color: ";
+    Printer<std::basic_string<char, std::char_traits<char>, typename std::allocator_traits<ContainerAllocator>::template rebind_alloc<char>>>::stream(s, indent + "  ", v.con_color);
   }
 };
 

@@ -722,7 +722,7 @@ void UbloxFirmware6::fixDiagnostic(
     stat.level = diagnostic_msgs::DiagnosticStatus::OK;
     stat.message = "3D fix";
   } else if (last_nav_sol_.gpsFix ==
-             ublox_msgs::NavSOL::GPS_GPS_DEAD_RECKONING_COMBINED) {
+             ublox_msgs::NavSOL::GPS_GPS_DEAD_RECKONING_COMBINED){
     stat.level = diagnostic_msgs::DiagnosticStatus::OK;
     stat.message = "GPS and dead reckoning combined";
   } else if (last_nav_sol_.gpsFix == ublox_msgs::NavSOL::GPS_TIME_ONLY_FIX) {
@@ -1905,7 +1905,7 @@ void rtcmCallback(const rtcm_msgs::Message::ConstPtr &msg) {
 int main(int argc, char** argv) {
   ros::init(argc, argv, "ublox_gps");
   nh.reset(new ros::NodeHandle("~"));
-  ros::Subscriber subRtcm = nh->subscribe("/rtcm", 10, rtcmCallback);
+  ros::Subscriber subRtcm = nh->subscribe("/ublox_gps/rtcm", 10, rtcmCallback);
   nh->param("debug", ublox_gps::debug, 1);
   if(ublox_gps::debug) {
     if (ros::console::set_logger_level(ROSCONSOLE_DEFAULT_NAME,
