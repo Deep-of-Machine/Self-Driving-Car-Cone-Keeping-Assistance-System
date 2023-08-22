@@ -132,7 +132,7 @@ def detect(save_img=False):
                         y_mean = ( xyxy[1] + xyxy[3] ) / 2
                         cone.append([x_mean, y_mean, label])
                         print(x_mean, y_mean, label)
-                        rospy.Publisher(cone)
+                        # rospy.Publisher(cone)
                         plot_one_box(xyxy, im0, label=label, color=colors[int(cls)], line_thickness=1)
 
             # Print time (inference + NMS)

@@ -484,6 +484,188 @@ std_msgs_generate_messages_py/fast:
 .PHONY : std_msgs_generate_messages_py/fast
 
 #=============================================================================
+# Target rules for targets named lidar_pkg_generate_messages
+
+# Build rule for target.
+lidar_pkg_generate_messages: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 lidar_pkg_generate_messages
+.PHONY : lidar_pkg_generate_messages
+
+# fast build rule for target.
+lidar_pkg_generate_messages/fast:
+	$(MAKE) $(MAKESILENT) -f lidar_pkg/CMakeFiles/lidar_pkg_generate_messages.dir/build.make lidar_pkg/CMakeFiles/lidar_pkg_generate_messages.dir/build
+.PHONY : lidar_pkg_generate_messages/fast
+
+#=============================================================================
+# Target rules for targets named _lidar_pkg_generate_messages_check_deps_lidar_lavacon
+
+# Build rule for target.
+_lidar_pkg_generate_messages_check_deps_lidar_lavacon: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 _lidar_pkg_generate_messages_check_deps_lidar_lavacon
+.PHONY : _lidar_pkg_generate_messages_check_deps_lidar_lavacon
+
+# fast build rule for target.
+_lidar_pkg_generate_messages_check_deps_lidar_lavacon/fast:
+	$(MAKE) $(MAKESILENT) -f lidar_pkg/CMakeFiles/_lidar_pkg_generate_messages_check_deps_lidar_lavacon.dir/build.make lidar_pkg/CMakeFiles/_lidar_pkg_generate_messages_check_deps_lidar_lavacon.dir/build
+.PHONY : _lidar_pkg_generate_messages_check_deps_lidar_lavacon/fast
+
+#=============================================================================
+# Target rules for targets named _lidar_pkg_generate_messages_check_deps_lavacon
+
+# Build rule for target.
+_lidar_pkg_generate_messages_check_deps_lavacon: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 _lidar_pkg_generate_messages_check_deps_lavacon
+.PHONY : _lidar_pkg_generate_messages_check_deps_lavacon
+
+# fast build rule for target.
+_lidar_pkg_generate_messages_check_deps_lavacon/fast:
+	$(MAKE) $(MAKESILENT) -f lidar_pkg/CMakeFiles/_lidar_pkg_generate_messages_check_deps_lavacon.dir/build.make lidar_pkg/CMakeFiles/_lidar_pkg_generate_messages_check_deps_lavacon.dir/build
+.PHONY : _lidar_pkg_generate_messages_check_deps_lavacon/fast
+
+#=============================================================================
+# Target rules for targets named _lidar_pkg_generate_messages_check_deps_yolo_lavacon
+
+# Build rule for target.
+_lidar_pkg_generate_messages_check_deps_yolo_lavacon: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 _lidar_pkg_generate_messages_check_deps_yolo_lavacon
+.PHONY : _lidar_pkg_generate_messages_check_deps_yolo_lavacon
+
+# fast build rule for target.
+_lidar_pkg_generate_messages_check_deps_yolo_lavacon/fast:
+	$(MAKE) $(MAKESILENT) -f lidar_pkg/CMakeFiles/_lidar_pkg_generate_messages_check_deps_yolo_lavacon.dir/build.make lidar_pkg/CMakeFiles/_lidar_pkg_generate_messages_check_deps_yolo_lavacon.dir/build
+.PHONY : _lidar_pkg_generate_messages_check_deps_yolo_lavacon/fast
+
+#=============================================================================
+# Target rules for targets named lidar_pkg_generate_messages_cpp
+
+# Build rule for target.
+lidar_pkg_generate_messages_cpp: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 lidar_pkg_generate_messages_cpp
+.PHONY : lidar_pkg_generate_messages_cpp
+
+# fast build rule for target.
+lidar_pkg_generate_messages_cpp/fast:
+	$(MAKE) $(MAKESILENT) -f lidar_pkg/CMakeFiles/lidar_pkg_generate_messages_cpp.dir/build.make lidar_pkg/CMakeFiles/lidar_pkg_generate_messages_cpp.dir/build
+.PHONY : lidar_pkg_generate_messages_cpp/fast
+
+#=============================================================================
+# Target rules for targets named lidar_pkg_gencpp
+
+# Build rule for target.
+lidar_pkg_gencpp: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 lidar_pkg_gencpp
+.PHONY : lidar_pkg_gencpp
+
+# fast build rule for target.
+lidar_pkg_gencpp/fast:
+	$(MAKE) $(MAKESILENT) -f lidar_pkg/CMakeFiles/lidar_pkg_gencpp.dir/build.make lidar_pkg/CMakeFiles/lidar_pkg_gencpp.dir/build
+.PHONY : lidar_pkg_gencpp/fast
+
+#=============================================================================
+# Target rules for targets named lidar_pkg_generate_messages_eus
+
+# Build rule for target.
+lidar_pkg_generate_messages_eus: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 lidar_pkg_generate_messages_eus
+.PHONY : lidar_pkg_generate_messages_eus
+
+# fast build rule for target.
+lidar_pkg_generate_messages_eus/fast:
+	$(MAKE) $(MAKESILENT) -f lidar_pkg/CMakeFiles/lidar_pkg_generate_messages_eus.dir/build.make lidar_pkg/CMakeFiles/lidar_pkg_generate_messages_eus.dir/build
+.PHONY : lidar_pkg_generate_messages_eus/fast
+
+#=============================================================================
+# Target rules for targets named lidar_pkg_geneus
+
+# Build rule for target.
+lidar_pkg_geneus: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 lidar_pkg_geneus
+.PHONY : lidar_pkg_geneus
+
+# fast build rule for target.
+lidar_pkg_geneus/fast:
+	$(MAKE) $(MAKESILENT) -f lidar_pkg/CMakeFiles/lidar_pkg_geneus.dir/build.make lidar_pkg/CMakeFiles/lidar_pkg_geneus.dir/build
+.PHONY : lidar_pkg_geneus/fast
+
+#=============================================================================
+# Target rules for targets named lidar_pkg_generate_messages_lisp
+
+# Build rule for target.
+lidar_pkg_generate_messages_lisp: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 lidar_pkg_generate_messages_lisp
+.PHONY : lidar_pkg_generate_messages_lisp
+
+# fast build rule for target.
+lidar_pkg_generate_messages_lisp/fast:
+	$(MAKE) $(MAKESILENT) -f lidar_pkg/CMakeFiles/lidar_pkg_generate_messages_lisp.dir/build.make lidar_pkg/CMakeFiles/lidar_pkg_generate_messages_lisp.dir/build
+.PHONY : lidar_pkg_generate_messages_lisp/fast
+
+#=============================================================================
+# Target rules for targets named lidar_pkg_genlisp
+
+# Build rule for target.
+lidar_pkg_genlisp: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 lidar_pkg_genlisp
+.PHONY : lidar_pkg_genlisp
+
+# fast build rule for target.
+lidar_pkg_genlisp/fast:
+	$(MAKE) $(MAKESILENT) -f lidar_pkg/CMakeFiles/lidar_pkg_genlisp.dir/build.make lidar_pkg/CMakeFiles/lidar_pkg_genlisp.dir/build
+.PHONY : lidar_pkg_genlisp/fast
+
+#=============================================================================
+# Target rules for targets named lidar_pkg_generate_messages_nodejs
+
+# Build rule for target.
+lidar_pkg_generate_messages_nodejs: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 lidar_pkg_generate_messages_nodejs
+.PHONY : lidar_pkg_generate_messages_nodejs
+
+# fast build rule for target.
+lidar_pkg_generate_messages_nodejs/fast:
+	$(MAKE) $(MAKESILENT) -f lidar_pkg/CMakeFiles/lidar_pkg_generate_messages_nodejs.dir/build.make lidar_pkg/CMakeFiles/lidar_pkg_generate_messages_nodejs.dir/build
+.PHONY : lidar_pkg_generate_messages_nodejs/fast
+
+#=============================================================================
+# Target rules for targets named lidar_pkg_gennodejs
+
+# Build rule for target.
+lidar_pkg_gennodejs: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 lidar_pkg_gennodejs
+.PHONY : lidar_pkg_gennodejs
+
+# fast build rule for target.
+lidar_pkg_gennodejs/fast:
+	$(MAKE) $(MAKESILENT) -f lidar_pkg/CMakeFiles/lidar_pkg_gennodejs.dir/build.make lidar_pkg/CMakeFiles/lidar_pkg_gennodejs.dir/build
+.PHONY : lidar_pkg_gennodejs/fast
+
+#=============================================================================
+# Target rules for targets named lidar_pkg_generate_messages_py
+
+# Build rule for target.
+lidar_pkg_generate_messages_py: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 lidar_pkg_generate_messages_py
+.PHONY : lidar_pkg_generate_messages_py
+
+# fast build rule for target.
+lidar_pkg_generate_messages_py/fast:
+	$(MAKE) $(MAKESILENT) -f lidar_pkg/CMakeFiles/lidar_pkg_generate_messages_py.dir/build.make lidar_pkg/CMakeFiles/lidar_pkg_generate_messages_py.dir/build
+.PHONY : lidar_pkg_generate_messages_py/fast
+
+#=============================================================================
+# Target rules for targets named lidar_pkg_genpy
+
+# Build rule for target.
+lidar_pkg_genpy: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 lidar_pkg_genpy
+.PHONY : lidar_pkg_genpy
+
+# fast build rule for target.
+lidar_pkg_genpy/fast:
+	$(MAKE) $(MAKESILENT) -f lidar_pkg/CMakeFiles/lidar_pkg_genpy.dir/build.make lidar_pkg/CMakeFiles/lidar_pkg_genpy.dir/build
+.PHONY : lidar_pkg_genpy/fast
+
+#=============================================================================
 # Target rules for targets named sensor_msgs_generate_messages_cpp
 
 # Build rule for target.
@@ -626,6 +808,9 @@ help:
 	@echo "... list_install_components"
 	@echo "... rebuild_cache"
 	@echo "... test"
+	@echo "... _lidar_pkg_generate_messages_check_deps_lavacon"
+	@echo "... _lidar_pkg_generate_messages_check_deps_lidar_lavacon"
+	@echo "... _lidar_pkg_generate_messages_check_deps_yolo_lavacon"
 	@echo "... clean_test_results"
 	@echo "... download_extra_data"
 	@echo "... doxygen"
@@ -634,6 +819,17 @@ help:
 	@echo "... geometry_msgs_generate_messages_lisp"
 	@echo "... geometry_msgs_generate_messages_nodejs"
 	@echo "... geometry_msgs_generate_messages_py"
+	@echo "... lidar_pkg_gencpp"
+	@echo "... lidar_pkg_generate_messages"
+	@echo "... lidar_pkg_generate_messages_cpp"
+	@echo "... lidar_pkg_generate_messages_eus"
+	@echo "... lidar_pkg_generate_messages_lisp"
+	@echo "... lidar_pkg_generate_messages_nodejs"
+	@echo "... lidar_pkg_generate_messages_py"
+	@echo "... lidar_pkg_geneus"
+	@echo "... lidar_pkg_genlisp"
+	@echo "... lidar_pkg_gennodejs"
+	@echo "... lidar_pkg_genpy"
 	@echo "... roscpp_generate_messages_cpp"
 	@echo "... roscpp_generate_messages_eus"
 	@echo "... roscpp_generate_messages_lisp"
