@@ -11,7 +11,7 @@
 #include <softPwm.h>
 
 #define MOTOR_OUT 9
-#define ragne 10 // error range
+#define range 10 // error range
 int now_target = 0;
 
 void setting(void);
@@ -74,9 +74,9 @@ int main()
         nbytes = read(s, &frame, sizeof(frame));
         if (nbytes > 0)
         {
-            if (data[0] == 1)
+            if (frame.data[0] == 1)
             { // auto state
-                target_check(data[1], data[2]);
+                target_check(frame.data[1], frame.data[2]);
             }
             else
             {
@@ -94,21 +94,24 @@ int main()
 
 void setting(void)
 {
-    WiringPiSetupGpio();
+    wiringPiSetupGpio();
 
     softPwmCreate(MOTOR_OUT, 0, 200);
 }
 
 void target_check(int current_speed, int new_target)
 {
-    if ( (current_speed < (new_target - range)) || (current_speed > (new_target + range)) {
+    if ((current_speed < (new_target - range)) || (current_speed > (new_target + range)))
+    {
         // set new target value
         now_target = new_target;
 
-        motor_run(now_traget);
-	} else {
         motor_run(now_target);
-	}
+    }
+    else
+    {
+        motor_run(now_target);
+    }
 }
 
 void motor_run(int new_target)
