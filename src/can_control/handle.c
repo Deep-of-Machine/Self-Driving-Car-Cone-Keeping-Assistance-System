@@ -27,6 +27,7 @@ bool SENSOR_CAN_SETTING = true;
 void setting(void);
 void target_check(int, int);
 void actuator_run(int, int);
+void actuator_stop(void);
 
 int main()
 {
@@ -146,14 +147,12 @@ void actuator_run(int current_target, int direction)
         if (s < 0)
         {
             perror("socket PF_CAN failed");
-            return 1;
         }
         strcpy(ifr.ifr_name, "can1");
         ret = ioctl(s, SIOCGIFINDEX, &ifr);
         if (ret < 0)
         {
             perror("ioctl failed");
-            return 1;
         }
         addr.can_family = PF_CAN;
         addr.can_ifindex = ifr.ifr_ifindex;
@@ -161,7 +160,6 @@ void actuator_run(int current_target, int direction)
         if (ret < 0)
         {
             perror("bind failed");
-            return 1;
         }
         struct can_filter rfilter[1];
         rfilter[0].can_id = 0x003; // receive from CAN2
