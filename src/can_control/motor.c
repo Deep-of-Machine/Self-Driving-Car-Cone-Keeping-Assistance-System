@@ -11,7 +11,7 @@
 #include <softPwm.h>
 
 #define MOTOR_OUT 9
-#define range 10 // error range
+#define RANGE 10 // error range
 int now_target = 0;
 
 void setting(void);
@@ -30,10 +30,6 @@ int main()
     setting(); // Pin Setting
 
     memset(&frame, 0, sizeof(struct can_frame));
-
-    system("sudo ip link set can1 type can bitrate 100000");
-    system("sudo ifconfig can1 up");
-    printf("this is a can receive demo\r\n");
 
     // 1.Create socket
     s = socket(PF_CAN, SOCK_RAW, CAN_RAW);
@@ -101,7 +97,7 @@ void setting(void)
 
 void target_check(int current_speed, int new_target)
 {
-    if ((current_speed < (new_target - range)) || (current_speed > (new_target + range)))
+    if ((current_speed < (new_target - RANGE)) || (current_speed > (new_target + RANGE)))
     {
         // set new target value
         now_target = new_target;
