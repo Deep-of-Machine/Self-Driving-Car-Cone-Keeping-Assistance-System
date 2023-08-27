@@ -29,10 +29,6 @@ int main()
 
     memset(&frame, 0, sizeof(struct can_frame));
 
-    system("sudo ip link set can1 type can bitrate 100000");
-    system("sudo ifconfig can1 up");
-    printf("this is a can receive demo\r\n");
-
     // 1.Create socket
     s = socket(PF_CAN, SOCK_RAW, CAN_RAW);
     if (s < 0)
