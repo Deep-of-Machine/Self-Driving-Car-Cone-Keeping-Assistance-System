@@ -1,0 +1,2 @@
+- setup-file:
+    local-name: /home/cyl/catkin_ws/src/iahrs_driver/install/setup.sh

@@ -5,7 +5,7 @@ from datetime import datetime
 
 #from nmea_msgs.msg import Sentence
 from rtcm_msgs.msg import Message
-
+import time
 from base64 import b64encode
 from threading import Thread
 
@@ -14,6 +14,7 @@ from http.client import HTTPConnection, IncompleteRead
 ''' This is to fix the IncompleteRead error
     http://bobrochel.blogspot.com/2010/11/bad-servers-chunked-encoding-and.html'''
 import http.client as httplib
+
 def patch_http_response_read(func):
     def inner(*args):
         try:
@@ -37,17 +38,20 @@ class ntripconnect(Thread):
             'Connection': 'close',
             'Authorization': 'Basic ' + b64encode((self.ntc.ntrip_user + ':' + str(self.ntc.ntrip_pass)).encode()).decode()
         }
-        connection = HTTPConnection(self.ntc.ntrip_server)
+        connection = httplib.HTTPConnection(self.ntc.ntrip_server)
         connection.request('GET', '/'+self.ntc.ntrip_stream, self.ntc.nmea_gga, headers)
         response = connection.getresponse()
+        
         if response.status != 200: raise Exception("blah")
         buf = b""
         rmsg = Message()
         restart_count = 0
-        print(response.read())
-		
+       
+        #print(response.read())
+	
+        #time.sleep(10)
+	
         while not self.stop:
-            print('a')
             '''
             data = response.read(100)
             pos = data.find('\r\n')
@@ -124,4 +128,3 @@ class ntripclient:
 if __name__ == '__main__':
     c = ntripclient()
     c.run()
-

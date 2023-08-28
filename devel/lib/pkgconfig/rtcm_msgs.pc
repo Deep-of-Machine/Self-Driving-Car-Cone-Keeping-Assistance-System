@@ -1,8 +1,8 @@
-prefix=/home/baqu/Self-Driving-Car-Cone-Keeping-Assistance-System/devel
+prefix=/home/cyl/Self-Driving-Car-Cone-Keeping-Assistance-System/devel
 
 Name: rtcm_msgs
 Description: Description of rtcm_msgs
 Version: 1.1.6
-Cflags: -I/home/baqu/Self-Driving-Car-Cone-Keeping-Assistance-System/devel/include
+Cflags: -I/home/cyl/Self-Driving-Car-Cone-Keeping-Assistance-System/devel/include
 Libs: -L${prefix}/lib 
 Requires: message_runtime std_msgs

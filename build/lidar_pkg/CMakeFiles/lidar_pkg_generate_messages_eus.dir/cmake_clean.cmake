@@ -1,8 +1,8 @@
 file(REMOVE_RECURSE
-  "/home/baqu/Self-Driving-Car-Cone-Keeping-Assistance-System/devel/share/roseus/ros/lidar_pkg/manifest.l"
-  "/home/baqu/Self-Driving-Car-Cone-Keeping-Assistance-System/devel/share/roseus/ros/lidar_pkg/msg/lavacon.l"
-  "/home/baqu/Self-Driving-Car-Cone-Keeping-Assistance-System/devel/share/roseus/ros/lidar_pkg/msg/lidar_lavacon.l"
-  "/home/baqu/Self-Driving-Car-Cone-Keeping-Assistance-System/devel/share/roseus/ros/lidar_pkg/msg/yolo_lavacon.l"
+  "/home/cyl/Self-Driving-Car-Cone-Keeping-Assistance-System/devel/share/roseus/ros/lidar_pkg/manifest.l"
+  "/home/cyl/Self-Driving-Car-Cone-Keeping-Assistance-System/devel/share/roseus/ros/lidar_pkg/msg/lavacon.l"
+  "/home/cyl/Self-Driving-Car-Cone-Keeping-Assistance-System/devel/share/roseus/ros/lidar_pkg/msg/lidar_lavacon.l"
+  "/home/cyl/Self-Driving-Car-Cone-Keeping-Assistance-System/devel/share/roseus/ros/lidar_pkg/msg/yolo_lavacon.l"
   "CMakeFiles/lidar_pkg_generate_messages_eus"
 )
 

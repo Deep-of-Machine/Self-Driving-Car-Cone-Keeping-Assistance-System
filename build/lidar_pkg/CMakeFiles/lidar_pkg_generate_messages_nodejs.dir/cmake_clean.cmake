@@ -1,7 +1,7 @@
 file(REMOVE_RECURSE
-  "/home/baqu/Self-Driving-Car-Cone-Keeping-Assistance-System/devel/share/gennodejs/ros/lidar_pkg/msg/lavacon.js"
-  "/home/baqu/Self-Driving-Car-Cone-Keeping-Assistance-System/devel/share/gennodejs/ros/lidar_pkg/msg/lidar_lavacon.js"
-  "/home/baqu/Self-Driving-Car-Cone-Keeping-Assistance-System/devel/share/gennodejs/ros/lidar_pkg/msg/yolo_lavacon.js"
+  "/home/cyl/Self-Driving-Car-Cone-Keeping-Assistance-System/devel/share/gennodejs/ros/lidar_pkg/msg/lavacon.js"
+  "/home/cyl/Self-Driving-Car-Cone-Keeping-Assistance-System/devel/share/gennodejs/ros/lidar_pkg/msg/lidar_lavacon.js"
+  "/home/cyl/Self-Driving-Car-Cone-Keeping-Assistance-System/devel/share/gennodejs/ros/lidar_pkg/msg/yolo_lavacon.js"
   "CMakeFiles/lidar_pkg_generate_messages_nodejs"
 )
 

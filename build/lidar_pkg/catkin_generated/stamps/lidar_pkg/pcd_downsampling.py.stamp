@@ -13,7 +13,7 @@ def remove_ground(data):
     #msg = lidar_lavacon()
 
     # Define ground threshold
-    ground_threshold = -0.65  # Lidar Height
+    ground_threshold = -0.9  # Lidar Height
     # ground_threshold = 10
 
     filtered_pc_array = pc_array[pc_array[:, 2] > ground_threshold]

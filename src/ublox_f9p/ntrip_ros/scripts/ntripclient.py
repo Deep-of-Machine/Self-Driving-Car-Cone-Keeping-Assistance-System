@@ -23,15 +23,15 @@ class ntripconnect(Thread):
         url = "http://" + self.ntc.ntrip_server + '/' + self.ntc.ntrip_stream
         
         try:
-            print('s')
             response = requests.get(url, headers=headers, stream=True)
             response.raise_for_status()
-
-            buf = b""
+	
+            buf = ""
             rmsg = Message()
             for data in response.iter_content(chunk_size=1):
                 if data[0] == 211:
                     buf += data
+                    print(buf)
                     data = response.iter_content(chunk_size=2)
                     buf += data
                     cnt = data[0] * 256 + data[1]
@@ -47,7 +47,7 @@ class ntripconnect(Thread):
                     rmsg.header.seq += 1
                     rmsg.header.stamp = rospy.get_rostime()
                     self.ntc.pub.publish(rmsg)
-                    buf = b""
+                    buf = ""
                 else:
                     print(data)
         except requests.RequestException as e:
@@ -80,4 +80,3 @@ class ntripclient:
 if __name__ == '__main__':
     c = ntripclient()
     c.run()
-
