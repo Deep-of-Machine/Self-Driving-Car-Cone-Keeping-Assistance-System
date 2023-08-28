@@ -1,41 +1,34 @@
+#Downsampling -> remove Gound
+
 import rospy
-from sensor_msgs.msg import PointCloud2, PointField
-import numpy as np
 import sensor_msgs.point_cloud2 as pc2
+from sensor_msgs.msg import PointCloud2
+import numpy as np
+from lidar_pkg.msg import lidar_lavacon
 
-def pointcloud_callback(msg):
-    pc_data = pc2.read_points(msg, skip_nans=True, field_names=("x", "y", "z", "intensity"))
+def remove_ground(data):
+    pc_data = pc2.read_points(data, skip_nans=True, field_names=("x", "y", "z"))
     pc_array = np.array(list(pc_data))
-    
-    # Filter points based on distance threshold
-    filtered_pc_array = []
-    for point in pc_array:
-        x, y, z, intensity = point
-        distance = np.sqrt(x**2 + y**2 + z**2)  # Calculate Euclidean distance
-        if (z >-0.37+0.0001*y) and (abs(x) > 1 or abs(y) > 2.1) and (y<0):# Set your desired distance threshold
-            point = (x, y, z + 0.4, intensity)  # Increase z coordinate by 0.3
-            filtered_pc_array.append(point)
+    #lidar_pub = rospy.publisher('lidar_lavacon',lidar_lavacon, que_size =10)
+    #msg = lidar_lavacon()
 
+    # Define ground threshold
+    ground_threshold = -0.9  # Lidar Height
+    # ground_threshold = 10
 
-    
-    filtered_pc_array = np.array(filtered_pc_array)
-    
-    # Convert numpy array back to PointCloud2
-    header = msg.header
-    pc2_msg = pc2.create_cloud_xyz32(header, filtered_pc_array[:, :3])
-    
-    # Publish the filtered point cloud
-    pub.publish(pc2_msg)
-    
-    rospy.loginfo("Callback: Point cloud data processed and published!")
+    filtered_pc_array = pc_array[pc_array[:, 2] > ground_threshold]
+    header = data.header 
+
+    filtered_pc2_msg = pc2.create_cloud_xyz32(header, filtered_pc_array.tolist())
+    pub.publish(filtered_pc2_msg)
 
 def listener():
     rospy.init_node('pointcloud_listener', anonymous=True)
-    rospy.Subscriber('/os_cloud_node/points', PointCloud2, pointcloud_callback)
+    rospy.Subscriber('/os_cloud_node/points', PointCloud2, remove_ground)
     rospy.spin()
 
 if __name__ == '__main__':
+    # Define the publisher globally
     pub = rospy.Publisher('/filtered_point_cloud', PointCloud2, queue_size=10)
-    distance_threshold = 3  # Set your desired distance threshold
 
     listener()
