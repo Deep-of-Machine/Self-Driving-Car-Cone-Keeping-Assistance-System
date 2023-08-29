@@ -67,14 +67,14 @@ set(rtcm_msgs_CONFIG_INCLUDED TRUE)
 
 # set variables for source/devel/install prefixes
 if("TRUE" STREQUAL "TRUE")
-  set(rtcm_msgs_SOURCE_PREFIX /home/cyl/Self-Driving-Car-Cone-Keeping-Assistance-System/src/ublox_f9p/rtcm_msgs)
-  set(rtcm_msgs_DEVEL_PREFIX /home/cyl/Self-Driving-Car-Cone-Keeping-Assistance-System/devel)
+  set(rtcm_msgs_SOURCE_PREFIX /home/baqu/Self-Driving-Car-Cone-Keeping-Assistance-System/src/ublox_f9p/rtcm_msgs)
+  set(rtcm_msgs_DEVEL_PREFIX /home/baqu/Self-Driving-Car-Cone-Keeping-Assistance-System/devel)
   set(rtcm_msgs_INSTALL_PREFIX "")
   set(rtcm_msgs_PREFIX ${rtcm_msgs_DEVEL_PREFIX})
 else()
   set(rtcm_msgs_SOURCE_PREFIX "")
   set(rtcm_msgs_DEVEL_PREFIX "")
-  set(rtcm_msgs_INSTALL_PREFIX /home/cyl/Self-Driving-Car-Cone-Keeping-Assistance-System/install)
+  set(rtcm_msgs_INSTALL_PREFIX /home/baqu/Self-Driving-Car-Cone-Keeping-Assistance-System/install)
   set(rtcm_msgs_PREFIX ${rtcm_msgs_INSTALL_PREFIX})
 endif()
 
@@ -91,9 +91,9 @@ endif()
 # flag project as catkin-based to distinguish if a find_package()-ed project is a catkin project
 set(rtcm_msgs_FOUND_CATKIN_PROJECT TRUE)
 
-if(NOT "/home/cyl/Self-Driving-Car-Cone-Keeping-Assistance-System/devel/include " STREQUAL " ")
+if(NOT "/home/baqu/Self-Driving-Car-Cone-Keeping-Assistance-System/devel/include " STREQUAL " ")
   set(rtcm_msgs_INCLUDE_DIRS "")
-  set(_include_dirs "/home/cyl/Self-Driving-Car-Cone-Keeping-Assistance-System/devel/include")
+  set(_include_dirs "/home/baqu/Self-Driving-Car-Cone-Keeping-Assistance-System/devel/include")
   if(NOT " " STREQUAL " ")
     set(_report "Check the issue tracker '' and consider creating a ticket if the problem has not been reported yet.")
   elseif(NOT " " STREQUAL " ")
@@ -110,7 +110,7 @@ if(NOT "/home/cyl/Self-Driving-Car-Cone-Keeping-Assistance-System/devel/include 
         message(FATAL_ERROR "Project 'rtcm_msgs' specifies '${idir}' as an include dir, which is not found.  It does not exist in '${include}'.  ${_report}")
       endif()
     else()
-      message(FATAL_ERROR "Project 'rtcm_msgs' specifies '${idir}' as an include dir, which is not found.  It does neither exist as an absolute directory nor in '/home/cyl/Self-Driving-Car-Cone-Keeping-Assistance-System/src/ublox_f9p/rtcm_msgs/${idir}'.  ${_report}")
+      message(FATAL_ERROR "Project 'rtcm_msgs' specifies '${idir}' as an include dir, which is not found.  It does neither exist as an absolute directory nor in '/home/baqu/Self-Driving-Car-Cone-Keeping-Assistance-System/src/ublox_f9p/rtcm_msgs/${idir}'.  ${_report}")
     endif()
     _list_append_unique(rtcm_msgs_INCLUDE_DIRS ${include})
   endforeach()
@@ -154,7 +154,7 @@ foreach(library ${libraries})
     set(lib_path "")
     set(lib "${library}-NOTFOUND")
     # since the path where the library is found is returned we have to iterate over the paths manually
-    foreach(path /home/cyl/Self-Driving-Car-Cone-Keeping-Assistance-System/devel/lib;/home/cyl/Self-Driving-Car-Cone-Keeping-Assistance-System/devel/lib;/opt/ros/noetic/lib)
+    foreach(path /home/baqu/Self-Driving-Car-Cone-Keeping-Assistance-System/devel/lib;/home/baqu/Self-Driving-Car-Cone-Keeping-Assistance-System/devel/lib;/home/baqu/ksh/Self-Driving-Car-Cone-Keeping-Assistance-System/devel/lib;/opt/ros/noetic/lib)
       find_library(lib ${library}
         PATHS ${path}
         NO_DEFAULT_PATH NO_CMAKE_FIND_ROOT_PATH)

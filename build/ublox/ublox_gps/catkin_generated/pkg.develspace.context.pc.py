@@ -1,8 +1,8 @@
 # generated from catkin/cmake/template/pkg.context.pc.in
 CATKIN_PACKAGE_PREFIX = ""
-PROJECT_PKG_CONFIG_INCLUDE_DIRS = "/home/cyl/Self-Driving-Car-Cone-Keeping-Assistance-System/src/ublox/ublox_gps/include".split(';') if "/home/cyl/Self-Driving-Car-Cone-Keeping-Assistance-System/src/ublox/ublox_gps/include" != "" else []
+PROJECT_PKG_CONFIG_INCLUDE_DIRS = "/home/baqu/Self-Driving-Car-Cone-Keeping-Assistance-System/src/ublox/ublox_gps/include".split(';') if "/home/baqu/Self-Driving-Car-Cone-Keeping-Assistance-System/src/ublox/ublox_gps/include" != "" else []
 PROJECT_CATKIN_DEPENDS = "tf;roscpp;ublox_msgs;ublox_serialization;rtcm_msgs;nmea_msgs".replace(';', ' ')
 PKG_CONFIG_LIBRARIES_WITH_PREFIX = "-lublox_gps".split(';') if "-lublox_gps" != "" else []
 PROJECT_NAME = "ublox_gps"
-PROJECT_SPACE_DIR = "/home/cyl/Self-Driving-Car-Cone-Keeping-Assistance-System/devel"
+PROJECT_SPACE_DIR = "/home/baqu/Self-Driving-Car-Cone-Keeping-Assistance-System/devel"
 PROJECT_VERSION = "1.5.0"

@@ -67,14 +67,14 @@ set(ublox_gps_CONFIG_INCLUDED TRUE)
 
 # set variables for source/devel/install prefixes
 if("TRUE" STREQUAL "TRUE")
-  set(ublox_gps_SOURCE_PREFIX /home/cyl/Self-Driving-Car-Cone-Keeping-Assistance-System/src/ublox/ublox_gps)
-  set(ublox_gps_DEVEL_PREFIX /home/cyl/Self-Driving-Car-Cone-Keeping-Assistance-System/devel)
+  set(ublox_gps_SOURCE_PREFIX /home/baqu/Self-Driving-Car-Cone-Keeping-Assistance-System/src/ublox/ublox_gps)
+  set(ublox_gps_DEVEL_PREFIX /home/baqu/Self-Driving-Car-Cone-Keeping-Assistance-System/devel)
   set(ublox_gps_INSTALL_PREFIX "")
   set(ublox_gps_PREFIX ${ublox_gps_DEVEL_PREFIX})
 else()
   set(ublox_gps_SOURCE_PREFIX "")
   set(ublox_gps_DEVEL_PREFIX "")
-  set(ublox_gps_INSTALL_PREFIX /home/cyl/Self-Driving-Car-Cone-Keeping-Assistance-System/install)
+  set(ublox_gps_INSTALL_PREFIX /home/baqu/Self-Driving-Car-Cone-Keeping-Assistance-System/install)
   set(ublox_gps_PREFIX ${ublox_gps_INSTALL_PREFIX})
 endif()
 
@@ -91,9 +91,9 @@ endif()
 # flag project as catkin-based to distinguish if a find_package()-ed project is a catkin project
 set(ublox_gps_FOUND_CATKIN_PROJECT TRUE)
 
-if(NOT "/home/cyl/Self-Driving-Car-Cone-Keeping-Assistance-System/src/ublox/ublox_gps/include " STREQUAL " ")
+if(NOT "/home/baqu/Self-Driving-Car-Cone-Keeping-Assistance-System/src/ublox/ublox_gps/include " STREQUAL " ")
   set(ublox_gps_INCLUDE_DIRS "")
-  set(_include_dirs "/home/cyl/Self-Driving-Car-Cone-Keeping-Assistance-System/src/ublox/ublox_gps/include")
+  set(_include_dirs "/home/baqu/Self-Driving-Car-Cone-Keeping-Assistance-System/src/ublox/ublox_gps/include")
   if(NOT " " STREQUAL " ")
     set(_report "Check the issue tracker '' and consider creating a ticket if the problem has not been reported yet.")
   elseif(NOT "http://ros.org/wiki/ublox " STREQUAL " ")
@@ -110,7 +110,7 @@ if(NOT "/home/cyl/Self-Driving-Car-Cone-Keeping-Assistance-System/src/ublox/ublo
         message(FATAL_ERROR "Project 'ublox_gps' specifies '${idir}' as an include dir, which is not found.  It does not exist in '${include}'.  ${_report}")
       endif()
     else()
-      message(FATAL_ERROR "Project 'ublox_gps' specifies '${idir}' as an include dir, which is not found.  It does neither exist as an absolute directory nor in '/home/cyl/Self-Driving-Car-Cone-Keeping-Assistance-System/src/ublox/ublox_gps/${idir}'.  ${_report}")
+      message(FATAL_ERROR "Project 'ublox_gps' specifies '${idir}' as an include dir, which is not found.  It does neither exist as an absolute directory nor in '/home/baqu/Self-Driving-Car-Cone-Keeping-Assistance-System/src/ublox/ublox_gps/${idir}'.  ${_report}")
     endif()
     _list_append_unique(ublox_gps_INCLUDE_DIRS ${include})
   endforeach()
@@ -154,7 +154,7 @@ foreach(library ${libraries})
     set(lib_path "")
     set(lib "${library}-NOTFOUND")
     # since the path where the library is found is returned we have to iterate over the paths manually
-    foreach(path /home/cyl/Self-Driving-Car-Cone-Keeping-Assistance-System/devel/lib;/home/cyl/Self-Driving-Car-Cone-Keeping-Assistance-System/devel/lib;/opt/ros/noetic/lib)
+    foreach(path /home/baqu/Self-Driving-Car-Cone-Keeping-Assistance-System/devel/lib;/home/baqu/Self-Driving-Car-Cone-Keeping-Assistance-System/devel/lib;/home/baqu/ksh/Self-Driving-Car-Cone-Keeping-Assistance-System/devel/lib;/opt/ros/noetic/lib)
       find_library(lib ${library}
         PATHS ${path}
         NO_DEFAULT_PATH NO_CMAKE_FIND_ROOT_PATH)

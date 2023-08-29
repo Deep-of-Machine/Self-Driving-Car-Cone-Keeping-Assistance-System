@@ -1,2 +1,0 @@
-iahrs_driver
--DCATKIN_DEVEL_PREFIX=/home/cyl/catkin_ws/src/iahrs_driver/devel -DCMAKE_INSTALL_PREFIX=/home/cyl/catkin_ws/src/iahrs_driver/install -G Unix Makefiles
