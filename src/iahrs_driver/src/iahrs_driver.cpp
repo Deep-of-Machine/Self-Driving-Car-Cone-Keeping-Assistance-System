@@ -29,11 +29,7 @@
 #include <dirent.h>
 #include <signal.h>
 
-<<<<<<< HEAD
 #define SERIAL_PORT		"/dev/ttyUSB0"
-=======
-#define SERIAL_PORT		"/dev/IMU"
->>>>>>> 841daad0ba0049b3f934ce993f7fe3bcc2a5b955
 #define SERIAL_SPEED		B115200
 
 typedef struct IMU_DATA
