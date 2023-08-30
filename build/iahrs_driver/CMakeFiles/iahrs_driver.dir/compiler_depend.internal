@@ -1518,21 +1518,6 @@ iahrs_driver/CMakeFiles/iahrs_driver.dir/src/iahrs_driver.cpp.o
  /opt/ros/noetic/include/tf2_msgs/FrameGraphResponse.h
  /opt/ros/noetic/include/tf/tfMessage.h
  /opt/ros/noetic/include/tf2_ros/transform_broadcaster.h
- /home/baqu/Self-Driving-Car-Cone-Keeping-Assistance-System/devel/include/iahrs_driver/all_data_reset.h
- /home/baqu/Self-Driving-Car-Cone-Keeping-Assistance-System/devel/include/iahrs_driver/all_data_resetRequest.h
- /home/baqu/Self-Driving-Car-Cone-Keeping-Assistance-System/devel/include/iahrs_driver/all_data_resetResponse.h
- /home/baqu/Self-Driving-Car-Cone-Keeping-Assistance-System/devel/include/iahrs_driver/euler_angle_init.h
- /home/baqu/Self-Driving-Car-Cone-Keeping-Assistance-System/devel/include/iahrs_driver/euler_angle_initRequest.h
- /home/baqu/Self-Driving-Car-Cone-Keeping-Assistance-System/devel/include/iahrs_driver/euler_angle_initResponse.h
- /home/baqu/Self-Driving-Car-Cone-Keeping-Assistance-System/devel/include/iahrs_driver/euler_angle_reset.h
- /home/baqu/Self-Driving-Car-Cone-Keeping-Assistance-System/devel/include/iahrs_driver/euler_angle_resetRequest.h
- /home/baqu/Self-Driving-Car-Cone-Keeping-Assistance-System/devel/include/iahrs_driver/euler_angle_resetResponse.h
- /home/baqu/Self-Driving-Car-Cone-Keeping-Assistance-System/devel/include/iahrs_driver/pose_velocity_reset.h
- /home/baqu/Self-Driving-Car-Cone-Keeping-Assistance-System/devel/include/iahrs_driver/pose_velocity_resetRequest.h
- /home/baqu/Self-Driving-Car-Cone-Keeping-Assistance-System/devel/include/iahrs_driver/pose_velocity_resetResponse.h
- /home/baqu/Self-Driving-Car-Cone-Keeping-Assistance-System/devel/include/iahrs_driver/reboot_sensor.h
- /home/baqu/Self-Driving-Car-Cone-Keeping-Assistance-System/devel/include/iahrs_driver/reboot_sensorRequest.h
- /home/baqu/Self-Driving-Car-Cone-Keeping-Assistance-System/devel/include/iahrs_driver/reboot_sensorResponse.h
  /usr/include/termios.h
  /usr/include/x86_64-linux-gnu/bits/termios.h
  /usr/include/x86_64-linux-gnu/bits/termios-struct.h
