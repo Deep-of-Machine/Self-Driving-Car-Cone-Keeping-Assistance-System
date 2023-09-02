@@ -4,5 +4,5 @@ PROJECT_PKG_CONFIG_INCLUDE_DIRS = "${prefix}/include".split(';') if "${prefix}/i
 PROJECT_CATKIN_DEPENDS = "ublox_msgs;message_filters".replace(';', ' ')
 PKG_CONFIG_LIBRARIES_WITH_PREFIX = "".split(';') if "" != "" else []
 PROJECT_NAME = "ublox_msg_filters"
-PROJECT_SPACE_DIR = "/home/baqu/Self-Driving-Car-Cone-Keeping-Assistance-System/install"
+PROJECT_SPACE_DIR = "/home/ubuntu/Self-Driving-Car-Cone-Keeping-Assistance-System/install"
 PROJECT_VERSION = "0.0.0"

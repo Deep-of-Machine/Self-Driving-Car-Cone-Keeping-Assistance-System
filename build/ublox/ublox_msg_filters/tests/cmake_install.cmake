@@ -1,8 +1,8 @@
-# Install script for directory: /home/baqu/Self-Driving-Car-Cone-Keeping-Assistance-System/src/ublox/ublox_msg_filters/tests
+# Install script for directory: /home/ubuntu/Self-Driving-Car-Cone-Keeping-Assistance-System/src/ublox/ublox_msg_filters/tests
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
-  set(CMAKE_INSTALL_PREFIX "/home/baqu/Self-Driving-Car-Cone-Keeping-Assistance-System/install")
+  set(CMAKE_INSTALL_PREFIX "/home/ubuntu/Self-Driving-Car-Cone-Keeping-Assistance-System/install")
 endif()
 string(REGEX REPLACE "/$" "" CMAKE_INSTALL_PREFIX "${CMAKE_INSTALL_PREFIX}")
 
@@ -35,10 +35,5 @@ endif()
 # Is this installation the result of a crosscompile?
 if(NOT DEFINED CMAKE_CROSSCOMPILING)
   set(CMAKE_CROSSCOMPILING "FALSE")
-endif()
-
-# Set default install directory permissions.
-if(NOT DEFINED CMAKE_OBJDUMP)
-  set(CMAKE_OBJDUMP "/usr/bin/objdump")
 endif()
 

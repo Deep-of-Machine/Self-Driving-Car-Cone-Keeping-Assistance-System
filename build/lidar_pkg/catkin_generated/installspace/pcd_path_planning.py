@@ -5,6 +5,7 @@ import rospy
 import sensor_msgs.point_cloud2 as pc2
 from sensor_msgs.msg import PointCloud2
 import std_msgs.msg
+from sklearn.cluster import DBSCAN
 from sklearn.svm import SVC
 
 def pointcloud_callback(msg):
@@ -13,35 +14,37 @@ def pointcloud_callback(msg):
     pc_data = pc2.read_points(msg, skip_nans=True, field_names=("x", "y", "z"))
     pc_array = np.array(list(pc_data))
 
-    left_lane = []
-    right_lane = []
-    for point in pc_array:
-        x, y, z = point
-        if x > -1:
-            left_lane.append((x, y))
-        else:
-            right_lane.append((x, y))
+    # All points for clustering
+    all_points = np.array([(x, y) for x, y, z in pc_array])
 
-    left_lane = np.array(left_lane)
-    right_lane = np.array(right_lane)
+    # DBSCAN Clustering
+    clustering = DBSCAN(eps=3, min_samples=2).fit(all_points)
+    labels = clustering.labels_
 
+    # Assuming the algorithm finds 2 clusters for the left and right lane
+    left_lane_mask = labels == 0
+    right_lane_mask = labels == 1
+
+    left_lane = all_points[left_lane_mask]
+    right_lane = all_points[right_lane_mask]
+
+    # Combine lanes for SVC
     X = np.vstack((left_lane, right_lane))
     y = np.hstack((np.zeros(len(left_lane)), np.ones(len(right_lane))))
 
-    model = SVC(kernel='rbf', C=10.0, gamma='scale')
+    # Train an SVC model
+    model = SVC(kernel='rbf', C=3.0, gamma='scale')
     model.fit(X, y)
 
     xx, yy = np.meshgrid(np.linspace(min(X[:, 0]), max(X[:, 0]), 100), np.linspace(min(X[:, 1]), max(X[:, 1]), 100))
     Z = model.decision_function(np.c_[xx.ravel(), yy.ravel()])
     Z = Z.reshape(xx.shape)
 
-    # 결정 경계 근처의 점들을 찾습니다.
+    # Find points near the decision boundary
     contour_mask = np.abs(Z) < 0.05
-
     xs = xx[contour_mask]
     ys = yy[contour_mask]
 
-    # x 값을 기준으로 일정 간격의 인덱스를 선택합니다.
     num_points = 20
     idxs = np.linspace(0, len(xs) - 1, num_points).astype(int)
     selected_xs = xs[idxs]

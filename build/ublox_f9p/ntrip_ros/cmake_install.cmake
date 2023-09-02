@@ -1,8 +1,8 @@
-# Install script for directory: /home/baqu/Self-Driving-Car-Cone-Keeping-Assistance-System/src/ublox_f9p/ntrip_ros
+# Install script for directory: /home/ubuntu/Self-Driving-Car-Cone-Keeping-Assistance-System/src/ublox_f9p/ntrip_ros
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
-  set(CMAKE_INSTALL_PREFIX "/home/baqu/Self-Driving-Car-Cone-Keeping-Assistance-System/install")
+  set(CMAKE_INSTALL_PREFIX "/home/ubuntu/Self-Driving-Car-Cone-Keeping-Assistance-System/install")
 endif()
 string(REGEX REPLACE "/$" "" CMAKE_INSTALL_PREFIX "${CMAKE_INSTALL_PREFIX}")
 
@@ -37,23 +37,18 @@ if(NOT DEFINED CMAKE_CROSSCOMPILING)
   set(CMAKE_CROSSCOMPILING "FALSE")
 endif()
 
-# Set default install directory permissions.
-if(NOT DEFINED CMAKE_OBJDUMP)
-  set(CMAKE_OBJDUMP "/usr/bin/objdump")
+if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/pkgconfig" TYPE FILE FILES "/home/ubuntu/Self-Driving-Car-Cone-Keeping-Assistance-System/build/ublox_f9p/ntrip_ros/catkin_generated/installspace/ntrip_ros.pc")
 endif()
 
-if(CMAKE_INSTALL_COMPONENT STREQUAL "Unspecified" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/pkgconfig" TYPE FILE FILES "/home/baqu/Self-Driving-Car-Cone-Keeping-Assistance-System/build/ublox_f9p/ntrip_ros/catkin_generated/installspace/ntrip_ros.pc")
-endif()
-
-if(CMAKE_INSTALL_COMPONENT STREQUAL "Unspecified" OR NOT CMAKE_INSTALL_COMPONENT)
+if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
   file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/ntrip_ros/cmake" TYPE FILE FILES
-    "/home/baqu/Self-Driving-Car-Cone-Keeping-Assistance-System/build/ublox_f9p/ntrip_ros/catkin_generated/installspace/ntrip_rosConfig.cmake"
-    "/home/baqu/Self-Driving-Car-Cone-Keeping-Assistance-System/build/ublox_f9p/ntrip_ros/catkin_generated/installspace/ntrip_rosConfig-version.cmake"
+    "/home/ubuntu/Self-Driving-Car-Cone-Keeping-Assistance-System/build/ublox_f9p/ntrip_ros/catkin_generated/installspace/ntrip_rosConfig.cmake"
+    "/home/ubuntu/Self-Driving-Car-Cone-Keeping-Assistance-System/build/ublox_f9p/ntrip_ros/catkin_generated/installspace/ntrip_rosConfig-version.cmake"
     )
 endif()
 
-if(CMAKE_INSTALL_COMPONENT STREQUAL "Unspecified" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/ntrip_ros" TYPE FILE FILES "/home/baqu/Self-Driving-Car-Cone-Keeping-Assistance-System/src/ublox_f9p/ntrip_ros/package.xml")
+if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/ntrip_ros" TYPE FILE FILES "/home/ubuntu/Self-Driving-Car-Cone-Keeping-Assistance-System/src/ublox_f9p/ntrip_ros/package.xml")
 endif()
 

@@ -1,4 +1,4 @@
-prefix=/home/baqu/Self-Driving-Car-Cone-Keeping-Assistance-System/install
+prefix=/home/ubuntu/Self-Driving-Car-Cone-Keeping-Assistance-System/install
 
 Name: ntrip_ros
 Description: Description of ntrip_ros
