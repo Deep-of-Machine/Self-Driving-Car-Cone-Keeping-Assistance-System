@@ -35,6 +35,3 @@ print(path_x)
 print(path_y)
 plt.scatter(path_x, path_y)
 plt.show()
-
-
-
