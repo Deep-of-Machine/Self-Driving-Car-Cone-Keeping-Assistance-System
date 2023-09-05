@@ -11,6 +11,14 @@ class StanleyController:
         self.midpoints = None
         self.lookahead_distance = 2.0  # 임의의 값
         self.max_steering_angle = np.radians(20)  # 최대 조향각 
+        
+        self.min_velocity = rospy.get_param('~min_vehicle_velocity', 3)
+        self.max_velocity = rospy.get_param('~max_vehicle_velocity', 30)
+        self.accel_angle_threshold = rospy.get_param('~accel_angle_threshold', 5)
+        self.accel_step = rospy.get_param('~accel_step', 0.05)
+        self.deaccel_step = rospy.get_param('~deaccel_step', 0.75)
+
+        self.velocity = self.min_velocity
 
         self.sub = rospy.Subscriber('/path_planning', PointCloud2, self.path_callback)
         self.pub = rospy.Publisher('/steering_angle', Float64, queue_size=10)
@@ -18,6 +26,12 @@ class StanleyController:
     def path_callback(self, msg):
         self.midpoints = np.array(list(pc2.read_points(msg, skip_nans=True, field_names=("x", "y", "z"))))
         self.control()
+
+    def velocity_control(self, steering_angle):
+        if abs(steering_angle) >= self.accel_angle_threshold:
+            self.velocity = max(self.min_velocity, self.velocity - self.deaccel_step)
+        else:
+            self.velocity = min(self.max_velocity, self.velocity + self.accel_step)
 
     def control(self):
         if self.midpoints is None:
@@ -40,9 +54,11 @@ class StanleyController:
         
         # Clamp the steering angle to the maximum value
         steering_angle = np.clip(steering_angle, -self.max_steering_angle, self.max_steering_angle)
+        self.velocity_control(np.degrees(steering_angle))
 
         self.pub.publish(steering_angle)
         print(f"Steering Angle: {np.degrees(steering_angle)} degrees")
+        print(f"Velocity: {self.velocity}")
 
 if __name__ == '__main__':
     rospy.init_node('stanley_controller')
