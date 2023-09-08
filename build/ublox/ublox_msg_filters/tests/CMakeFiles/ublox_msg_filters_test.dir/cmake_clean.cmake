@@ -1,6 +1,6 @@
 file(REMOVE_RECURSE
-  "/home/ubuntu/Self-Driving-Car-Cone-Keeping-Assistance-System/devel/lib/ublox_msg_filters/ublox_msg_filters_test"
-  "/home/ubuntu/Self-Driving-Car-Cone-Keeping-Assistance-System/devel/lib/ublox_msg_filters/ublox_msg_filters_test.pdb"
+  "/home/jeewon/Self-Driving-Car-Cone-Keeping-Assistance-System/devel/lib/ublox_msg_filters/ublox_msg_filters_test"
+  "/home/jeewon/Self-Driving-Car-Cone-Keeping-Assistance-System/devel/lib/ublox_msg_filters/ublox_msg_filters_test.pdb"
   "CMakeFiles/ublox_msg_filters_test.dir/test.cpp.o"
 )
 

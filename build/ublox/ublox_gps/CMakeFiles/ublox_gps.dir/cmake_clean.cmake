@@ -1,6 +1,6 @@
 file(REMOVE_RECURSE
-  "/home/ubuntu/Self-Driving-Car-Cone-Keeping-Assistance-System/devel/lib/libublox_gps.pdb"
-  "/home/ubuntu/Self-Driving-Car-Cone-Keeping-Assistance-System/devel/lib/libublox_gps.so"
+  "/home/jeewon/Self-Driving-Car-Cone-Keeping-Assistance-System/devel/lib/libublox_gps.pdb"
+  "/home/jeewon/Self-Driving-Car-Cone-Keeping-Assistance-System/devel/lib/libublox_gps.so"
   "CMakeFiles/ublox_gps.dir/src/gps.cpp.o"
 )
 

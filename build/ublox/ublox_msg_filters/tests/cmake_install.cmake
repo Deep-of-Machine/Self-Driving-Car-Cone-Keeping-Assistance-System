@@ -1,8 +1,8 @@
-# Install script for directory: /home/ubuntu/Self-Driving-Car-Cone-Keeping-Assistance-System/src/ublox/ublox_msg_filters/tests
+# Install script for directory: /home/jeewon/Self-Driving-Car-Cone-Keeping-Assistance-System/src/ublox/ublox_msg_filters/tests
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
-  set(CMAKE_INSTALL_PREFIX "/home/ubuntu/Self-Driving-Car-Cone-Keeping-Assistance-System/install")
+  set(CMAKE_INSTALL_PREFIX "/home/jeewon/Self-Driving-Car-Cone-Keeping-Assistance-System/install")
 endif()
 string(REGEX REPLACE "/$" "" CMAKE_INSTALL_PREFIX "${CMAKE_INSTALL_PREFIX}")
 

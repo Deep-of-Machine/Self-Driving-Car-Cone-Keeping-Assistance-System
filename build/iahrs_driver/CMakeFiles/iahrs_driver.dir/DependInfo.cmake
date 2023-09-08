@@ -4,7 +4,7 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
-  "/home/ubuntu/Self-Driving-Car-Cone-Keeping-Assistance-System/src/iahrs_driver/src/iahrs_driver.cpp" "/home/ubuntu/Self-Driving-Car-Cone-Keeping-Assistance-System/build/iahrs_driver/CMakeFiles/iahrs_driver.dir/src/iahrs_driver.cpp.o"
+  "/home/jeewon/Self-Driving-Car-Cone-Keeping-Assistance-System/src/iahrs_driver/src/iahrs_driver.cpp" "/home/jeewon/Self-Driving-Car-Cone-Keeping-Assistance-System/build/iahrs_driver/CMakeFiles/iahrs_driver.dir/src/iahrs_driver.cpp.o"
   )
 set(CMAKE_CXX_COMPILER_ID "GNU")
 
@@ -17,7 +17,7 @@ set(CMAKE_TARGET_DEFINITIONS_CXX
 
 # The include file search paths:
 set(CMAKE_CXX_TARGET_INCLUDE_PATH
-  "/home/ubuntu/Self-Driving-Car-Cone-Keeping-Assistance-System/devel/include"
+  "/home/jeewon/Self-Driving-Car-Cone-Keeping-Assistance-System/devel/include"
   "/opt/ros/noetic/include"
   "/opt/ros/noetic/share/xmlrpcpp/cmake/../../../include/xmlrpcpp"
   )

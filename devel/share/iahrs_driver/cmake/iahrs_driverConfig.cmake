@@ -67,14 +67,14 @@ set(iahrs_driver_CONFIG_INCLUDED TRUE)
 
 # set variables for source/devel/install prefixes
 if("TRUE" STREQUAL "TRUE")
-  set(iahrs_driver_SOURCE_PREFIX /home/ubuntu/Self-Driving-Car-Cone-Keeping-Assistance-System/src/iahrs_driver)
-  set(iahrs_driver_DEVEL_PREFIX /home/ubuntu/Self-Driving-Car-Cone-Keeping-Assistance-System/devel)
+  set(iahrs_driver_SOURCE_PREFIX /home/jeewon/Self-Driving-Car-Cone-Keeping-Assistance-System/src/iahrs_driver)
+  set(iahrs_driver_DEVEL_PREFIX /home/jeewon/Self-Driving-Car-Cone-Keeping-Assistance-System/devel)
   set(iahrs_driver_INSTALL_PREFIX "")
   set(iahrs_driver_PREFIX ${iahrs_driver_DEVEL_PREFIX})
 else()
   set(iahrs_driver_SOURCE_PREFIX "")
   set(iahrs_driver_DEVEL_PREFIX "")
-  set(iahrs_driver_INSTALL_PREFIX /home/ubuntu/Self-Driving-Car-Cone-Keeping-Assistance-System/install)
+  set(iahrs_driver_INSTALL_PREFIX /home/jeewon/Self-Driving-Car-Cone-Keeping-Assistance-System/install)
   set(iahrs_driver_PREFIX ${iahrs_driver_INSTALL_PREFIX})
 endif()
 
@@ -91,9 +91,9 @@ endif()
 # flag project as catkin-based to distinguish if a find_package()-ed project is a catkin project
 set(iahrs_driver_FOUND_CATKIN_PROJECT TRUE)
 
-if(NOT "/home/ubuntu/Self-Driving-Car-Cone-Keeping-Assistance-System/devel/include " STREQUAL " ")
+if(NOT "/home/jeewon/Self-Driving-Car-Cone-Keeping-Assistance-System/devel/include " STREQUAL " ")
   set(iahrs_driver_INCLUDE_DIRS "")
-  set(_include_dirs "/home/ubuntu/Self-Driving-Car-Cone-Keeping-Assistance-System/devel/include")
+  set(_include_dirs "/home/jeewon/Self-Driving-Car-Cone-Keeping-Assistance-System/devel/include")
   if(NOT " " STREQUAL " ")
     set(_report "Check the issue tracker '' and consider creating a ticket if the problem has not been reported yet.")
   elseif(NOT " " STREQUAL " ")
@@ -110,7 +110,7 @@ if(NOT "/home/ubuntu/Self-Driving-Car-Cone-Keeping-Assistance-System/devel/inclu
         message(FATAL_ERROR "Project 'iahrs_driver' specifies '${idir}' as an include dir, which is not found.  It does not exist in '${include}'.  ${_report}")
       endif()
     else()
-      message(FATAL_ERROR "Project 'iahrs_driver' specifies '${idir}' as an include dir, which is not found.  It does neither exist as an absolute directory nor in '/home/ubuntu/Self-Driving-Car-Cone-Keeping-Assistance-System/src/iahrs_driver/${idir}'.  ${_report}")
+      message(FATAL_ERROR "Project 'iahrs_driver' specifies '${idir}' as an include dir, which is not found.  It does neither exist as an absolute directory nor in '/home/jeewon/Self-Driving-Car-Cone-Keeping-Assistance-System/src/iahrs_driver/${idir}'.  ${_report}")
     endif()
     _list_append_unique(iahrs_driver_INCLUDE_DIRS ${include})
   endforeach()
@@ -154,7 +154,7 @@ foreach(library ${libraries})
     set(lib_path "")
     set(lib "${library}-NOTFOUND")
     # since the path where the library is found is returned we have to iterate over the paths manually
-    foreach(path /home/ubuntu/Self-Driving-Car-Cone-Keeping-Assistance-System/devel/lib;/opt/ros/noetic/lib)
+    foreach(path /home/jeewon/Self-Driving-Car-Cone-Keeping-Assistance-System/devel/lib;/opt/ros/noetic/lib)
       find_library(lib ${library}
         PATHS ${path}
         NO_DEFAULT_PATH NO_CMAKE_FIND_ROOT_PATH)

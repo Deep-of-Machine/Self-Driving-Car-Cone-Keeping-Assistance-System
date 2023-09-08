@@ -1,6 +1,6 @@
 file(REMOVE_RECURSE
-  "/home/ubuntu/Self-Driving-Car-Cone-Keeping-Assistance-System/devel/lib/iahrs_driver/iahrs_driver"
-  "/home/ubuntu/Self-Driving-Car-Cone-Keeping-Assistance-System/devel/lib/iahrs_driver/iahrs_driver.pdb"
+  "/home/jeewon/Self-Driving-Car-Cone-Keeping-Assistance-System/devel/lib/iahrs_driver/iahrs_driver"
+  "/home/jeewon/Self-Driving-Car-Cone-Keeping-Assistance-System/devel/lib/iahrs_driver/iahrs_driver.pdb"
   "CMakeFiles/iahrs_driver.dir/src/iahrs_driver.cpp.o"
 )
 

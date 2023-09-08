@@ -43,10 +43,10 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/ubuntu/Self-Driving-Car-Cone-Keeping-Assistance-System/src
+CMAKE_SOURCE_DIR = /home/jeewon/Self-Driving-Car-Cone-Keeping-Assistance-System/src
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/ubuntu/Self-Driving-Car-Cone-Keeping-Assistance-System/build
+CMAKE_BINARY_DIR = /home/jeewon/Self-Driving-Car-Cone-Keeping-Assistance-System/build
 
 # Utility rule file for ublox_msgs_generate_messages.
 
@@ -63,10 +63,10 @@ ublox/ublox_msgs/CMakeFiles/ublox_msgs_generate_messages.dir/build: ublox_msgs_g
 .PHONY : ublox/ublox_msgs/CMakeFiles/ublox_msgs_generate_messages.dir/build
 
 ublox/ublox_msgs/CMakeFiles/ublox_msgs_generate_messages.dir/clean:
-	cd /home/ubuntu/Self-Driving-Car-Cone-Keeping-Assistance-System/build/ublox/ublox_msgs && $(CMAKE_COMMAND) -P CMakeFiles/ublox_msgs_generate_messages.dir/cmake_clean.cmake
+	cd /home/jeewon/Self-Driving-Car-Cone-Keeping-Assistance-System/build/ublox/ublox_msgs && $(CMAKE_COMMAND) -P CMakeFiles/ublox_msgs_generate_messages.dir/cmake_clean.cmake
 .PHONY : ublox/ublox_msgs/CMakeFiles/ublox_msgs_generate_messages.dir/clean
 
 ublox/ublox_msgs/CMakeFiles/ublox_msgs_generate_messages.dir/depend:
-	cd /home/ubuntu/Self-Driving-Car-Cone-Keeping-Assistance-System/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/ubuntu/Self-Driving-Car-Cone-Keeping-Assistance-System/src /home/ubuntu/Self-Driving-Car-Cone-Keeping-Assistance-System/src/ublox/ublox_msgs /home/ubuntu/Self-Driving-Car-Cone-Keeping-Assistance-System/build /home/ubuntu/Self-Driving-Car-Cone-Keeping-Assistance-System/build/ublox/ublox_msgs /home/ubuntu/Self-Driving-Car-Cone-Keeping-Assistance-System/build/ublox/ublox_msgs/CMakeFiles/ublox_msgs_generate_messages.dir/DependInfo.cmake --color=$(COLOR)
+	cd /home/jeewon/Self-Driving-Car-Cone-Keeping-Assistance-System/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/jeewon/Self-Driving-Car-Cone-Keeping-Assistance-System/src /home/jeewon/Self-Driving-Car-Cone-Keeping-Assistance-System/src/ublox/ublox_msgs /home/jeewon/Self-Driving-Car-Cone-Keeping-Assistance-System/build /home/jeewon/Self-Driving-Car-Cone-Keeping-Assistance-System/build/ublox/ublox_msgs /home/jeewon/Self-Driving-Car-Cone-Keeping-Assistance-System/build/ublox/ublox_msgs/CMakeFiles/ublox_msgs_generate_messages.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : ublox/ublox_msgs/CMakeFiles/ublox_msgs_generate_messages.dir/depend
 

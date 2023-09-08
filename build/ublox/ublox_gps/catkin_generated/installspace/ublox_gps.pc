@@ -1,4 +1,4 @@
-prefix=/home/ubuntu/Self-Driving-Car-Cone-Keeping-Assistance-System/install
+prefix=/home/jeewon/Self-Driving-Car-Cone-Keeping-Assistance-System/install
 
 Name: ublox_gps
 Description: Description of ublox_gps

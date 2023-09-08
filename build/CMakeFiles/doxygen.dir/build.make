@@ -43,10 +43,10 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/ubuntu/Self-Driving-Car-Cone-Keeping-Assistance-System/src
+CMAKE_SOURCE_DIR = /home/jeewon/Self-Driving-Car-Cone-Keeping-Assistance-System/src
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/ubuntu/Self-Driving-Car-Cone-Keeping-Assistance-System/build
+CMAKE_BINARY_DIR = /home/jeewon/Self-Driving-Car-Cone-Keeping-Assistance-System/build
 
 # Utility rule file for doxygen.
 
@@ -67,6 +67,6 @@ CMakeFiles/doxygen.dir/clean:
 .PHONY : CMakeFiles/doxygen.dir/clean
 
 CMakeFiles/doxygen.dir/depend:
-	cd /home/ubuntu/Self-Driving-Car-Cone-Keeping-Assistance-System/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/ubuntu/Self-Driving-Car-Cone-Keeping-Assistance-System/src /home/ubuntu/Self-Driving-Car-Cone-Keeping-Assistance-System/src /home/ubuntu/Self-Driving-Car-Cone-Keeping-Assistance-System/build /home/ubuntu/Self-Driving-Car-Cone-Keeping-Assistance-System/build /home/ubuntu/Self-Driving-Car-Cone-Keeping-Assistance-System/build/CMakeFiles/doxygen.dir/DependInfo.cmake --color=$(COLOR)
+	cd /home/jeewon/Self-Driving-Car-Cone-Keeping-Assistance-System/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/jeewon/Self-Driving-Car-Cone-Keeping-Assistance-System/src /home/jeewon/Self-Driving-Car-Cone-Keeping-Assistance-System/src /home/jeewon/Self-Driving-Car-Cone-Keeping-Assistance-System/build /home/jeewon/Self-Driving-Car-Cone-Keeping-Assistance-System/build /home/jeewon/Self-Driving-Car-Cone-Keeping-Assistance-System/build/CMakeFiles/doxygen.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : CMakeFiles/doxygen.dir/depend
 

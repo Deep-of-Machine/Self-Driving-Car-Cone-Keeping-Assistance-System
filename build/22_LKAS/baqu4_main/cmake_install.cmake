@@ -1,8 +1,8 @@
-# Install script for directory: /home/ubuntu/Self-Driving-Car-Cone-Keeping-Assistance-System/src/22_LKAS/baqu4_main
+# Install script for directory: /home/jeewon/Self-Driving-Car-Cone-Keeping-Assistance-System/src/22_LKAS/baqu4_main
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
-  set(CMAKE_INSTALL_PREFIX "/home/ubuntu/Self-Driving-Car-Cone-Keeping-Assistance-System/install")
+  set(CMAKE_INSTALL_PREFIX "/home/jeewon/Self-Driving-Car-Cone-Keeping-Assistance-System/install")
 endif()
 string(REGEX REPLACE "/$" "" CMAKE_INSTALL_PREFIX "${CMAKE_INSTALL_PREFIX}")
 
@@ -38,17 +38,17 @@ if(NOT DEFINED CMAKE_CROSSCOMPILING)
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/pkgconfig" TYPE FILE FILES "/home/ubuntu/Self-Driving-Car-Cone-Keeping-Assistance-System/build/22_LKAS/baqu4_main/catkin_generated/installspace/baqu4_run.pc")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/pkgconfig" TYPE FILE FILES "/home/jeewon/Self-Driving-Car-Cone-Keeping-Assistance-System/build/22_LKAS/baqu4_main/catkin_generated/installspace/baqu4_run.pc")
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
   file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/baqu4_run/cmake" TYPE FILE FILES
-    "/home/ubuntu/Self-Driving-Car-Cone-Keeping-Assistance-System/build/22_LKAS/baqu4_main/catkin_generated/installspace/baqu4_runConfig.cmake"
-    "/home/ubuntu/Self-Driving-Car-Cone-Keeping-Assistance-System/build/22_LKAS/baqu4_main/catkin_generated/installspace/baqu4_runConfig-version.cmake"
+    "/home/jeewon/Self-Driving-Car-Cone-Keeping-Assistance-System/build/22_LKAS/baqu4_main/catkin_generated/installspace/baqu4_runConfig.cmake"
+    "/home/jeewon/Self-Driving-Car-Cone-Keeping-Assistance-System/build/22_LKAS/baqu4_main/catkin_generated/installspace/baqu4_runConfig-version.cmake"
     )
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/baqu4_run" TYPE FILE FILES "/home/ubuntu/Self-Driving-Car-Cone-Keeping-Assistance-System/src/22_LKAS/baqu4_main/package.xml")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/baqu4_run" TYPE FILE FILES "/home/jeewon/Self-Driving-Car-Cone-Keeping-Assistance-System/src/22_LKAS/baqu4_main/package.xml")
 endif()
 

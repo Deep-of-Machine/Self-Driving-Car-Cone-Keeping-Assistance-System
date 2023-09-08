@@ -65,6 +65,7 @@ def pointcloud_callback(msg):
     pc_msg = pc2.create_cloud(header, fields, midpoints)
     pub.publish(pc_msg)
 
+    print(midpoints)
 
 def listener():
     rospy.init_node('pointcloud_listener', anonymous=True)
