@@ -7,10 +7,8 @@
 # new environment variables
 
 # modified environment variables
-export CMAKE_PREFIX_PATH="/home/ubuntu/Self-Driving-Car-Cone-Keeping-Assistance-System/devel:$CMAKE_PREFIX_PATH"
-export LD_LIBRARY_PATH="/home/ubuntu/Self-Driving-Car-Cone-Keeping-Assistance-System/devel/lib:$LD_LIBRARY_PATH"
-export PKG_CONFIG_PATH="/home/ubuntu/Self-Driving-Car-Cone-Keeping-Assistance-System/devel/lib/pkgconfig:$PKG_CONFIG_PATH"
+export LD_LIBRARY_PATH='/opt/ros/noetic/lib'
+export PKG_CONFIG_PATH='/opt/ros/noetic/lib/pkgconfig'
 export PWD='/home/ubuntu/Self-Driving-Car-Cone-Keeping-Assistance-System/build'
-export PYTHONPATH="/home/ubuntu/Self-Driving-Car-Cone-Keeping-Assistance-System/devel/lib/python3/dist-packages:$PYTHONPATH"
-export ROSLISP_PACKAGE_DIRECTORIES='/home/ubuntu/Self-Driving-Car-Cone-Keeping-Assistance-System/devel/share/common-lisp'
-export ROS_PACKAGE_PATH="/home/ubuntu/Self-Driving-Car-Cone-Keeping-Assistance-System/src:$ROS_PACKAGE_PATH"
+export PYTHONPATH='/opt/ros/noetic/lib/python3/dist-packages'
+export ROS_PACKAGE_PATH='/home/ubuntu/Self-Driving-Car-Cone-Keeping-Assistance-System/src:/opt/ros/noetic/share'

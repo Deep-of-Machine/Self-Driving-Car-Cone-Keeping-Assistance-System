@@ -5,7 +5,7 @@ import sensor_msgs.point_cloud2 as pc2
 from sklearn.cluster import DBSCAN
 
 def cluster_objects(pc_array):
-    clustering = DBSCAN(eps=0.6, min_samples=2)  
+    clustering = DBSCAN(eps=0.4, min_samples=2)  
     labels = clustering.fit_predict(pc_array[:, :3])  
 
     unique_labels = np.unique(labels) 
@@ -57,5 +57,5 @@ def listener():
 
 if __name__ == '__main__':
     pub = rospy.Publisher('/object_centroids', PointCloud2, queue_size=10) 
-    distance_threshold = 13
+    distance_threshold = 10
     listener() 
