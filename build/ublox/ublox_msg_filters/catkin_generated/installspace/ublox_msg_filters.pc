@@ -1,8 +1,0 @@
-prefix=/home/ubuntu/Self-Driving-Car-Cone-Keeping-Assistance-System/install
-
-Name: ublox_msg_filters
-Description: Description of ublox_msg_filters
-Version: 0.0.0
-Cflags: -I${prefix}/include
-Libs: -L${prefix}/lib 
-Requires: ublox_msgs message_filters

@@ -11,23 +11,16 @@ class StanleyController:
     def __init__(self):
         self.midpoints = None
         self.k = 0.1  # 상수 k (튜닝이 필요)
-
-        self.imu_yaw = 0.0  # 초기화
         self.filtered_yaw = 0.0  # 초기화
         self.gps_speed = 0.0  # 초기화
 
         self.sub_path = rospy.Subscriber('/path_planning', PointCloud2, self.path_callback)
-        self.sub_imu = rospy.Subscriber('/filtered/imu/yaw', Imu, self.imu_callback)
         self.sub_gps_speed = rospy.Subscriber('/gps_speed', Float64, self.gps_speed_callback)
         self.pub = rospy.Publisher('/steering_angle', Float64, queue_size=10)
         
     def path_callback(self, msg):
         self.midpoints = np.array(list(pc2.read_points(msg, skip_nans=True, field_names=("x", "y", "z"))))
         self.control()
-
-    def imu_callback(self, msg):
-        # IMU 데이터로부터 yaw 값을 추출 (단위: 라디안)
-        self.imu_yaw = msg.data  # IMU 메시지에서 yaw 값을 추출합니다.
 
     def gps_speed_callback(self, msg):
         # GPS 속도 데이터를 사용
@@ -60,24 +53,28 @@ class StanleyController:
         x_error = lookahead_point[1] - vehicle_pos[0]
 
         # Calculate the heading error (헤딩 오차 계산)
-        heading_error = path_yaw - self.imu_yaw  # 경로 방향과 IMU 방향의 차이를 계산합니다.
-
+        heading_error = path_yaw / 3  # 경로 방향과 IMU 방향의 차이를 계산합니다.
+        print('heading Error', heading_error)
         # Calculate the desired steering angle using Stanley control formula
-        if self.gps_speed > 2 and self.gps_speed < 10:
+        if self.gps_speed > 2 and self.gps_speed < 30:
+            print('steering', np.arctan2(self.k * x_error, self.gps_speed))
             steering_angle = heading_error + np.arctan2(self.k * x_error, self.gps_speed)
         else:
             self.gps_speed = 1
+            print('steering', np.arctan2(self.k * x_error, self.gps_speed))
             steering_angle = heading_error + np.arctan2(self.k * x_error, self.gps_speed)
 
+        
         # Apply saturation limits to the steering angle
-        max_steering_angle = np.radians(50)  # 최대 조향각을 50도로 설정
+        max_steering_angle = np.radians(25)  # 최대 조향각을 50도로 설정
         steering_angle = np.clip(steering_angle, -max_steering_angle, max_steering_angle)
 
+        print(f"Steering Angle: {np.degrees(steering_angle)} degrees")
          # Map the steering_angle from -50 to 50 degrees to 0 to 7
-        mapped_steering_angle = np.interp(steering_angle, [-max_steering_angle, max_steering_angle], [0, 1024])
+        mapped_steering_angle = np.interp(steering_angle, [-max_steering_angle, max_steering_angle], [0, 7])
 
         self.pub.publish(mapped_steering_angle)
-        print(f"Steering Angle: {mapped_steering_angle} (mapped) degrees")
+        print(f"Actuator mm: {mapped_steering_angle} mm")
 
 
 if __name__ == '__main__':

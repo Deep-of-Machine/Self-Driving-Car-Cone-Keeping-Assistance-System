@@ -33,10 +33,12 @@ class UTMToSpeed:
             distance = math.sqrt(delta_x**2 + delta_y**2)
             speed = distance / delta_time
             speed_kmh = speed * 3.6
+            
 
             speed_msg = Float64()
-            speed_msg.data = speed_kmh
+            speed_msg.data = speed  # Keep the speed in m/s
             self.speed_pub.publish(speed_msg)
+
 
 
         self.prev_x = current_x

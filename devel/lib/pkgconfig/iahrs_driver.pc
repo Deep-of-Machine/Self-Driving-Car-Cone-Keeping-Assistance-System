@@ -1,8 +1,0 @@
-prefix=/home/ubuntu/Self-Driving-Car-Cone-Keeping-Assistance-System/devel
-
-Name: iahrs_driver
-Description: Description of iahrs_driver
-Version: 0.0.1
-Cflags: -I/home/ubuntu/Self-Driving-Car-Cone-Keeping-Assistance-System/devel/include
-Libs: -L${prefix}/lib -liahrs_driver
-Requires: roscpp std_msgs std_srvs sensor_msgs tf

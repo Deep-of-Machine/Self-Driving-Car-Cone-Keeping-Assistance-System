@@ -1,2 +1,0 @@
-22_LKAS/baqu4_main:iahrs_driver:lidar_pkg:ublox/ublox:ublox/ublox_gps:ublox/ublox_msg_filters:ublox/ublox_msgs:ublox/ublox_serialization:ublox_f9p/ntrip_ros:ublox_f9p/rtcm_msgs
--DCATKIN_DEVEL_PREFIX=/home/ubuntu/Self-Driving-Car-Cone-Keeping-Assistance-System/devel -DCMAKE_INSTALL_PREFIX=/home/ubuntu/Self-Driving-Car-Cone-Keeping-Assistance-System/install -G Unix Makefiles
