@@ -12,10 +12,9 @@ int relay2 = 3;
 int relay3 = 4;  // relay 1, red actuator
 int relay4 = 5;
 float target = 512;
-float threshold = 0.05;  // 1.4mm
+float threshold = 0.03;  // 1.4mm
 
 int map_yaw_to_sensor(float yaw_value) {
-
   // Define the range for the yaw values and sensor values
   float yaw_min = -M_PI;
   float yaw_max = M_PI;
@@ -70,14 +69,14 @@ void loop() {
       
       Serial.println("target");
       delay(50);
-    } else if (target < sensorValue) {
+    } else if (target > sensorValue) {
       digitalWrite(relay1, LOW);
       digitalWrite(relay2, HIGH);
       digitalWrite(relay3, HIGH);
       digitalWrite(relay4, LOW);
       Serial.println("on");
       delay(50);
-    } else if (target > sensorValue) {
+    } else if (target < sensorValue) {
       digitalWrite(relay1, HIGH);
       digitalWrite(relay2, LOW);
       digitalWrite(relay3, LOW);
