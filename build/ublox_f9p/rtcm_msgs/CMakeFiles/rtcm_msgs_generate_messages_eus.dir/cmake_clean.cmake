@@ -1,6 +1,6 @@
 file(REMOVE_RECURSE
-  "/home/ubuntu/Self-Driving-Car-Cone-Keeping-Assistance-System/devel/share/roseus/ros/rtcm_msgs/manifest.l"
-  "/home/ubuntu/Self-Driving-Car-Cone-Keeping-Assistance-System/devel/share/roseus/ros/rtcm_msgs/msg/Message.l"
+  "/home/baqu/Self-Driving-Car-Cone-Keeping-Assistance-System/devel/share/roseus/ros/rtcm_msgs/manifest.l"
+  "/home/baqu/Self-Driving-Car-Cone-Keeping-Assistance-System/devel/share/roseus/ros/rtcm_msgs/msg/Message.l"
   "CMakeFiles/rtcm_msgs_generate_messages_eus"
 )
 

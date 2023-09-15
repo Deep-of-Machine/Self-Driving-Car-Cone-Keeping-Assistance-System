@@ -1,4 +1,4 @@
-prefix=/home/ubuntu/Self-Driving-Car-Cone-Keeping-Assistance-System/install
+prefix=/home/baqu/Self-Driving-Car-Cone-Keeping-Assistance-System/install
 
 Name: ublox_serialization
 Description: Description of ublox_serialization

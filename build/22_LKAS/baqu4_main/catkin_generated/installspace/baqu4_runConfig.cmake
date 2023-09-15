@@ -67,14 +67,14 @@ set(baqu4_run_CONFIG_INCLUDED TRUE)
 
 # set variables for source/devel/install prefixes
 if("FALSE" STREQUAL "TRUE")
-  set(baqu4_run_SOURCE_PREFIX /home/ubuntu/Self-Driving-Car-Cone-Keeping-Assistance-System/src/22_LKAS/baqu4_main)
-  set(baqu4_run_DEVEL_PREFIX /home/ubuntu/Self-Driving-Car-Cone-Keeping-Assistance-System/devel)
+  set(baqu4_run_SOURCE_PREFIX /home/baqu/Self-Driving-Car-Cone-Keeping-Assistance-System/src/22_LKAS/baqu4_main)
+  set(baqu4_run_DEVEL_PREFIX /home/baqu/Self-Driving-Car-Cone-Keeping-Assistance-System/devel)
   set(baqu4_run_INSTALL_PREFIX "")
   set(baqu4_run_PREFIX ${baqu4_run_DEVEL_PREFIX})
 else()
   set(baqu4_run_SOURCE_PREFIX "")
   set(baqu4_run_DEVEL_PREFIX "")
-  set(baqu4_run_INSTALL_PREFIX /home/ubuntu/Self-Driving-Car-Cone-Keeping-Assistance-System/install)
+  set(baqu4_run_INSTALL_PREFIX /home/baqu/Self-Driving-Car-Cone-Keeping-Assistance-System/install)
   set(baqu4_run_PREFIX ${baqu4_run_INSTALL_PREFIX})
 endif()
 
@@ -154,7 +154,7 @@ foreach(library ${libraries})
     set(lib_path "")
     set(lib "${library}-NOTFOUND")
     # since the path where the library is found is returned we have to iterate over the paths manually
-    foreach(path /home/ubuntu/Self-Driving-Car-Cone-Keeping-Assistance-System/install/lib;/home/ubuntu/Self-Driving-Car-Cone-Keeping-Assistance-System/devel/lib;/opt/ros/noetic/lib)
+    foreach(path /home/baqu/Self-Driving-Car-Cone-Keeping-Assistance-System/install/lib;/home/baqu/Self-Driving-Car-Cone-Keeping-Assistance-System/devel/lib;/opt/ros/noetic/lib)
       find_library(lib ${library}
         PATHS ${path}
         NO_DEFAULT_PATH NO_CMAKE_FIND_ROOT_PATH)

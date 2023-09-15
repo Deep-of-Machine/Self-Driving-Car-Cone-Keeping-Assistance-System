@@ -33,7 +33,7 @@ def pointcloud_callback(msg):
     y = np.hstack((np.zeros(len(left_lane)), np.ones(len(right_lane))))
 
     # Train an SVC model
-    model = SVC(kernel='rbf', C=3.0, gamma='scale')
+    model = SVC(kernel='rbf', C=10, gamma='scale')
     model.fit(X, y)
 
     xx, yy = np.meshgrid(np.linspace(min(X[:, 0]), max(X[:, 0]), 100), np.linspace(min(X[:, 1]), max(X[:, 1]), 100))
