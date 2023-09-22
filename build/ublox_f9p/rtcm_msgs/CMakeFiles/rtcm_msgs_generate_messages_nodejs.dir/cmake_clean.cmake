@@ -1,5 +1,5 @@
 file(REMOVE_RECURSE
-  "/home/baqu/Self-Driving-Car-Cone-Keeping-Assistance-System/devel/share/gennodejs/ros/rtcm_msgs/msg/Message.js"
+  "/home/lhs7358/Self-Driving-Car-Cone-Keeping-Assistance-System/devel/share/gennodejs/ros/rtcm_msgs/msg/Message.js"
   "CMakeFiles/rtcm_msgs_generate_messages_nodejs"
 )
 

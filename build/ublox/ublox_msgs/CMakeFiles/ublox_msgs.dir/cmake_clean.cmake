@@ -1,8 +1,7 @@
 file(REMOVE_RECURSE
-  "/home/baqu/Self-Driving-Car-Cone-Keeping-Assistance-System/devel/lib/libublox_msgs.pdb"
-  "/home/baqu/Self-Driving-Car-Cone-Keeping-Assistance-System/devel/lib/libublox_msgs.so"
+  "/home/lhs7358/Self-Driving-Car-Cone-Keeping-Assistance-System/devel/lib/libublox_msgs.pdb"
+  "/home/lhs7358/Self-Driving-Car-Cone-Keeping-Assistance-System/devel/lib/libublox_msgs.so"
   "CMakeFiles/ublox_msgs.dir/src/ublox_msgs.cpp.o"
-  "CMakeFiles/ublox_msgs.dir/src/ublox_msgs.cpp.o.d"
 )
 
 # Per-language clean rules from dependency scanning.
