@@ -67,14 +67,14 @@ set(ublox_gps_CONFIG_INCLUDED TRUE)
 
 # set variables for source/devel/install prefixes
 if("FALSE" STREQUAL "TRUE")
-  set(ublox_gps_SOURCE_PREFIX /home/baqu/Self-Driving-Car-Cone-Keeping-Assistance-System/src/ublox/ublox_gps)
-  set(ublox_gps_DEVEL_PREFIX /home/baqu/Self-Driving-Car-Cone-Keeping-Assistance-System/devel)
+  set(ublox_gps_SOURCE_PREFIX /home/lhs7358/Self-Driving-Car-Cone-Keeping-Assistance-System/src/ublox/ublox_gps)
+  set(ublox_gps_DEVEL_PREFIX /home/lhs7358/Self-Driving-Car-Cone-Keeping-Assistance-System/devel)
   set(ublox_gps_INSTALL_PREFIX "")
   set(ublox_gps_PREFIX ${ublox_gps_DEVEL_PREFIX})
 else()
   set(ublox_gps_SOURCE_PREFIX "")
   set(ublox_gps_DEVEL_PREFIX "")
-  set(ublox_gps_INSTALL_PREFIX /home/baqu/Self-Driving-Car-Cone-Keeping-Assistance-System/install)
+  set(ublox_gps_INSTALL_PREFIX /home/lhs7358/Self-Driving-Car-Cone-Keeping-Assistance-System/install)
   set(ublox_gps_PREFIX ${ublox_gps_INSTALL_PREFIX})
 endif()
 
@@ -154,7 +154,7 @@ foreach(library ${libraries})
     set(lib_path "")
     set(lib "${library}-NOTFOUND")
     # since the path where the library is found is returned we have to iterate over the paths manually
-    foreach(path /home/baqu/Self-Driving-Car-Cone-Keeping-Assistance-System/install/lib;/home/baqu/Self-Driving-Car-Cone-Keeping-Assistance-System/devel/lib;/opt/ros/noetic/lib)
+    foreach(path /home/lhs7358/Self-Driving-Car-Cone-Keeping-Assistance-System/install/lib;/home/lhs7358/Self-Driving-Car-Cone-Keeping-Assistance-System-main/devel/lib;/opt/ros/noetic/lib)
       find_library(lib ${library}
         PATHS ${path}
         NO_DEFAULT_PATH NO_CMAKE_FIND_ROOT_PATH)

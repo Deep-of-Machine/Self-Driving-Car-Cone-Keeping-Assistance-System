@@ -4,5 +4,5 @@ PROJECT_PKG_CONFIG_INCLUDE_DIRS = "${prefix}/include".split(';') if "${prefix}/i
 PROJECT_CATKIN_DEPENDS = "roscpp;roscpp_serialization".replace(';', ' ')
 PKG_CONFIG_LIBRARIES_WITH_PREFIX = "".split(';') if "" != "" else []
 PROJECT_NAME = "ublox_serialization"
-PROJECT_SPACE_DIR = "/home/baqu/Self-Driving-Car-Cone-Keeping-Assistance-System/install"
+PROJECT_SPACE_DIR = "/home/lhs7358/Self-Driving-Car-Cone-Keeping-Assistance-System/install"
 PROJECT_VERSION = "1.5.0"

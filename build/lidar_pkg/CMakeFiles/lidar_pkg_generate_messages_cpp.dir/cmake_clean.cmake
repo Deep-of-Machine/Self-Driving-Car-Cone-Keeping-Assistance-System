@@ -1,7 +1,7 @@
 file(REMOVE_RECURSE
-  "/home/baqu/Self-Driving-Car-Cone-Keeping-Assistance-System/devel/include/lidar_pkg/lavacon.h"
-  "/home/baqu/Self-Driving-Car-Cone-Keeping-Assistance-System/devel/include/lidar_pkg/lidar_lavacon.h"
-  "/home/baqu/Self-Driving-Car-Cone-Keeping-Assistance-System/devel/include/lidar_pkg/yolo_lavacon.h"
+  "/home/lhs7358/Self-Driving-Car-Cone-Keeping-Assistance-System/devel/include/lidar_pkg/lavacon.h"
+  "/home/lhs7358/Self-Driving-Car-Cone-Keeping-Assistance-System/devel/include/lidar_pkg/lidar_lavacon.h"
+  "/home/lhs7358/Self-Driving-Car-Cone-Keeping-Assistance-System/devel/include/lidar_pkg/yolo_lavacon.h"
   "CMakeFiles/lidar_pkg_generate_messages_cpp"
 )
 
