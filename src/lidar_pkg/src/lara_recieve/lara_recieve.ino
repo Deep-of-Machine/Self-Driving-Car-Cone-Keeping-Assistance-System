@@ -30,12 +30,6 @@ void setup() {
 }
 
 void loop() {
-//  Serial.println(digitalRead(kill_num));
-  if (digitalRead(kill_num) == 1) {
-    asms_status = 3;
-  } else {
-    asms_status = 1;
-  }
   
   Serial.println(asms_status);
 

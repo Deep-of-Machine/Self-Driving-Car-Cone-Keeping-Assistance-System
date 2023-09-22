@@ -8,33 +8,83 @@ import std_msgs.msg
 from sklearn.cluster import DBSCAN
 from sklearn.svm import SVC
 
-def pointcloud_callback(msg):
-    global midpoints
+def create_cloud_msg(points, frame_id):
+    header = std_msgs.msg.Header()
+    header.stamp = rospy.Time.now()
+    header.frame_id = frame_id
 
+    fields = [
+        pc2.PointField('x', 0, pc2.PointField.FLOAT32, 1),
+        pc2.PointField('y', 4, pc2.PointField.FLOAT32, 1),
+        pc2.PointField('z', 8, pc2.PointField.FLOAT32, 1),
+    ]
+
+    return pc2.create_cloud(header, fields, points)
+
+def pointcloud_callback(msg):
     pc_data = pc2.read_points(msg, skip_nans=True, field_names=("x", "y", "z"))
     pc_array = np.array(list(pc_data))
 
-    # All points for clustering
-    all_points = np.array([(x, y) for x, y, z in pc_array])
-
-    # DBSCAN Clustering
-    clustering = DBSCAN(eps=3, min_samples=2).fit(all_points)
+    # DBSCAN clustering
+    clustering = DBSCAN(eps=4.3, min_samples=2).fit(pc_array[:, :2])
     labels = clustering.labels_
+    unique_labels = np.unique(labels)
 
-    # Assuming the algorithm finds 2 clusters for the left and right lane
-    left_lane_mask = labels == 0
-    right_lane_mask = labels == 1
+    closest_left_label, closest_right_label = None, None
+    closest_left_distance, closest_right_distance = float('inf'), float('inf')
 
-    left_lane = all_points[left_lane_mask]
-    right_lane = all_points[right_lane_mask]
+    # Compute distances only once
+    distances = np.sqrt(np.sum(pc_array[:, :2]**2, axis=1))
+
+    for label in unique_labels:
+        if label == -1:  # Skip the noise points
+            continue
+
+        cluster_mask = labels == label
+        cluster_points = pc_array[cluster_mask]
+
+        # Find closest points in each cluster for left and right
+        left_mask = cluster_points[:, 1] < 0
+        right_mask = cluster_points[:, 1] > 0
+
+        if np.any(left_mask):
+            min_left_distance_idx = np.argmin(distances[cluster_mask][left_mask])
+            min_left_distance = distances[cluster_mask][left_mask][min_left_distance_idx]
+            if min_left_distance < closest_left_distance:
+                closest_left_distance = min_left_distance
+                closest_left_label = label
+
+        if np.any(right_mask):
+            min_right_distance_idx = np.argmin(distances[cluster_mask][right_mask])
+            min_right_distance = distances[cluster_mask][right_mask][min_right_distance_idx]
+            if min_right_distance < closest_right_distance:
+                closest_right_distance = min_right_distance
+                closest_right_label = label
+
+    # Create point clouds for closest left and right points
+    left_lane = pc_array[labels == closest_left_label] if closest_left_label is not None else np.array([])
+    right_lane = pc_array[labels == closest_right_label] if closest_right_label is not None else np.array([])
 
     # Combine lanes for SVC
-    X = np.vstack((left_lane, right_lane))
+    X = np.vstack((left_lane[:, :2], right_lane[:, :2]))
     y = np.hstack((np.zeros(len(left_lane)), np.ones(len(right_lane))))
 
+    if len(X) > 1:
+        model = SVC(kernel='rbf', C=10, gamma='scale')
+        model.fit(X, y)
+
+    if len(left_lane) > 0:
+        left_lane_msg = create_cloud_msg(left_lane, msg.header.frame_id)
+        pub_left.publish(left_lane_msg)
+
+    if len(right_lane) > 0:
+        right_lane_msg = create_cloud_msg(right_lane, msg.header.frame_id)
+        pub_right.publish(right_lane_msg)
+
+    # if len(X) > 1:  # Ensure we have enough data points
     # Train an SVC model
-    model = SVC(kernel='rbf', C=10, gamma='scale')
-    model.fit(X, y)
+    # model = SVC(kernel='rbf', C=10, gamma='scale')
+    # model.fit(X, y)
 
     xx, yy = np.meshgrid(np.linspace(min(X[:, 0]), max(X[:, 0]), 100), np.linspace(min(X[:, 1]), max(X[:, 1]), 100))
     Z = model.decision_function(np.c_[xx.ravel(), yy.ravel()])
@@ -52,18 +102,8 @@ def pointcloud_callback(msg):
 
     midpoints = np.column_stack((selected_xs, selected_ys, np.zeros_like(selected_xs)))
 
-    header = std_msgs.msg.Header()
-    header.stamp = rospy.Time.now()
-    header.frame_id = msg.header.frame_id
-
-    fields = [
-        pc2.PointField('x', 0, pc2.PointField.FLOAT32, 1),
-        pc2.PointField('y', 4, pc2.PointField.FLOAT32, 1),
-        pc2.PointField('z', 8, pc2.PointField.FLOAT32, 1),
-    ]
-
-    pc_msg = pc2.create_cloud(header, fields, midpoints)
-    pub.publish(pc_msg)
+    midpoints = create_cloud_msg(midpoints, msg.header.frame_id)
+    pub.publish(midpoints)
 
     print(midpoints)
 
@@ -74,4 +114,6 @@ def listener():
 
 if __name__ == '__main__':
     pub = rospy.Publisher('/path_planning', PointCloud2, queue_size=10)
+    pub_left = rospy.Publisher('/left_lane', PointCloud2, queue_size=10)
+    pub_right = rospy.Publisher('/right_lane', PointCloud2, queue_size=10)
     listener()

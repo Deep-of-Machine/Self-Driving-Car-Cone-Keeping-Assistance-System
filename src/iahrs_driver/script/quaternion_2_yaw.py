@@ -26,7 +26,7 @@ def imu_callback(imu_msg):
     yaw_value = quaternion_to_yaw(imu_msg.orientation)
     
     # 새로운 토픽으로 데이터를 publish합니다.
-
+    print(yaw_value)
     yaw_pub.publish(yaw_value)
 
 if __name__ == '__main__':
