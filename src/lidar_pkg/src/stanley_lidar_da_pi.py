@@ -21,7 +21,7 @@ class StanleyController:
 
         # 소켓 생성 및 설정
         self.client_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-        self.client_socket.connect(('라즈베리파이_아이피', 포트번호))  # 라즈베리파이 IP와 포트를 입력
+        # self.client_socket.connect(('라즈베리파이_아이피', 포트번호))  # 라즈베리파이 IP와 포트를 입력
         
     def path_callback(self, msg):
         self.midpoints = np.array(list(pc2.read_points(msg, skip_nans=True, field_names=("x", "y", "z"))))
