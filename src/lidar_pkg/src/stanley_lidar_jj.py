@@ -19,6 +19,7 @@ class StanleyController:
         self.sub_gps_speed = rospy.Subscriber('/gps_speed', Float64, self.gps_speed_callback)
         self.pub_steering = rospy.Publisher('/steering_angle', Int16, queue_size=1)
         self.pub_speed = rospy.Publisher('/decelerate_speed', Int16, queue_size=1)  # 감속 속도 publisher
+
         
     def path_callback(self, msg):
         self.midpoints = np.array(list(pc2.read_points(msg, skip_nans=True, field_names=("x", "y", "z"))))

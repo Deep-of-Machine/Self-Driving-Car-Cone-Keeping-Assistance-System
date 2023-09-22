@@ -85,7 +85,7 @@ class StanleyController:
         max_steering_angle = np.radians(25)
         steering_angle = np.clip(steering_angle, -max_steering_angle, max_steering_angle)
 
-        mapped_steering_angle = np.interp(steering_angle, [-max_steering_angle, max_steering_angle], [1024, 86])
+        mapped_steering_angle = np.interp(steering_angle, [-max_steering_angle, max_steering_angle], [6.54, 78])  #0~78 정방향 42.27
         self.pub.publish(Int16(data=int(mapped_steering_angle)))
 
         self.rate.sleep()
