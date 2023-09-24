@@ -9,7 +9,7 @@ from std_msgs.msg import Float64, Int16
 class StanleyController:
     def __init__(self):
         self.midpoints = None
-        self.k = 0.1      # 상수 k (튜닝이 필요)
+        self.k = 0.3      # 상수 k (튜닝이 필요)
         self.filtered_yaw = 0.0  # 초기화
         self.gps_speed = 0.0  # 초기화
 
@@ -34,28 +34,45 @@ class StanleyController:
             return
 
         # 감속 조건 판단
-        fifth_point = self.midpoints[4]
+        fifth_point = self.midpoints[7]
         last_point = self.midpoints[-1]
         slope = np.arctan2(last_point[1] - fifth_point[1], last_point[0] - fifth_point[0])
         if slope >= np.pi/8 and slope <= np.pi*7/8:
             # 감속 코드
-            print("감속")
+            # print("감속")
             self.pub_speed.publish(Int16(30))  # 속도를 30으로 감속
         else:
             self.pub_speed.publish(Int16(255))
-            print("가속")
-        # print(slope)
-        # Use broadcasting and vectorization for efficient computation
-        
+            # print("가속")
+        # print("slope : ",slope)
 
-        # steering_angle = slope + np.arctan2(self.k * x_error, speed_for_calculation)
+        x_error = self.midpoints[0][1]
+        # print(x_error)
 
-        # max_steering_angle = np.radians(25)
-        # steering_angle = np.clip(steering_angle, -max_steering_angle, max_steering_angle)
+        first_point = self.midpoints[0]
+        lastest_point = self.midpoints[4]
+        yaw = np.arctan2(lastest_point[1] - first_point[1], lastest_point[0] - first_point[0])
 
-        # mapped_steering_angle = np.interp(steering_angle, [-max_steering_angle, max_steering_angle], [84, 1023])
-        # self.pub_steering.publish(Int16(data=int(mapped_steering_angle)))
+        if self.gps_speed > 1 and self.gps_speed < 30:
+            speed_for_calculation = self.gps_speed
+        else:
+            speed_for_calculation = 1
 
+        if yaw >= np.pi/2:
+            yaw = yaw - np.pi
+
+        if slope >= np.pi/2:
+            slope = slope - np.pi
+        steering_angle = slope # +  np.arctan2(self.k * x_error, speed_for_calculation)
+        print(yaw) # 3.14가 원형으로 됨 플마가 아님
+
+        max_steering_angle = np.radians(25)
+        steering_angle = np.clip(steering_angle, -max_steering_angle, max_steering_angle)
+
+        mapped_steering_angle = np.interp(steering_angle, [-max_steering_angle, max_steering_angle], [6.54, 78])   # 
+        self.pub_steering.publish(Int16(data=int(mapped_steering_angle)))
+        # print(mapped_steering_angle)
+        # print(yaw)
         self.rate.sleep()
 
 if __name__ == '__main__':

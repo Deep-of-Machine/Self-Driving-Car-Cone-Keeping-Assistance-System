@@ -1,10 +1,10 @@
 #include <SoftwareSerial.h>
 #include <ros.h>
-#include <std_msgs/Int8.h>
+#include <std_msgs/Int16.h>
 
 ros::NodeHandle nh;
-std_msgs::Int8 int8_msg;
-ros::Publisher chatter("/asms_status", &int8_msg);
+std_msgs::Int16 int16_msg;
+ros::Publisher chatter("/ASMS", &int16_msg);
 
 SoftwareSerial lora(2, 3);
 
@@ -26,7 +26,7 @@ void setup() {
   nh.initNode();
   nh.advertise(chatter);
 
-  int8_msg.data = asms_status;
+  int16_msg.data = asms_status;
 }
 
 void loop() {
@@ -52,8 +52,8 @@ void loop() {
     }
   }
 
-  int8_msg.data = asms_status;
-  chatter.publish(&int8_msg);
+  int16_msg.data = asms_status;
+  chatter.publish(&int16_msg);
   nh.spinOnce();
   delay(100);
 }

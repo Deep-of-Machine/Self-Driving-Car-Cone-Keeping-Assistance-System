@@ -8,8 +8,8 @@ def remove_ground(data):
     pc_array = np.array(list(pc_data))
 
     # Define ground threshold
-    ground_threshold = -0.9  # Lidar Height
-    cone_threshold = -0.3
+    ground_threshold = -1  # Lidar Height
+    cone_threshold = -0.2
 
     # Reconsidering the logic for filtering ground and other points
     non_ground_pc_array = pc_array[pc_array[:, 2] > ground_threshold]

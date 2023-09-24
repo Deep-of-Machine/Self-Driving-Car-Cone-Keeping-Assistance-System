@@ -77,6 +77,7 @@ class StanleyController:
         else:
             self.pub_speed.publish(Int16(255))
             print("가속")
+        print(slope)
         
         cross_track_error = np.linalg.norm(last_point- self.vehicle_pos)
         

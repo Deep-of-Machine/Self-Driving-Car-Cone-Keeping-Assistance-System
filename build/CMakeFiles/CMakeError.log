@@ -1,27 +1,28 @@
 Performing C SOURCE FILE Test CMAKE_HAVE_LIBC_PTHREAD failed with the following output:
-Change Dir: /home/lhs7358/Self-Driving-Car-Cone-Keeping-Assistance-System/build/CMakeFiles/CMakeTmp
+Change Dir: /home/baqu/Self-Driving-Car-Cone-Keeping-Assistance-System/build/CMakeFiles/CMakeScratch/TryCompile-15afYd
 
-Run Build Command(s):/usr/bin/make cmTC_d25ca/fast && /usr/bin/make -f CMakeFiles/cmTC_d25ca.dir/build.make CMakeFiles/cmTC_d25ca.dir/build
-make[1]: Entering directory '/home/lhs7358/Self-Driving-Car-Cone-Keeping-Assistance-System/build/CMakeFiles/CMakeTmp'
-Building C object CMakeFiles/cmTC_d25ca.dir/src.c.o
-/usr/bin/cc   -DCMAKE_HAVE_LIBC_PTHREAD   -o CMakeFiles/cmTC_d25ca.dir/src.c.o   -c /home/lhs7358/Self-Driving-Car-Cone-Keeping-Assistance-System/build/CMakeFiles/CMakeTmp/src.c
-Linking C executable cmTC_d25ca
-/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_d25ca.dir/link.txt --verbose=1
-/usr/bin/cc  -DCMAKE_HAVE_LIBC_PTHREAD    -rdynamic CMakeFiles/cmTC_d25ca.dir/src.c.o  -o cmTC_d25ca 
-/usr/bin/ld: CMakeFiles/cmTC_d25ca.dir/src.c.o: in function `main':
-src.c:(.text+0x48): undefined reference to `pthread_create'
-/usr/bin/ld: src.c:(.text+0x50): undefined reference to `pthread_detach'
-/usr/bin/ld: src.c:(.text+0x5c): undefined reference to `pthread_join'
+Run Build Command(s):/usr/bin/make -f Makefile cmTC_efb98/fast && /usr/bin/make  -f CMakeFiles/cmTC_efb98.dir/build.make CMakeFiles/cmTC_efb98.dir/build
+make[1]: Entering directory '/home/baqu/Self-Driving-Car-Cone-Keeping-Assistance-System/build/CMakeFiles/CMakeScratch/TryCompile-15afYd'
+Building C object CMakeFiles/cmTC_efb98.dir/src.c.o
+/usr/bin/cc -DCMAKE_HAVE_LIBC_PTHREAD   -o CMakeFiles/cmTC_efb98.dir/src.c.o -c /home/baqu/Self-Driving-Car-Cone-Keeping-Assistance-System/build/CMakeFiles/CMakeScratch/TryCompile-15afYd/src.c
+Linking C executable cmTC_efb98
+/home/baqu/.local/lib/python3.8/site-packages/cmake/data/bin/cmake -E cmake_link_script CMakeFiles/cmTC_efb98.dir/link.txt --verbose=1
+/usr/bin/cc -rdynamic CMakeFiles/cmTC_efb98.dir/src.c.o -o cmTC_efb98 
+/usr/bin/ld: CMakeFiles/cmTC_efb98.dir/src.c.o: in function `main':
+src.c:(.text+0x46): undefined reference to `pthread_create'
+/usr/bin/ld: src.c:(.text+0x52): undefined reference to `pthread_detach'
+/usr/bin/ld: src.c:(.text+0x5e): undefined reference to `pthread_cancel'
+/usr/bin/ld: src.c:(.text+0x6f): undefined reference to `pthread_join'
 collect2: error: ld returned 1 exit status
-make[1]: *** [CMakeFiles/cmTC_d25ca.dir/build.make:87: cmTC_d25ca] Error 1
-make[1]: Leaving directory '/home/lhs7358/Self-Driving-Car-Cone-Keeping-Assistance-System/build/CMakeFiles/CMakeTmp'
-make: *** [Makefile:121: cmTC_d25ca/fast] Error 2
+make[1]: *** [CMakeFiles/cmTC_efb98.dir/build.make:99: cmTC_efb98] Error 1
+make[1]: Leaving directory '/home/baqu/Self-Driving-Car-Cone-Keeping-Assistance-System/build/CMakeFiles/CMakeScratch/TryCompile-15afYd'
+make: *** [Makefile:127: cmTC_efb98/fast] Error 2
 
 
 Source file was:
 #include <pthread.h>
 
-void* test_func(void* data)
+static void* test_func(void* data)
 {
   return data;
 }
@@ -31,6 +32,7 @@ int main(void)
   pthread_t thread;
   pthread_create(&thread, NULL, test_func, NULL);
   pthread_detach(thread);
+  pthread_cancel(thread);
   pthread_join(thread, NULL);
   pthread_atfork(NULL, NULL, NULL);
   pthread_exit(NULL);
@@ -38,21 +40,22 @@ int main(void)
   return 0;
 }
 
-Determining if the function pthread_create exists in the pthreads failed with the following output:
-Change Dir: /home/lhs7358/Self-Driving-Car-Cone-Keeping-Assistance-System/build/CMakeFiles/CMakeTmp
 
-Run Build Command(s):/usr/bin/make cmTC_943f3/fast && /usr/bin/make -f CMakeFiles/cmTC_943f3.dir/build.make CMakeFiles/cmTC_943f3.dir/build
-make[1]: Entering directory '/home/lhs7358/Self-Driving-Car-Cone-Keeping-Assistance-System/build/CMakeFiles/CMakeTmp'
-Building C object CMakeFiles/cmTC_943f3.dir/CheckFunctionExists.c.o
-/usr/bin/cc   -DCHECK_FUNCTION_EXISTS=pthread_create   -o CMakeFiles/cmTC_943f3.dir/CheckFunctionExists.c.o   -c /usr/share/cmake-3.16/Modules/CheckFunctionExists.c
-Linking C executable cmTC_943f3
-/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_943f3.dir/link.txt --verbose=1
-/usr/bin/cc  -DCHECK_FUNCTION_EXISTS=pthread_create    -rdynamic CMakeFiles/cmTC_943f3.dir/CheckFunctionExists.c.o  -o cmTC_943f3  -lpthreads 
+Determining if the function pthread_create exists in the pthreads failed with the following output:
+Change Dir: /home/baqu/Self-Driving-Car-Cone-Keeping-Assistance-System/build/CMakeFiles/CMakeScratch/TryCompile-oSu6gf
+
+Run Build Command(s):/usr/bin/make -f Makefile cmTC_79506/fast && /usr/bin/make  -f CMakeFiles/cmTC_79506.dir/build.make CMakeFiles/cmTC_79506.dir/build
+make[1]: Entering directory '/home/baqu/Self-Driving-Car-Cone-Keeping-Assistance-System/build/CMakeFiles/CMakeScratch/TryCompile-oSu6gf'
+Building C object CMakeFiles/cmTC_79506.dir/CheckFunctionExists.c.o
+/usr/bin/cc   -DCHECK_FUNCTION_EXISTS=pthread_create -o CMakeFiles/cmTC_79506.dir/CheckFunctionExists.c.o -c /home/baqu/Self-Driving-Car-Cone-Keeping-Assistance-System/build/CMakeFiles/CMakeScratch/TryCompile-oSu6gf/CheckFunctionExists.c
+Linking C executable cmTC_79506
+/home/baqu/.local/lib/python3.8/site-packages/cmake/data/bin/cmake -E cmake_link_script CMakeFiles/cmTC_79506.dir/link.txt --verbose=1
+/usr/bin/cc  -DCHECK_FUNCTION_EXISTS=pthread_create -rdynamic CMakeFiles/cmTC_79506.dir/CheckFunctionExists.c.o -o cmTC_79506  -lpthreads 
 /usr/bin/ld: cannot find -lpthreads
 collect2: error: ld returned 1 exit status
-make[1]: *** [CMakeFiles/cmTC_943f3.dir/build.make:87: cmTC_943f3] Error 1
-make[1]: Leaving directory '/home/lhs7358/Self-Driving-Car-Cone-Keeping-Assistance-System/build/CMakeFiles/CMakeTmp'
-make: *** [Makefile:121: cmTC_943f3/fast] Error 2
+make[1]: *** [CMakeFiles/cmTC_79506.dir/build.make:99: cmTC_79506] Error 1
+make[1]: Leaving directory '/home/baqu/Self-Driving-Car-Cone-Keeping-Assistance-System/build/CMakeFiles/CMakeScratch/TryCompile-oSu6gf'
+make: *** [Makefile:127: cmTC_79506/fast] Error 2
 
 
 

@@ -38,6 +38,8 @@ class UTMToSpeed:
             speed_msg = Float64()
             speed_msg.data = speed  # Keep the speed in m/s
             self.speed_pub.publish(speed_msg)
+            print(speed_msg)
+
 
 
 
