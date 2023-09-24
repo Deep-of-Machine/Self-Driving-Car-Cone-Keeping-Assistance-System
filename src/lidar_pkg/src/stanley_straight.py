@@ -30,7 +30,7 @@ class StanleyController:
 
         mapped_steering_angle = np.interp(steering_angle, [-max_steering_angle, max_steering_angle], [78, 6.54]) #24 1023
         print(mapped_steering_angle)
-        self.pub_steering.publish(Int16(data=int(0)))  # std_msgs/Int16 형식에 맞게 수정
+        self.pub_steering.publish(Int16(data=int(mapped_steering_angle)))  # std_msgs/Int16 형식에 맞게 수정
         
         self.pub_speed.publish(Int16(data=int(255)))
         print(mapped_steering_angle)

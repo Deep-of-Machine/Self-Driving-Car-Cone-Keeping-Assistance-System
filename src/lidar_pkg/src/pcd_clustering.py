@@ -57,5 +57,5 @@ def listener():
 
 if __name__ == '__main__':
     pub = rospy.Publisher('/object_centroids', PointCloud2, queue_size=10) 
-    distance_threshold =  20 #속도가 빨라지면 distance_threshold 증가,느려지면 감소.
+    distance_threshold =  10 #속도가 빨라지면 distance_threshold 증가,느려지면 감소.
     listener() 

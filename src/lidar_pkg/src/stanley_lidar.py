@@ -66,7 +66,7 @@ class StanleyController:
             self.pub_speed.publish(Int16(30))
             # print("가속")
 
-        # print('앞', path_yaw)
+        print('앞', path_yaw)
         idx = closest_idx  # Already computed
         lookahead_point = self.midpoints[idx]
         x_error = lookahead_point[1]
@@ -84,9 +84,9 @@ class StanleyController:
 
         mapped_steering_angle = np.interp(steering_angle, [-max_steering_angle, max_steering_angle], [6.25, 78]) #42.27
         # self.pub.publish(Int16(data=int(555)))
-        self.pub.publish(Int16(data=int(mapped_steering_angle)))  # std_msgs/Int16 형식에 맞게 수정
-        # print(mapped_steering_angle)
-        self.rate.sleep()   
+        self.pub.publish(Int16(data=int(42)))  # std_msgs/Int16 형식에 맞게 수정
+        print(mapped_steering_angle)
+        #self.rate.sleep()   
 
 
 if __name__ == '__main__':
