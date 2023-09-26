@@ -1,0 +1,4 @@
+float64 yolo_mid_X
+float64 yolo_mid_y
+string yolo_con_name
+string yolo_con_color

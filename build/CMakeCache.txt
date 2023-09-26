@@ -20,6 +20,18 @@ BUILD_GMOCK:BOOL=ON
 //Build dynamically-linked binaries
 BUILD_SHARED_LIBS:BOOL=ON
 
+//The directory containing a CMake configuration file for Boost.
+Boost_DIR:PATH=/usr/lib/x86_64-linux-gnu/cmake/Boost-1.71.0
+
+//Path to a file.
+Boost_INCLUDE_DIR:PATH=/usr/include
+
+Boost_REGEX_LIBRARY_RELEASE:STRING=/usr/lib/x86_64-linux-gnu/libboost_regex.so.1.71.0
+
+Boost_SYSTEM_LIBRARY_RELEASE:STRING=/usr/lib/x86_64-linux-gnu/libboost_system.so.1.71.0
+
+Boost_THREAD_LIBRARY_RELEASE:STRING=/usr/lib/x86_64-linux-gnu/libboost_thread.so.1.71.0
+
 //List of ';' separated packages to exclude
 CATKIN_BLACKLIST_PACKAGES:STRING=
 
@@ -400,6 +412,12 @@ _gtest_INCLUDES:FILEPATH=/usr/include/gtest/gtest.h
 //Path to a file.
 _gtest_SOURCES:FILEPATH=/usr/src/gtest/src/gtest.cc
 
+//The directory containing a CMake configuration file for actionlib.
+actionlib_DIR:PATH=/opt/ros/noetic/share/actionlib/cmake
+
+//The directory containing a CMake configuration file for actionlib_msgs.
+actionlib_msgs_DIR:PATH=/opt/ros/noetic/share/actionlib_msgs/cmake
+
 //Value Computed by CMake
 baqu4_run_BINARY_DIR:STATIC=/home/baqu/Self-Driving-Car-Cone-Keeping-Assistance-System/build/22_LKAS/baqu4_main
 
@@ -409,6 +427,21 @@ baqu4_run_IS_TOP_LEVEL:STATIC=OFF
 //Value Computed by CMake
 baqu4_run_SOURCE_DIR:STATIC=/home/baqu/Self-Driving-Car-Cone-Keeping-Assistance-System/src/22_LKAS/baqu4_main
 
+//The directory containing a CMake configuration file for boost_atomic.
+boost_atomic_DIR:PATH=/usr/lib/x86_64-linux-gnu/cmake/boost_atomic-1.71.0
+
+//The directory containing a CMake configuration file for boost_headers.
+boost_headers_DIR:PATH=/usr/lib/x86_64-linux-gnu/cmake/boost_headers-1.71.0
+
+//The directory containing a CMake configuration file for boost_regex.
+boost_regex_DIR:PATH=/usr/lib/x86_64-linux-gnu/cmake/boost_regex-1.71.0
+
+//The directory containing a CMake configuration file for boost_system.
+boost_system_DIR:PATH=/usr/lib/x86_64-linux-gnu/cmake/boost_system-1.71.0
+
+//The directory containing a CMake configuration file for boost_thread.
+boost_thread_DIR:PATH=/usr/lib/x86_64-linux-gnu/cmake/boost_thread-1.71.0
+
 //The directory containing a CMake configuration file for catkin.
 catkin_DIR:PATH=/opt/ros/noetic/share/catkin/cmake
 
@@ -417,6 +450,12 @@ cpp_common_DIR:PATH=/opt/ros/noetic/share/cpp_common/cmake
 
 //The directory containing a CMake configuration file for cv_bridge.
 cv_bridge_DIR:PATH=/opt/ros/noetic/share/cv_bridge/cmake
+
+//The directory containing a CMake configuration file for diagnostic_msgs.
+diagnostic_msgs_DIR:PATH=/opt/ros/noetic/share/diagnostic_msgs/cmake
+
+//The directory containing a CMake configuration file for diagnostic_updater.
+diagnostic_updater_DIR:PATH=/opt/ros/noetic/share/diagnostic_updater/cmake
 
 //The directory containing a CMake configuration file for gencpp.
 gencpp_DIR:PATH=/opt/ros/noetic/share/gencpp/cmake
@@ -494,8 +533,17 @@ gtest_hide_internal_symbols:BOOL=OFF
 //Dependencies for the target
 gtest_main_LIB_DEPENDS:STATIC=general;gtest;
 
+//Value Computed by CMake
+iahrs_driver_BINARY_DIR:STATIC=/home/baqu/Self-Driving-Car-Cone-Keeping-Assistance-System/build/iahrs_driver
+
+//Value Computed by CMake
+iahrs_driver_IS_TOP_LEVEL:STATIC=OFF
+
+//Value Computed by CMake
+iahrs_driver_SOURCE_DIR:STATIC=/home/baqu/Self-Driving-Car-Cone-Keeping-Assistance-System/src/iahrs_driver
+
 //Path to a library.
-lib:FILEPATH=/opt/ros/noetic/lib/libxmlrpcpp.so
+lib:FILEPATH=/opt/ros/noetic/lib/libmessage_filters.so
 
 //Value Computed by CMake
 lidar_pkg_BINARY_DIR:STATIC=/home/baqu/Self-Driving-Car-Cone-Keeping-Assistance-System/build/lidar_pkg
@@ -506,11 +554,29 @@ lidar_pkg_IS_TOP_LEVEL:STATIC=OFF
 //Value Computed by CMake
 lidar_pkg_SOURCE_DIR:STATIC=/home/baqu/Self-Driving-Car-Cone-Keeping-Assistance-System/src/lidar_pkg
 
+//The directory containing a CMake configuration file for message_filters.
+message_filters_DIR:PATH=/opt/ros/noetic/share/message_filters/cmake
+
 //The directory containing a CMake configuration file for message_generation.
 message_generation_DIR:PATH=/opt/ros/noetic/share/message_generation/cmake
 
 //The directory containing a CMake configuration file for message_runtime.
 message_runtime_DIR:PATH=/opt/ros/noetic/share/message_runtime/cmake
+
+//The directory containing a CMake configuration file for nmea_msgs.
+nmea_msgs_DIR:PATH=/opt/ros/noetic/share/nmea_msgs/cmake
+
+//Value Computed by CMake
+ntrip_ros_BINARY_DIR:STATIC=/home/baqu/Self-Driving-Car-Cone-Keeping-Assistance-System/build/ublox_f9p/ntrip_ros
+
+//Value Computed by CMake
+ntrip_ros_IS_TOP_LEVEL:STATIC=OFF
+
+//Value Computed by CMake
+ntrip_ros_SOURCE_DIR:STATIC=/home/baqu/Self-Driving-Car-Cone-Keeping-Assistance-System/src/ublox_f9p/ntrip_ros
+
+//The directory containing a CMake configuration file for ros_environment.
+ros_environment_DIR:PATH=/opt/ros/noetic/share/ros_environment/cmake
 
 //The directory containing a CMake configuration file for rosconsole.
 rosconsole_DIR:PATH=/opt/ros/noetic/share/rosconsole/cmake
@@ -524,6 +590,9 @@ roscpp_serialization_DIR:PATH=/opt/ros/noetic/share/roscpp_serialization/cmake
 //The directory containing a CMake configuration file for roscpp_traits.
 roscpp_traits_DIR:PATH=/opt/ros/noetic/share/roscpp_traits/cmake
 
+//The directory containing a CMake configuration file for rosgraph.
+rosgraph_DIR:PATH=/opt/ros/noetic/share/rosgraph/cmake
+
 //The directory containing a CMake configuration file for rosgraph_msgs.
 rosgraph_msgs_DIR:PATH=/opt/ros/noetic/share/rosgraph_msgs/cmake
 
@@ -533,11 +602,98 @@ rospy_DIR:PATH=/opt/ros/noetic/share/rospy/cmake
 //The directory containing a CMake configuration file for rostime.
 rostime_DIR:PATH=/opt/ros/noetic/share/rostime/cmake
 
+//Value Computed by CMake
+rtcm_msgs_BINARY_DIR:STATIC=/home/baqu/Self-Driving-Car-Cone-Keeping-Assistance-System/build/ublox_f9p/rtcm_msgs
+
+//The directory containing a CMake configuration file for rtcm_msgs.
+rtcm_msgs_DIR:PATH=/home/baqu/Self-Driving-Car-Cone-Keeping-Assistance-System/devel/share/rtcm_msgs/cmake
+
+//Value Computed by CMake
+rtcm_msgs_IS_TOP_LEVEL:STATIC=OFF
+
+//Value Computed by CMake
+rtcm_msgs_SOURCE_DIR:STATIC=/home/baqu/Self-Driving-Car-Cone-Keeping-Assistance-System/src/ublox_f9p/rtcm_msgs
+
 //The directory containing a CMake configuration file for sensor_msgs.
 sensor_msgs_DIR:PATH=/opt/ros/noetic/share/sensor_msgs/cmake
 
 //The directory containing a CMake configuration file for std_msgs.
 std_msgs_DIR:PATH=/opt/ros/noetic/share/std_msgs/cmake
+
+//The directory containing a CMake configuration file for std_srvs.
+std_srvs_DIR:PATH=/opt/ros/noetic/share/std_srvs/cmake
+
+//The directory containing a CMake configuration file for tf2.
+tf2_DIR:PATH=/opt/ros/noetic/share/tf2/cmake
+
+//The directory containing a CMake configuration file for tf2_msgs.
+tf2_msgs_DIR:PATH=/opt/ros/noetic/share/tf2_msgs/cmake
+
+//The directory containing a CMake configuration file for tf2_py.
+tf2_py_DIR:PATH=/opt/ros/noetic/share/tf2_py/cmake
+
+//The directory containing a CMake configuration file for tf2_ros.
+tf2_ros_DIR:PATH=/opt/ros/noetic/share/tf2_ros/cmake
+
+//The directory containing a CMake configuration file for tf.
+tf_DIR:PATH=/opt/ros/noetic/share/tf/cmake
+
+//Value Computed by CMake
+ublox_BINARY_DIR:STATIC=/home/baqu/Self-Driving-Car-Cone-Keeping-Assistance-System/build/ublox/ublox
+
+//Value Computed by CMake
+ublox_IS_TOP_LEVEL:STATIC=OFF
+
+//Value Computed by CMake
+ublox_SOURCE_DIR:STATIC=/home/baqu/Self-Driving-Car-Cone-Keeping-Assistance-System/src/ublox/ublox
+
+//Value Computed by CMake
+ublox_gps_BINARY_DIR:STATIC=/home/baqu/Self-Driving-Car-Cone-Keeping-Assistance-System/build/ublox/ublox_gps
+
+//Value Computed by CMake
+ublox_gps_IS_TOP_LEVEL:STATIC=OFF
+
+//Dependencies for the target
+ublox_gps_LIB_DEPENDS:STATIC=general;boost_system;general;boost_regex;general;boost_thread;general;/opt/ros/noetic/lib/libtf.so;general;/opt/ros/noetic/lib/libtf2_ros.so;general;/opt/ros/noetic/lib/libactionlib.so;general;/opt/ros/noetic/lib/libmessage_filters.so;general;/opt/ros/noetic/lib/libtf2.so;general;ublox_msgs;general;/opt/ros/noetic/lib/libdiagnostic_updater.so;general;/opt/ros/noetic/lib/libroscpp.so;general;/usr/lib/x86_64-linux-gnu/libpthread.so;general;/usr/lib/x86_64-linux-gnu/libboost_chrono.so.1.71.0;general;/usr/lib/x86_64-linux-gnu/libboost_filesystem.so.1.71.0;general;/opt/ros/noetic/lib/librosconsole.so;general;/opt/ros/noetic/lib/librosconsole_log4cxx.so;general;/opt/ros/noetic/lib/librosconsole_backend_interface.so;general;/usr/lib/x86_64-linux-gnu/liblog4cxx.so;general;/usr/lib/x86_64-linux-gnu/libboost_regex.so.1.71.0;general;/opt/ros/noetic/lib/libxmlrpcpp.so;general;/opt/ros/noetic/lib/libroscpp_serialization.so;general;/opt/ros/noetic/lib/librostime.so;general;/usr/lib/x86_64-linux-gnu/libboost_date_time.so.1.71.0;general;/opt/ros/noetic/lib/libcpp_common.so;general;/usr/lib/x86_64-linux-gnu/libboost_system.so.1.71.0;general;/usr/lib/x86_64-linux-gnu/libboost_thread.so.1.71.0;general;/usr/lib/x86_64-linux-gnu/libconsole_bridge.so.0.4;
+
+//Value Computed by CMake
+ublox_gps_SOURCE_DIR:STATIC=/home/baqu/Self-Driving-Car-Cone-Keeping-Assistance-System/src/ublox/ublox_gps
+
+//Value Computed by CMake
+ublox_msg_filters_BINARY_DIR:STATIC=/home/baqu/Self-Driving-Car-Cone-Keeping-Assistance-System/build/ublox/ublox_msg_filters
+
+//Value Computed by CMake
+ublox_msg_filters_IS_TOP_LEVEL:STATIC=OFF
+
+//Value Computed by CMake
+ublox_msg_filters_SOURCE_DIR:STATIC=/home/baqu/Self-Driving-Car-Cone-Keeping-Assistance-System/src/ublox/ublox_msg_filters
+
+//Value Computed by CMake
+ublox_msgs_BINARY_DIR:STATIC=/home/baqu/Self-Driving-Car-Cone-Keeping-Assistance-System/build/ublox/ublox_msgs
+
+//The directory containing a CMake configuration file for ublox_msgs.
+ublox_msgs_DIR:PATH=/home/baqu/Self-Driving-Car-Cone-Keeping-Assistance-System/devel/share/ublox_msgs/cmake
+
+//Value Computed by CMake
+ublox_msgs_IS_TOP_LEVEL:STATIC=OFF
+
+//Dependencies for the target
+ublox_msgs_LIB_DEPENDS:STATIC=general;/opt/ros/noetic/lib/libroscpp.so;general;/usr/lib/x86_64-linux-gnu/libpthread.so;general;/usr/lib/x86_64-linux-gnu/libboost_chrono.so.1.71.0;general;/usr/lib/x86_64-linux-gnu/libboost_filesystem.so.1.71.0;general;/opt/ros/noetic/lib/librosconsole.so;general;/opt/ros/noetic/lib/librosconsole_log4cxx.so;general;/opt/ros/noetic/lib/librosconsole_backend_interface.so;general;/usr/lib/x86_64-linux-gnu/liblog4cxx.so;general;/usr/lib/x86_64-linux-gnu/libboost_regex.so.1.71.0;general;/opt/ros/noetic/lib/libxmlrpcpp.so;general;/opt/ros/noetic/lib/libroscpp_serialization.so;general;/opt/ros/noetic/lib/librostime.so;general;/usr/lib/x86_64-linux-gnu/libboost_date_time.so.1.71.0;general;/opt/ros/noetic/lib/libcpp_common.so;general;/usr/lib/x86_64-linux-gnu/libboost_system.so.1.71.0;general;/usr/lib/x86_64-linux-gnu/libboost_thread.so.1.71.0;general;/usr/lib/x86_64-linux-gnu/libconsole_bridge.so.0.4;
+
+//Value Computed by CMake
+ublox_msgs_SOURCE_DIR:STATIC=/home/baqu/Self-Driving-Car-Cone-Keeping-Assistance-System/src/ublox/ublox_msgs
+
+//Value Computed by CMake
+ublox_serialization_BINARY_DIR:STATIC=/home/baqu/Self-Driving-Car-Cone-Keeping-Assistance-System/build/ublox/ublox_serialization
+
+//The directory containing a CMake configuration file for ublox_serialization.
+ublox_serialization_DIR:PATH=/home/baqu/Self-Driving-Car-Cone-Keeping-Assistance-System/devel/share/ublox_serialization/cmake
+
+//Value Computed by CMake
+ublox_serialization_IS_TOP_LEVEL:STATIC=OFF
+
+//Value Computed by CMake
+ublox_serialization_SOURCE_DIR:STATIC=/home/baqu/Self-Driving-Car-Cone-Keeping-Assistance-System/src/ublox/ublox_serialization
 
 //The directory containing a CMake configuration file for xmlrpcpp.
 xmlrpcpp_DIR:PATH=/opt/ros/noetic/share/xmlrpcpp/cmake
@@ -547,6 +703,8 @@ xmlrpcpp_DIR:PATH=/opt/ros/noetic/share/xmlrpcpp/cmake
 # INTERNAL cache entries
 ########################
 
+//ADVANCED property for variable: Boost_DIR
+Boost_DIR-ADVANCED:INTERNAL=1
 //catkin environment
 CATKIN_ENV:INTERNAL=/home/baqu/Self-Driving-Car-Cone-Keeping-Assistance-System/build/catkin_generated/env_cached.sh
 CATKIN_TEST_RESULTS_DIR:INTERNAL=/home/baqu/Self-Driving-Car-Cone-Keeping-Assistance-System/build/test_results
@@ -688,7 +846,7 @@ CMAKE_MODULE_LINKER_FLAGS_RELWITHDEBINFO-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: CMAKE_NM
 CMAKE_NM-ADVANCED:INTERNAL=1
 //number of local generators
-CMAKE_NUMBER_OF_MAKEFILES:INTERNAL=6
+CMAKE_NUMBER_OF_MAKEFILES:INTERNAL=15
 //ADVANCED property for variable: CMAKE_OBJCOPY
 CMAKE_OBJCOPY-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: CMAKE_OBJDUMP
@@ -731,6 +889,8 @@ CMAKE_STRIP-ADVANCED:INTERNAL=1
 CMAKE_UNAME:INTERNAL=/usr/bin/uname
 //ADVANCED property for variable: CMAKE_VERBOSE_MAKEFILE
 CMAKE_VERBOSE_MAKEFILE-ADVANCED:INTERNAL=1
+//Details about finding Boost
+FIND_PACKAGE_MESSAGE_DETAILS_Boost:INTERNAL=[/usr/lib/x86_64-linux-gnu/cmake/Boost-1.71.0/BoostConfig.cmake][cfound components: system regex thread ][v1.71.0()]
 //Details about finding PY_em
 FIND_PACKAGE_MESSAGE_DETAILS_PY_em:INTERNAL=[/home/baqu/.local/lib/python3.8/site-packages/em.py][v()]
 //Details about finding PythonInterp
@@ -775,6 +935,16 @@ PYTHON_INSTALL_DIR:INTERNAL=lib/python3/dist-packages
 _CMAKE_LINKER_PUSHPOP_STATE_SUPPORTED:INTERNAL=TRUE
 //CMAKE_INSTALL_PREFIX during last run
 _GNUInstallDirs_LAST_CMAKE_INSTALL_PREFIX:INTERNAL=/home/baqu/Self-Driving-Car-Cone-Keeping-Assistance-System/install
+//ADVANCED property for variable: boost_atomic_DIR
+boost_atomic_DIR-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: boost_headers_DIR
+boost_headers_DIR-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: boost_regex_DIR
+boost_regex_DIR-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: boost_system_DIR
+boost_system_DIR-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: boost_thread_DIR
+boost_thread_DIR-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: gmock_build_tests
 gmock_build_tests-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: gtest_build_samples

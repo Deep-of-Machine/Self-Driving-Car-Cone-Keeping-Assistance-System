@@ -5,7 +5,7 @@ import sensor_msgs.point_cloud2 as pc2
 from sklearn.cluster import DBSCAN
 
 def cluster_objects(pc_array):
-    clustering = DBSCAN(eps=0.6, min_samples=2)  
+    clustering = DBSCAN(eps=0.4, min_samples=2)  
     labels = clustering.fit_predict(pc_array[:, :3])  
 
     unique_labels = np.unique(labels) 
@@ -30,9 +30,9 @@ def pointcloud_callback(msg):
     for point in pc_array:
         x, y, z = point
         distance = np.sqrt(x**2 + y**2 + z**2)  
-        if (distance < distance_threshold) and (x > 1 or abs(y) > 2):  #(abs(x) > 1 or abs(y) > 2)
+        if (distance < distance_threshold) and x > 0.5:  #and (abs(x) > 1 or abs(y) > 2) and x > 1: #x > -1.6:  #(abs(x) > 1 or abs(y) > 2)
             filtered_pc_array.append(point)
-
+   
     filtered_pc_array = np.array(filtered_pc_array)
 
     object_centroids = cluster_objects(filtered_pc_array)  
@@ -57,5 +57,5 @@ def listener():
 
 if __name__ == '__main__':
     pub = rospy.Publisher('/object_centroids', PointCloud2, queue_size=10) 
-    distance_threshold = 20
+    distance_threshold =  10 #속도가 빨라지면 distance_threshold 증가,느려지면 감소.
     listener() 

@@ -91,9 +91,9 @@ endif()
 # flag project as catkin-based to distinguish if a find_package()-ed project is a catkin project
 set(lidar_pkg_FOUND_CATKIN_PROJECT TRUE)
 
-if(NOT " " STREQUAL " ")
+if(NOT "/home/baqu/Self-Driving-Car-Cone-Keeping-Assistance-System/devel/include " STREQUAL " ")
   set(lidar_pkg_INCLUDE_DIRS "")
-  set(_include_dirs "")
+  set(_include_dirs "/home/baqu/Self-Driving-Car-Cone-Keeping-Assistance-System/devel/include")
   if(NOT " " STREQUAL " ")
     set(_report "Check the issue tracker '' and consider creating a ticket if the problem has not been reported yet.")
   elseif(NOT " " STREQUAL " ")
@@ -154,7 +154,7 @@ foreach(library ${libraries})
     set(lib_path "")
     set(lib "${library}-NOTFOUND")
     # since the path where the library is found is returned we have to iterate over the paths manually
-    foreach(path /home/baqu/Self-Driving-Car-Cone-Keeping-Assistance-System/devel/lib;/home/baqu/Self-Driving-Car-Cone-Keeping-Assistance-System/build/devel/lib;/home/baqu/ksh/Self-Driving-Car-Cone-Keeping-Assistance-System/devel/lib;/opt/ros/noetic/lib)
+    foreach(path /home/baqu/Self-Driving-Car-Cone-Keeping-Assistance-System/devel/lib;/home/baqu/catkin_ws/devel/lib;/home/baqu/ouster/myworkspace/devel/lib;/opt/ros/noetic/lib)
       find_library(lib ${library}
         PATHS ${path}
         NO_DEFAULT_PATH NO_CMAKE_FIND_ROOT_PATH)
@@ -177,7 +177,7 @@ foreach(library ${libraries})
   endif()
 endforeach()
 
-set(lidar_pkg_EXPORTED_TARGETS "")
+set(lidar_pkg_EXPORTED_TARGETS "lidar_pkg_generate_messages_cpp;lidar_pkg_generate_messages_eus;lidar_pkg_generate_messages_lisp;lidar_pkg_generate_messages_nodejs;lidar_pkg_generate_messages_py")
 # create dummy targets for exported code generation targets to make life of users easier
 foreach(t ${lidar_pkg_EXPORTED_TARGETS})
   if(NOT TARGET ${t})
@@ -214,7 +214,7 @@ foreach(depend ${depends})
   _list_append_deduplicate(lidar_pkg_EXPORTED_TARGETS ${${lidar_pkg_dep}_EXPORTED_TARGETS})
 endforeach()
 
-set(pkg_cfg_extras "")
+set(pkg_cfg_extras "lidar_pkg-msg-extras.cmake")
 foreach(extra ${pkg_cfg_extras})
   if(NOT IS_ABSOLUTE ${extra})
     set(extra ${lidar_pkg_DIR}/${extra})

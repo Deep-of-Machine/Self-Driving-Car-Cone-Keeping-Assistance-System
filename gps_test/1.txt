@@ -1,0 +1,375 @@
+header: 
+  seq: 57
+  stamp: 
+    secs: 1693243184
+    nsecs:    233152
+  frame_id: "gps"
+status: 
+  status: 2
+  service: 1
+latitude: 37.2988071
+longitude: 126.83789519999999
+altitude: 32.666000000000004
+position_covariance: [0.00019600000000000002, 0.0, 0.0, 0.0, 0.00019600000000000002, 0.0, 0.0, 0.0, 0.00028900000000000003]
+position_covariance_type: 2
+---
+header: 
+  seq: 58
+  stamp: 
+    secs: 1693243185
+    nsecs:    233003
+  frame_id: "gps"
+status: 
+  status: 2
+  service: 1
+latitude: 37.298808199999996
+longitude: 126.8378936
+altitude: 32.899
+position_covariance: [0.00019600000000000002, 0.0, 0.0, 0.0, 0.00019600000000000002, 0.0, 0.0, 0.0, 0.00032399999999999996]
+position_covariance_type: 2
+---
+header: 
+  seq: 59
+  stamp: 
+    secs: 1693243186
+    nsecs:    232854
+  frame_id: "gps"
+status: 
+  status: 2
+  service: 1
+latitude: 37.2988103
+longitude: 126.8378918
+altitude: 32.839
+position_covariance: [0.00019600000000000002, 0.0, 0.0, 0.0, 0.00019600000000000002, 0.0, 0.0, 0.0, 0.00028900000000000003]
+position_covariance_type: 2
+---
+header: 
+  seq: 60
+  stamp: 
+    secs: 1693243187
+    nsecs:    232705
+  frame_id: "gps"
+status: 
+  status: 2
+  service: 1
+latitude: 37.298814199999995
+longitude: 126.83788999999999
+altitude: 32.855000000000004
+position_covariance: [0.00019600000000000002, 0.0, 0.0, 0.0, 0.00019600000000000002, 0.0, 0.0, 0.0, 0.00028900000000000003]
+position_covariance_type: 2
+---
+header: 
+  seq: 61
+  stamp: 
+    secs: 1693243188
+    nsecs:    232556
+  frame_id: "gps"
+status: 
+  status: 2
+  service: 1
+latitude: 37.2988213
+longitude: 126.8378857
+altitude: 32.913000000000004
+position_covariance: [0.00019600000000000002, 0.0, 0.0, 0.0, 0.00019600000000000002, 0.0, 0.0, 0.0, 0.00032399999999999996]
+position_covariance_type: 2
+---
+header: 
+  seq: 62
+  stamp: 
+    secs: 1693243189
+    nsecs:    232407
+  frame_id: "gps"
+status: 
+  status: 2
+  service: 1
+latitude: 37.2988289
+longitude: 126.8378814
+altitude: 32.898
+position_covariance: [0.00019600000000000002, 0.0, 0.0, 0.0, 0.00019600000000000002, 0.0, 0.0, 0.0, 0.00028900000000000003]
+position_covariance_type: 2
+---
+header: 
+  seq: 63
+  stamp: 
+    secs: 1693243190
+    nsecs:    232258
+  frame_id: "gps"
+status: 
+  status: 2
+  service: 1
+latitude: 37.2988357
+longitude: 126.83787699999999
+altitude: 32.921
+position_covariance: [0.00019600000000000002, 0.0, 0.0, 0.0, 0.00019600000000000002, 0.0, 0.0, 0.0, 0.00028900000000000003]
+position_covariance_type: 2
+---
+header: 
+  seq: 64
+  stamp: 
+    secs: 1693243191
+    nsecs:    232109
+  frame_id: "gps"
+status: 
+  status: 2
+  service: 1
+latitude: 37.2988424
+longitude: 126.8378723
+altitude: 32.843
+position_covariance: [0.00019600000000000002, 0.0, 0.0, 0.0, 0.00019600000000000002, 0.0, 0.0, 0.0, 0.00028900000000000003]
+position_covariance_type: 2
+---
+header: 
+  seq: 65
+  stamp: 
+    secs: 1693243192
+    nsecs:    231960
+  frame_id: "gps"
+status: 
+  status: 2
+  service: 1
+latitude: 37.2988494
+longitude: 126.83786819999999
+altitude: 32.878
+position_covariance: [0.00019600000000000002, 0.0, 0.0, 0.0, 0.00019600000000000002, 0.0, 0.0, 0.0, 0.000256]
+position_covariance_type: 2
+---
+header: 
+  seq: 66
+  stamp: 
+    secs: 1693243193
+    nsecs:    231811
+  frame_id: "gps"
+status: 
+  status: 2
+  service: 1
+latitude: 37.2988572
+longitude: 126.83786339999999
+altitude: 32.87
+position_covariance: [0.00019600000000000002, 0.0, 0.0, 0.0, 0.00019600000000000002, 0.0, 0.0, 0.0, 0.00028900000000000003]
+position_covariance_type: 2
+---
+header: 
+  seq: 67
+  stamp: 
+    secs: 1693243194
+    nsecs:    231662
+  frame_id: "gps"
+status: 
+  status: 2
+  service: 1
+latitude: 37.2988648
+longitude: 126.8378585
+altitude: 32.845
+position_covariance: [0.00019600000000000002, 0.0, 0.0, 0.0, 0.00019600000000000002, 0.0, 0.0, 0.0, 0.00028900000000000003]
+position_covariance_type: 2
+---
+header: 
+  seq: 68
+  stamp: 
+    secs: 1693243195
+    nsecs:    231513
+  frame_id: "gps"
+status: 
+  status: 2
+  service: 1
+latitude: 37.2988721
+longitude: 126.8378534
+altitude: 32.777
+position_covariance: [0.00019600000000000002, 0.0, 0.0, 0.0, 0.00019600000000000002, 0.0, 0.0, 0.0, 0.000256]
+position_covariance_type: 2
+---
+header: 
+  seq: 69
+  stamp: 
+    secs: 1693243196
+    nsecs:    231364
+  frame_id: "gps"
+status: 
+  status: 2
+  service: 1
+latitude: 37.2988777
+longitude: 126.8378482
+altitude: 32.724000000000004
+position_covariance: [0.00019600000000000002, 0.0, 0.0, 0.0, 0.00019600000000000002, 0.0, 0.0, 0.0, 0.000256]
+position_covariance_type: 2
+---
+header: 
+  seq: 70
+  stamp: 
+    secs: 1693243197
+    nsecs:    231216
+  frame_id: "gps"
+status: 
+  status: 2
+  service: 1
+latitude: 37.2988852
+longitude: 126.83784379999999
+altitude: 32.718
+position_covariance: [0.00019600000000000002, 0.0, 0.0, 0.0, 0.00019600000000000002, 0.0, 0.0, 0.0, 0.00028900000000000003]
+position_covariance_type: 2
+---
+header: 
+  seq: 71
+  stamp: 
+    secs: 1693243198
+    nsecs:    231067
+  frame_id: "gps"
+status: 
+  status: 2
+  service: 1
+latitude: 37.298893199999995
+longitude: 126.83783989999999
+altitude: 32.772
+position_covariance: [0.00019600000000000002, 0.0, 0.0, 0.0, 0.00019600000000000002, 0.0, 0.0, 0.0, 0.000256]
+position_covariance_type: 2
+---
+header: 
+  seq: 72
+  stamp: 
+    secs: 1693243199
+    nsecs:    230919
+  frame_id: "gps"
+status: 
+  status: 2
+  service: 1
+latitude: 37.298901199999996
+longitude: 126.8378352
+altitude: 32.84
+position_covariance: [0.00019600000000000002, 0.0, 0.0, 0.0, 0.00019600000000000002, 0.0, 0.0, 0.0, 0.00032399999999999996]
+position_covariance_type: 2
+---
+header: 
+  seq: 73
+  stamp: 
+    secs: 1693243200
+    nsecs:    230772
+  frame_id: "gps"
+status: 
+  status: 2
+  service: 1
+latitude: 37.298908999999995
+longitude: 126.83783039999999
+altitude: 32.844
+position_covariance: [0.00019600000000000002, 0.0, 0.0, 0.0, 0.00019600000000000002, 0.0, 0.0, 0.0, 0.00028900000000000003]
+position_covariance_type: 2
+---
+header: 
+  seq: 74
+  stamp: 
+    secs: 1693243201
+    nsecs:    230625
+  frame_id: "gps"
+status: 
+  status: 2
+  service: 1
+latitude: 37.2989171
+longitude: 126.8378243
+altitude: 32.854
+position_covariance: [0.00019600000000000002, 0.0, 0.0, 0.0, 0.00019600000000000002, 0.0, 0.0, 0.0, 0.0004]
+position_covariance_type: 2
+---
+header: 
+  seq: 75
+  stamp: 
+    secs: 1693243202
+    nsecs:    230479
+  frame_id: "gps"
+status: 
+  status: 2
+  service: 1
+latitude: 37.2989254
+longitude: 126.8378185
+altitude: 32.831
+position_covariance: [0.00019600000000000002, 0.0, 0.0, 0.0, 0.00019600000000000002, 0.0, 0.0, 0.0, 0.000361]
+position_covariance_type: 2
+---
+header: 
+  seq: 76
+  stamp: 
+    secs: 1693243203
+    nsecs:    230332
+  frame_id: "gps"
+status: 
+  status: 2
+  service: 1
+latitude: 37.2989332
+longitude: 126.8378132
+altitude: 32.835
+position_covariance: [0.00019600000000000002, 0.0, 0.0, 0.0, 0.00019600000000000002, 0.0, 0.0, 0.0, 0.0004]
+position_covariance_type: 2
+---
+header: 
+  seq: 77
+  stamp: 
+    secs: 1693243204
+    nsecs:    230186
+  frame_id: "gps"
+status: 
+  status: 2
+  service: 1
+latitude: 37.2989405
+longitude: 126.8378084
+altitude: 32.801
+position_covariance: [0.00019600000000000002, 0.0, 0.0, 0.0, 0.00019600000000000002, 0.0, 0.0, 0.0, 0.00032399999999999996]
+position_covariance_type: 2
+---
+header: 
+  seq: 78
+  stamp: 
+    secs: 1693243205
+    nsecs:    230041
+  frame_id: "gps"
+status: 
+  status: 2
+  service: 1
+latitude: 37.2989471
+longitude: 126.83780469999999
+altitude: 32.778
+position_covariance: [0.00019600000000000002, 0.0, 0.0, 0.0, 0.00019600000000000002, 0.0, 0.0, 0.0, 0.00028900000000000003]
+position_covariance_type: 2
+---
+header: 
+  seq: 79
+  stamp: 
+    secs: 1693243206
+    nsecs:    229896
+  frame_id: "gps"
+status: 
+  status: 2
+  service: 1
+latitude: 37.2989525
+longitude: 126.837801
+altitude: 32.747
+position_covariance: [0.00019600000000000002, 0.0, 0.0, 0.0, 0.00019600000000000002, 0.0, 0.0, 0.0, 0.000361]
+position_covariance_type: 2
+---
+header: 
+  seq: 80
+  stamp: 
+    secs: 1693243207
+    nsecs:    229751
+  frame_id: "gps"
+status: 
+  status: 2
+  service: 1
+latitude: 37.2989564
+longitude: 126.8377982
+altitude: 32.744
+position_covariance: [0.00019600000000000002, 0.0, 0.0, 0.0, 0.00019600000000000002, 0.0, 0.0, 0.0, 0.000361]
+position_covariance_type: 2
+---
+header: 
+  seq: 81
+  stamp: 
+    secs: 1693243208
+    nsecs:    229606
+  frame_id: "gps"
+status: 
+  status: 2
+  service: 1
+latitude: 37.2989572
+longitude: 126.83779779999999
+altitude: 32.743
+position_covariance: [0.00019600000000000002, 0.0, 0.0, 0.0, 0.00019600000000000002, 0.0, 0.0, 0.0, 0.00032399999999999996]
+position_covariance_type: 2
+---

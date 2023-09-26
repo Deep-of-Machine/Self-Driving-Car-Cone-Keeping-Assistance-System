@@ -1,5 +1,3 @@
-#Downsampling -> remove Gound
-
 import rospy
 import sensor_msgs.point_cloud2 as pc2
 from sensor_msgs.msg import PointCloud2
@@ -10,12 +8,14 @@ def remove_ground(data):
     pc_array = np.array(list(pc_data))
 
     # Define ground threshold
-    ground_threshold = -0.65  # Lidar Height
-    # ground_threshold = 10
+    ground_threshold = -1  # Lidar Height
+    cone_threshold = -0.2
 
-    filtered_pc_array = pc_array[pc_array[:, 2] > ground_threshold]
+    # Reconsidering the logic for filtering ground and other points
+    non_ground_pc_array = pc_array[pc_array[:, 2] > ground_threshold]
+    filtered_pc_array = non_ground_pc_array[non_ground_pc_array[:, 2] < cone_threshold]
+
     header = data.header 
-
     filtered_pc2_msg = pc2.create_cloud_xyz32(header, filtered_pc_array.tolist())
     pub.publish(filtered_pc2_msg)
 
@@ -25,7 +25,5 @@ def listener():
     rospy.spin()
 
 if __name__ == '__main__':
-    # Define the publisher globally
     pub = rospy.Publisher('/filtered_point_cloud', PointCloud2, queue_size=10)
-
     listener()
