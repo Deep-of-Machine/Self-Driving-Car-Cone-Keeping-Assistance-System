@@ -9,13 +9,13 @@
 #include <linux/can/raw.h>
 #include <wiringPi.h>
 #include <softPwm.h>
+#include <time.h>
 
-#define MOTOR_OUT 9
-#define RANGE 10 // error range
+#define MOTOR_OUT 21
+#define RANGE 5 // error range
 int now_target = 0;
 
 void setting(void);
-void target_check(int, int);
 void motor_run(int);
 void motor_stop(void);
 
@@ -27,7 +27,11 @@ int main()
     struct ifreq ifr;
     struct can_frame frame;
 
-    setting(); // Pin Setting
+    time_t start_time = time(NULL);
+
+    while (time(NULL) - start_time <= 5) {
+        setting(); // Pin Setting
+    }
 
     memset(&frame, 0, sizeof(struct can_frame));
 
@@ -60,7 +64,7 @@ int main()
 
     // 4.Define receive rules
     struct can_filter rfilter[1];
-    rfilter[0].can_id = 0x001; // receive from CAN0
+    rfilter[0].can_id = 0x123; // receive from CAN0
     rfilter[0].can_mask = CAN_SFF_MASK;
     setsockopt(s, SOL_CAN_RAW, CAN_RAW_FILTER, &rfilter, sizeof(rfilter));
 
@@ -72,7 +76,12 @@ int main()
         {
             if (frame.data[0] == 1)
             { // auto state
-                target_check(frame.data[1], frame.data[2]);
+                if (frame.data[4] == 1) {
+                    // detect stop line
+                    motor_stop();
+                } else {
+                    motor_run(frame.data[1]);
+                }
             }
             else
             {
@@ -83,7 +92,6 @@ int main()
 
     // 6.Close the socket and can1
     close(s);
-    system("sudo ifconfig can1 down");
 
     return 0;
 }
@@ -92,27 +100,13 @@ void setting(void)
 {
     wiringPiSetupGpio();
 
-    softPwmCreate(MOTOR_OUT, 0, 200);
-}
+    softPwmCreate(MOTOR_OUT, 0, 255);
 
-void target_check(int current_speed, int new_target)
-{
-    if ((current_speed < (new_target - RANGE)) || (current_speed > (new_target + RANGE)))
-    {
-        // set new target value
-        now_target = new_target;
-
-        motor_run(now_target);
-    }
-    else
-    {
-        motor_run(now_target);
-    }
+    softPwmWrite(MOTOR_OUT, 0);
 }
 
 void motor_run(int new_target)
 {
-    // add PID code
     softPwmWrite(MOTOR_OUT, new_target);
 }
 
