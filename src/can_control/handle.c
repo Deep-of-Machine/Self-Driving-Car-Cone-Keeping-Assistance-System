@@ -1,32 +1,49 @@
 #include <stdio.h>
+#include <stdint.h>
 #include <stdlib.h>
 #include <stdbool.h>
 #include <string.h>
 #include <unistd.h>
 #include <net/if.h>
+#include <fcntl.h>
+#include <linux/spi/spidev.h>
 #include <sys/ioctl.h>
 #include <sys/socket.h>
 #include <linux/can.h>
 #include <linux/can/raw.h>
 #include <wiringPi.h>
 #include <softPwm.h>
+#include <time.h>
 
-#define IN1 19
-#define IN2 13
-#define IN3 6
-#define IN4 5
+#define IN1 5
+#define IN2 6
 
-#define MAX_CAN_IDS 2
-#define RANGE 10
+#define HIGH 1
+#define LOW 0
+
+#define RANGE 2
 #define SUM 78
+#define MEDIUM 42
 
 int current_target = 0;
-int direction = 0; // 0 : RIGHT, 1 : LEFT;
-bool SENSOR_CAN_SETTING = true;
+int direction = 0;
 
-void setting(void);
-void target_check(int, int);
-void actuator_run(int, int);
+// CAN variable
+static const char *spi_device = "/dev/spidev0.2";
+static uint8_t spi_mode = 0;
+static uint8_t spi_bits_per_word = 8;
+static uint32_t spi_speed = 500000;
+
+static uint8_t tx_buffer[3];
+static uint8_t rx_buffer[3];
+
+static int spi_fd;
+
+int setting(void);
+static void select_channel(uint8_t);
+void set_medium(void);
+void target_check(int);
+void actuator_run(int);
 void actuator_stop(void);
 
 int main()
@@ -37,7 +54,11 @@ int main()
     struct ifreq ifr;
     struct can_frame frame;
 
-    setting();
+    time_t start_time = time(NULL);
+
+    while (time(NULL) - start_time <= 5) {
+        setting(); // Pin Setting
+    }
 
     memset(&frame, 0, sizeof(struct can_frame));
 
@@ -70,21 +91,27 @@ int main()
 
     // 4.Define receive rules
     struct can_filter rfilter[1];
-    rfilter[0].can_id = 0x001; // receive from CAN0
+    rfilter[0].can_id = 0x123; // receive from CAN0
     rfilter[0].can_mask = CAN_SFF_MASK;
     setsockopt(s, SOL_CAN_RAW, CAN_RAW_FILTER, &rfilter, sizeof(rfilter));
+
 
     // 5.Receive data and exit
     while (1)
     {
         nbytes = read(s, &frame, sizeof(frame));
+
         if (nbytes > 0)
-        {
-            if (frame.data[0] == 1)
+	{        
+            if (frame.data[0] == 1) // run 상태
             {
-                target_check(current_target, frame.data[3]);
+                if (frame.data[4] == 1) {
+                    actuator_stop();
+                } else {
+                    target_check(frame.data[3]);
+                }
             }
-            else
+            else // emergency 상태
             {
                 actuator_stop();
             }
@@ -93,116 +120,164 @@ int main()
 
     // 6.Close the socket and can1
     close(s);
-    system("sudo ifconfig can1 down");
+    close(spi_fd);
 
     return 0;
 }
 
-void setting(void)
+int setting(void)
 {
     wiringPiSetupGpio();
 
-    softPwmCreate(IN1, 0, 1000);
-    softPwmCreate(IN2, 0, 1000);
-    softPwmCreate(IN3, 0, 1000);
-    softPwmCreate(IN4, 0, 1000);
+    pinMode(IN1, OUTPUT);
+    pinMode(IN2, OUTPUT);
+
+    // linear sensor accept
+    spi_fd = open(spi_device, O_RDWR);
+    if (spi_fd == -1)
+    {
+        perror("Failed to open SPI device");
+        return 1;
+    }
+
+    if (ioctl(spi_fd, SPI_IOC_WR_MODE, &spi_mode) == -1)
+    {
+        perror("Failed to set SPI mode");
+        close(spi_fd);
+        return 1;
+    }
+
+    if (ioctl(spi_fd, SPI_IOC_WR_BITS_PER_WORD, &spi_bits_per_word) == -1)
+    {
+        perror("Failed to set SPI bits per word");
+        close(spi_fd);
+        return 1;
+    }
+
+    if (ioctl(spi_fd, SPI_IOC_WR_MAX_SPEED_HZ, &spi_speed) == -1)
+    {
+        perror("Failed to set SPI speed");
+        close(spi_fd);
+        return 1;
+    }
+
+    set_medium();
+
+    return 0;
 }
 
-void target_check(int current_target, int new_target)
+static void select_channel(uint8_t channel)
 {
-    if ((current_target < (new_target - RANGE)) || (current_target > (new_target + RANGE)))
+    tx_buffer[0] = 0x01;                  // Start bit
+    tx_buffer[1] = 0x80 | (channel << 4); // Single-ended mode, channel selection
+    tx_buffer[2] = 0x00;                  // Dummy byte
+
+    struct spi_ioc_transfer tr = {
+        .tx_buf = (unsigned long)tx_buffer,
+        .rx_buf = (unsigned long)rx_buffer,
+        .len = 3,
+        .speed_hz = spi_speed,
+        .bits_per_word = spi_bits_per_word,
+    };
+
+    ioctl(spi_fd, SPI_IOC_MESSAGE(1), &tr);
+}
+
+void set_medium(void)
+{
+    select_channel(0);
+
+    int adc_value = ((rx_buffer[1] & 0x03) << 8) | rx_buffer[2];
+
+    int min_value = 0;
+    int max_value = SUM;
+    if (adc_value < min_value)
     {
-        // set new target value
-        if (current_target < new_target)
-            direction = 0;
-        else
-            direction = 1;
+        adc_value = min_value;
+    }
+    else if (adc_value > max_value)
+    {
+        adc_value = max_value;
+    }
+    
+    float mm_value = (float)(adc_value);
+    mm_value = (mm_value/1023)*SUM;
 
-        current_target = new_target;
+    // setting medium
+    digitalWrite(IN1, HIGH);
+    digitalWrite(IN2, LOW);
+    delay(1000);
 
-        actuator_run(current_target, direction);
+    digitalWrite(IN1, LOW);
+    digitalWrite(IN2, HIGH);
+    delay(1000);
+
+    while ((mm_value < MEDIUM - RANGE) || (mm_value > MEDIUM + RANGE)) {
+        if (mm_value < MEDIUM - RANGE) {
+            actuator_run(1);
+        } else {
+            actuator_run(0);
+        }
+    }
+
+    actuator_stop();
+}
+
+void target_check(int new_target)
+{
+    select_channel(0);
+
+    int adc_value = ((rx_buffer[1] & 0x03) << 8) | rx_buffer[2];
+
+    int min_value = 0;
+    int max_value = 1023;
+
+    if (adc_value < min_value)
+    {
+        adc_value = min_value;
+    }
+    else if (adc_value > max_value)
+    {
+        adc_value = max_value;
+    }
+
+    float mm_value = (float)(adc_value);
+    mm_value = (mm_value/1023)*78;
+
+    if ((mm_value < new_target - RANGE))
+    {
+        actuator_run(1);
+    }
+    else if ((mm_value > new_target + RANGE))
+    {
+        actuator_run(0);
     }
     else
     {
-        actuator_run(current_target, direction);
+        actuator_stop();
     }
 }
 
-void actuator_run(int current_target, int direction)
+void actuator_run(int direction)
 {
-    // assume that only accept the RIGHT value
-    // assume that the sum of the both actuators is constant at 78 (make level)
-    int RIGHT = current_target;
-    int LEFT = SUM - RIGHT;
-    int ret;
-    int s, nbytes;
-    struct sockaddr_can addr;
-    struct ifreq ifr;
-    struct can_frame frame;
-
-    if (SENSOR_CAN_SETTING)
+    if (direction == 0)
     {
-        memset(&frame, 0, sizeof(struct can_frame));
-        s = socket(PF_CAN, SOCK_RAW, CAN_RAW);
-        if (s < 0)
-        {
-            perror("socket PF_CAN failed");
-        }
-        strcpy(ifr.ifr_name, "can1");
-        ret = ioctl(s, SIOCGIFINDEX, &ifr);
-        if (ret < 0)
-        {
-            perror("ioctl failed");
-        }
-        addr.can_family = PF_CAN;
-        addr.can_ifindex = ifr.ifr_ifindex;
-        ret = bind(s, (struct sockaddr *)&addr, sizeof(addr));
-        if (ret < 0)
-        {
-            perror("bind failed");
-        }
-        struct can_filter rfilter[1];
-        rfilter[0].can_id = 0x003; // receive from CAN2
-        rfilter[0].can_mask = CAN_SFF_MASK;
-        setsockopt(s, SOL_CAN_RAW, CAN_RAW_FILTER, &rfilter, sizeof(rfilter));
-
-        SENSOR_CAN_SETTING = false;
+        digitalWrite(IN1, HIGH);
+        digitalWrite(IN2, LOW);
+        delay(1);
     }
-
-    nbytes = read(s, &frame, sizeof(frame));
-    if (nbytes > 0)
+    else
     {
-        if ((frame.data[0] < (RIGHT - 2)) || (frame.data[0] > (RIGHT + 2)))
-        {
-            if (direction == 0)
-            {
-                softPwmWrite(IN1, 0);
-                softPwmWrite(IN2, 1000);
-                softPwmWrite(IN3, 0);
-                softPwmWrite(IN4, 1000);
-            }
-            else
-            {
-                softPwmWrite(IN1, 1000);
-                softPwmWrite(IN2, 0);
-                softPwmWrite(IN3, 1000);
-                softPwmWrite(IN4, 0);
-            }
-
-            delay(1000);
-        }
-        else
-        {
-            // if sensor value is in error range -> stop moving
-            actuator_stop();
-        }
+        digitalWrite(IN1, LOW);
+        digitalWrite(IN2, HIGH);
+        delay(1);
     }
 }
 
 void actuator_stop()
 {
-    softPwmWrite(IN1, 0);
-    softPwmWrite(IN2, 0);
-    softPwmWrite(IN3, 0);
-    softPwmWrite(IN4, 0);
+    digitalWrite(IN1, HIGH);
+    digitalWrite(IN2, HIGH);
+    delay(1);
 }
+
