@@ -26,7 +26,7 @@ def pointcloud_callback(msg):
     pc_array = np.array(list(pc_data))
 
     # DBSCAN clustering
-    clustering = DBSCAN(eps=4.3, min_samples=2).fit(pc_array[:, :2])
+    clustering = DBSCAN(eps=4, min_samples=2).fit(pc_array[:, :2])
     labels = clustering.labels_
     unique_labels = np.unique(labels)
 
@@ -106,6 +106,9 @@ def pointcloud_callback(msg):
     pub.publish(midpoints)
 
     print(midpoints)
+
+
+
 
 def listener():
     rospy.init_node('pointcloud_listener', anonymous=True)

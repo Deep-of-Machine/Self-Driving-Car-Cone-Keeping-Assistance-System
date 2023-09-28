@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-
+from sklearn.linear_model import LinearRegression
 import numpy as np
 import rospy
 import sensor_msgs.point_cloud2 as pc2
@@ -44,8 +44,8 @@ def pointcloud_callback(msg):
         cluster_points = pc_array[cluster_mask]
 
         # Find closest points in each cluster for left and right
-        left_mask = cluster_points[:, 1] < 0
-        right_mask = cluster_points[:, 1] > 0
+        left_mask = cluster_points[:, 1] > 0
+        right_mask = cluster_points[:, 1] < 0
 
         if np.any(left_mask):
             min_left_distance_idx = np.argmin(distances[cluster_mask][left_mask])
@@ -65,6 +65,27 @@ def pointcloud_callback(msg):
     left_lane = pc_array[labels == closest_left_label] if closest_left_label is not None else np.array([])
     right_lane = pc_array[labels == closest_right_label] if closest_right_label is not None else np.array([])
 
+    if len(right_lane) > 0:
+        # Linear Regression to find the best fit line for right_lane
+        reg = LinearRegression().fit(right_lane[:, 0].reshape(-1, 1), right_lane[:, 1])
+
+        # Slope and intercept
+        m = reg.coef_[0]
+        c = reg.intercept_
+
+        # Calculate the normal direction (perpendicular)
+        normal_slope = -1 / m
+        angle = np.arctan(normal_slope)
+        dx = 2.5 * np.cos(angle)
+        dy = 2.5 * np.sin(angle)
+
+        # Move the points of right_lane 2.5 units to the left along the normal
+        new_right_lane = right_lane.copy()
+        new_right_lane[:, 0] += dx
+        new_right_lane[:, 1] += dy
+
+        new_right_lane_msg = create_cloud_msg(new_right_lane, msg.header.frame_id)
+        pub_new_right.publish(new_right_lane_msg)
     # Combine lanes for SVC
     X = np.vstack((left_lane[:, :2], right_lane[:, :2]))
     y = np.hstack((np.zeros(len(left_lane)), np.ones(len(right_lane))))
@@ -118,5 +139,6 @@ def listener():
 if __name__ == '__main__':
     pub = rospy.Publisher('/path_planning', PointCloud2, queue_size=10)
     pub_left = rospy.Publisher('/left_lane', PointCloud2, queue_size=10)
+    pub_new_right = rospy.Publisher('/new_right_lane', PointCloud2, queue_size=10)    
     pub_right = rospy.Publisher('/right_lane', PointCloud2, queue_size=10)
     listener()

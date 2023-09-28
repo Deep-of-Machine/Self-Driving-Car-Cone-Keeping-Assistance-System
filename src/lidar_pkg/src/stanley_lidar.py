@@ -9,7 +9,7 @@ from std_msgs.msg import Float64, Int16
 class StanleyController:
     def __init__(self):
         self.midpoints = None
-        self.k = 0.3      # 상수 k (튜닝이 필요) 원돌이 0.3
+        self.k = 0.7      # 상수 k (튜닝이 필요) 원돌이 0.3 / 0.8요 - 0.7 추천 / 0.5요 - 0.5
         self.filtered_yaw = 0.0  # 초기화
         self.gps_speed = 0.0  # 초기화
 
@@ -45,8 +45,8 @@ class StanleyController:
         # farthest_point = self.midpoints[farthest_idx]
         # delta_y = farthest_point[1] - closest_point[1]
         # delta_x = farthest_point[0] - closest_point[0]
-        # path_yaw = 0.7 * np.arctan2(delta_y, delta_x)
 
+        # path_yaw = 0.7 * np.arctan2(delta_y, delta_x)
 
         # Use broadcasting and vectorization for efficient computation
         distances = np.linalg.norm(self.midpoints[:, :2] - self.vehicle_pos, axis=1)
@@ -58,15 +58,18 @@ class StanleyController:
         delta_y = third_closest_point[1] - closest_point[1]
         delta_x = third_closest_point[0] - closest_point[0]
         path_yaw = np.arctan2(delta_y, delta_x)
+        path_yaw = path_yaw * 0.5
         # yaw = self.ya
         if path_yaw >= np.pi/8 and path_yaw <= np.pi*7/8:
             # print("감속")
             self.pub_speed.publish(Int16(10))  # 속도를 30으로 감속
+            print('감속')
         else:
             self.pub_speed.publish(Int16(30))
+            print('가속')
             # print("가속")
 
-        print('앞', path_yaw)
+        # print('앞', path_yaw)
         idx = closest_idx  # Already computed
         lookahead_point = self.midpoints[idx]
         x_error = lookahead_point[1]
@@ -74,19 +77,21 @@ class StanleyController:
         print('err', x_error)
         if self.gps_speed > 1 and self.gps_speed < 30:
             speed_for_calculation = self.gps_speed
+            print('gps_callback')
         else:
             speed_for_calculation = 1
         # print('뒤', (np.arctan2(self.k * x_error, speed_for_calculation)))
-        steering_angle = np.arctan2(self.k * x_error, speed_for_calculation) #path_yaw+
+        steering_angle=path_yaw + np.arctan2(self.k * x_error, speed_for_calculation) #path_yaw+
 
-        max_steering_angle = np.radians(25)
+        max_steering_angle = np.radians(22.2)
         steering_angle = np.clip(steering_angle, -max_steering_angle, max_steering_angle)
 
         mapped_steering_angle = np.interp(steering_angle, [-max_steering_angle, max_steering_angle], [6.25, 78]) #42.27
         # self.pub.publish(Int16(data=int(555)))
-        self.pub.publish(Int16(data=int(42)))  # std_msgs/Int16 형식에 맞게 수정
+        # print(mapped_steering_angle)
+        self.pub.publish(Int16(data=int(mapped_steering_angle)))  # std_msgs/Int16 형식에 맞게 수정
         print(mapped_steering_angle)
-        #self.rate.sleep()   
+        self.rate.sleep()   
 
 
 if __name__ == '__main__':
