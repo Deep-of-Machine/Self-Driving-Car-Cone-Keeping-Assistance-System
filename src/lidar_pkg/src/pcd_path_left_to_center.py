@@ -79,7 +79,17 @@ def pointcloud_callback(msg):
         dx = 2.5 * np.cos(angle)
         dy = 2.5 * np.sin(angle)
 
-        # Move the points of right_lane 2.5 units to the left along the normal
+        # Determine if the vehicle is turning left or right based on the slope
+        if m > 0:
+            turning_left = True
+        else:
+            turning_left = False
+
+        if turning_left:
+            dx = -dx  # Change the sign
+            dy = -dy  # Change the sign
+
+        # Move the points of right_lane 2.5 units in the calculated direction
         new_right_lane = right_lane.copy()
         new_right_lane[:, 0] += dx
         new_right_lane[:, 1] += dy
