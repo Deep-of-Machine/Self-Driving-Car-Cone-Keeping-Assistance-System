@@ -15,6 +15,8 @@
 #define RANGE 5 // error range
 int now_target = 0;
 
+int initial = 1;
+
 void setting(void);
 void motor_run(int);
 void motor_stop(void);
@@ -29,11 +31,7 @@ int main()
 
     time_t start_time = time(NULL);
 
-    while (time(NULL) - start_time <= 5) {
-        setting(); // Pin Setting
-    }
-
-    memset(&frame, 0, sizeof(struct can_frame));
+    setting();
 
     // 1.Create socket
     s = socket(PF_CAN, SOCK_RAW, CAN_RAW);
@@ -76,6 +74,11 @@ int main()
         {
             if (frame.data[0] == 1)
             { // auto state
+                if(initial) {
+                    delay(3000);
+                    initial = 0;
+                }
+                
                 if (frame.data[4] == 1) {
                     // detect stop line
                     motor_stop();
@@ -85,6 +88,7 @@ int main()
             }
             else
             {
+                initial = 1;
                 motor_stop();
             }
         }
