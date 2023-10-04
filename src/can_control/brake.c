@@ -16,6 +16,8 @@
 
 #define IN3 7
 
+int initial = 1;
+
 void setting(void);
 void brake_on(void);
 void brake_off(void);
@@ -28,11 +30,7 @@ int main()
     struct ifreq ifr;
     struct can_frame frame;
 
-    time_t start_time = time(NULL);
-
-    while (time(NULL) - start_time <= 5) {
-        setting(); // Pin Setting
-    }
+    setting();
 
     memset(&frame, 0, sizeof(struct can_frame));
 
@@ -77,20 +75,30 @@ int main()
         {
             if (frame.data[0] == 1)
             {
+                if ( initial == 1 ) {
+                    brake_off();
+                    softPwmWrite(IN3, 0);
+                    initial = 0;
+                }
+                
                 if (frame.data[4] == 1) {
                     brake_on();
                 } else if (frame.data[2] == 1) {
                     // for voltage brake execute
-                    while (frame.data[2] == 1) {
-                        softPwmWrite(IN3, 1000);
-                        delay(1);
-                    }
+                    softPwmWrite(IN3, 1000);
+                    delay(1);
+                } else if(frame.data[2] == 0) {
                     softPwmWrite(IN3, 0);
                 }
-            }
-            else if (frame.data[0] == 2)
+            } else if (frame.data[0] == 2)
             { // emergency state
+                initial = 1;
                 brake_on();
+            } else {
+                // passive state
+                initial = 0;
+                softPwmWrite(IN3, 0);
+                brake_off();
             }
         }
     }
@@ -107,18 +115,7 @@ void setting(void)
 
     softPwmCreate(IN1, 0, 1000);
     softPwmCreate(IN2, 0, 1000);
-
     softPwmCreate(IN3, 0, 1000);
-
-    // To push the actuator
-    softPwmWrite(IN1, 0);
-    softPwmWrite(IN2, 1000);
-
-    softPwmWrite(IN3, 0);
-
-    delay(500);
-
-    brake_off();
 }
 
 void brake_on(void)
@@ -126,9 +123,10 @@ void brake_on(void)
     softPwmWrite(IN1, 1000);
     softPwmWrite(IN2, 0);
 
-    delay(10000);
+    delay(2000);
 
-    brake_off();
+    softPwmWrite(IN1, 0);
+    softPwmWrite(IN2, 0);
 }
 
 void brake_off(void)
@@ -136,7 +134,7 @@ void brake_off(void)
     softPwmWrite(IN1, 0);
     softPwmWrite(IN2, 1000);
 
-    delay(500);
+    delay(4000);
 
     softPwmWrite(IN1, 0);
     softPwmWrite(IN2, 0);
