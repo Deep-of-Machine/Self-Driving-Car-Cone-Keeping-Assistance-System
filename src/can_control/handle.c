@@ -54,13 +54,9 @@ int main()
     struct ifreq ifr;
     struct can_frame frame;
 
-    time_t start_time = time(NULL);
-
-    while (time(NULL) - start_time <= 5) {
-        setting(); // Pin Setting
-    }
-
     memset(&frame, 0, sizeof(struct can_frame));
+
+    setting();
 
     // 1.Create socket
     s = socket(PF_CAN, SOCK_RAW, CAN_RAW);
@@ -103,17 +99,17 @@ int main()
 
         if (nbytes > 0)
 	{        
-            if (frame.data[0] == 1) // run 상태
+            if (frame.data[0] == 2) // emergency 상태
+            {
+                actuator_stop();
+            }
+            else // auto && passive 상태
             {
                 if (frame.data[4] == 1) {
                     actuator_stop();
                 } else {
                     target_check(frame.data[3]);
                 }
-            }
-            else // emergency 상태
-            {
-                actuator_stop();
             }
         }
     }
@@ -161,8 +157,6 @@ int setting(void)
         return 1;
     }
 
-    set_medium();
-
     return 0;
 }
 
@@ -183,46 +177,6 @@ static void select_channel(uint8_t channel)
     ioctl(spi_fd, SPI_IOC_MESSAGE(1), &tr);
 }
 
-void set_medium(void)
-{
-    select_channel(0);
-
-    int adc_value = ((rx_buffer[1] & 0x03) << 8) | rx_buffer[2];
-
-    int min_value = 0;
-    int max_value = SUM;
-    if (adc_value < min_value)
-    {
-        adc_value = min_value;
-    }
-    else if (adc_value > max_value)
-    {
-        adc_value = max_value;
-    }
-    
-    float mm_value = (float)(adc_value);
-    mm_value = (mm_value/1023)*SUM;
-
-    // setting medium
-    digitalWrite(IN1, HIGH);
-    digitalWrite(IN2, LOW);
-    delay(1000);
-
-    digitalWrite(IN1, LOW);
-    digitalWrite(IN2, HIGH);
-    delay(1000);
-
-    while ((mm_value < MEDIUM - RANGE) || (mm_value > MEDIUM + RANGE)) {
-        if (mm_value < MEDIUM - RANGE) {
-            actuator_run(1);
-        } else {
-            actuator_run(0);
-        }
-    }
-
-    actuator_stop();
-}
-
 void target_check(int new_target)
 {
     select_channel(0);
@@ -230,7 +184,7 @@ void target_check(int new_target)
     int adc_value = ((rx_buffer[1] & 0x03) << 8) | rx_buffer[2];
 
     int min_value = 0;
-    int max_value = 1023;
+    int max_value = SUM;
 
     if (adc_value < min_value)
     {
@@ -242,7 +196,7 @@ void target_check(int new_target)
     }
 
     float mm_value = (float)(adc_value);
-    mm_value = (mm_value/1023)*78;
+    mm_value = (mm_value/1023)*SUM;
 
     if ((mm_value < new_target - RANGE))
     {
