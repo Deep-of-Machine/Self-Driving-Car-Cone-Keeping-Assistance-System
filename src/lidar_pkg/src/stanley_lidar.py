@@ -62,7 +62,7 @@ class StanleyController:
         # yaw = self.ya
         if path_yaw >= np.pi/8 and path_yaw <= np.pi*7/8:
             # print("감속")
-            self.pub_speed.publish(Int16(10))  # 속도를 30으로 감속
+            self.pub_speed.publish(Int16(30))  # 속도를 30으로 감속
             print('감속')
         else:
             self.pub_speed.publish(Int16(30))

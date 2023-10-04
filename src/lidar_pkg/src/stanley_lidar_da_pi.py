@@ -10,7 +10,6 @@ import socket  # 소켓 라이브러리 추가
 class StanleyController:
     def __init__(self):
         self.midpoints = None
-        self.lookahead_distance = 2.0  # 임의의 값
         self.max_steering_angle = np.radians(20)  # 최대 조향각
         self.k = 0.5  # Control gain
         self.prev_steering_angle = 0.0  # 이전 조향 각도

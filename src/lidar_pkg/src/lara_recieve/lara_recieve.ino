@@ -24,14 +24,14 @@ int self_driving = 0 ;
 int val = 0;
 
 void setup() {
-  Serial.begin(57600);
+  Serial.begin(9600);
   lora.begin(9600);
 
   pinMode(2, INPUT);
   pinMode(3, INPUT);
-  pinMode(6, INPUT);
-  pinMode(7, INPUT);
-  pinMode(A0, INPUT);
+  pinMode(6, INPUT_PULLUP);
+  pinMode(7, INPUT_PULLUP);
+  pinMode(A5, INPUT);
 
   nh.initNode();
   nh.advertise(asms_chatter);
@@ -44,20 +44,25 @@ void loop() {
 
 
 
-  self_driving = digitalRead(7);
-  kill = digitalRead(6);
-
-  asms_msg.data = kill;
-  asms_chatter.publish(&asms_msg);
-
-  asms_msg.data = self_driving;
-  asms_chatter.publish(&asms_msg);
-  val = analogRead(A0);
+  self_driving = digitalRead(6);
+  kill = digitalRead(7);
+  val = analogRead(A5);
   val = int((float(val) / 1023) * 78);
 
   steering_msg.data = val;  // Set the analog value
   steering_chatter.publish(&steering_msg);  // Publish the analog value
 
+  //  Serial.print("asms_status : ");
+  //  Serial.println(asms_status);
+  //
+  Serial.print("kill : ");
+  Serial.println(kill);
+  //
+  Serial.print("Self_driving : ");
+  Serial.println(self_driving);
+  //
+  //  Serial.print("val");
+  //  Serial.println(val);
   if (lora.available()) {
     lora.readBytes(myunion.b, 2);
 
@@ -80,8 +85,6 @@ void loop() {
     }
 
   } else {
-
-
     if (kill == 1) {
       asms_status = 2;
     }
@@ -93,8 +96,7 @@ void loop() {
 
   asms_msg.data = asms_status;
   asms_chatter.publish(&asms_msg);
-  //Serial.println(asms_status);
 
   nh.spinOnce();
-  delay(500);
+  delay(100);
 }
