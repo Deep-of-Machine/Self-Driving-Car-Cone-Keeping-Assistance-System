@@ -11,10 +11,11 @@ from multiprocessing import Process
 class RosToCan:
     def __init__(self):
         self.can0 = can.interface.Bus(channel='can0', bustype='socketcan')
-        self.asms_data = 1
+        self.asms_data = 3
         self.brake_data = 0
         self.motor_data = 0
         self.steering_data = 0
+        self.steering_self_data = 0
         self.voltage_brake_data = 0
             
         rospy.Subscriber('/ASMS', Int16, self.asms_callback)
@@ -22,7 +23,11 @@ class RosToCan:
         rospy.Subscriber('/motor', Int16, self.motor_callback)
         rospy.Subscriber('/steering_angle', Int16, self.steering_callback)
         rospy.Subscriber('/voltage_brake', Int16, self.voltage_brake_callback)
+        rospy.Subscriber('/steering_angle_self',Int16, self.steering_self_callback)
 
+    def steering_self_callback(self,msg):
+        self.steering_self_data=msg.data
+        print('steering_self_callback')
 
     def steering_callback(self, msg):
         self.steering_data = msg.data
@@ -51,13 +56,18 @@ class RosToCan:
 
     def send_combined_can_message(self):
         #time.sleep(0.2)
-        combined_data = [self.asms_data, self.motor_data, self.voltage_brake_data, self.steering_data, self.brake_data, 0, 0, 0]
+        if self.asms_data == 3:
+            combined_data = [self.asms_data, 0, 0, self.steering_self_data, 0, 0, 0, 0]
+        elif self.asms_data == 2:
+            combined_data = [self.asms_data, 0, 0, self.steering_data, 1, 0, 0, 0]
+        elif self.asms_data == 1:
+            combined_data = [self.asms_data, self.motor_data, self.voltage_brake_data, self.steering_data, self.brake_data, 0, 0, 0]
         msg = can.Message(is_extended_id=False, arbitration_id=0x123, data=combined_data)
-        print('send_combined_can_message')
+        
         try:
             self.can0.send(msg)
             print("Sent Combined CAN message: ID={}, Data={}".format(msg.arbitration_id, msg.data))
-            #rospy.sleep(1)
+            # rospy.sleep(1)
         except can.CanError:
             print("Failed to send CAN message")
 
