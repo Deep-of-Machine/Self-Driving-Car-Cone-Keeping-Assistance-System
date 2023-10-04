@@ -9,7 +9,7 @@ from std_msgs.msg import Float64, Int16
 class StanleyController:
     def __init__(self):
         self.midpoints = None
-        self.k = 0.3      # 상수 k (튜닝이 필요)
+        self.k = 0.5      # 상수 k (튜닝이 필요)
         self.filtered_yaw = 0.0  # 초기화
         self.gps_speed = 0.0  # 초기화
 
@@ -68,9 +68,9 @@ class StanleyController:
         if slope >= np.pi/2:
             slope = slope - np.pi
 
-        yaw = yaw * 0.8
+        yaw = yaw * 0.7
         # print(x_error)
-        steering_angle = yaw +  np.arctan2(self.k * closest_point[1], speed_for_calculation) #yaw +
+        steering_angle =   np.arctan2(self.k * closest_point[1], speed_for_calculation) #yaw +
         print("closest",closest_point[1]) # 3.14가 원형으로 됨 플마가 아님
 
         max_steering_angle = np.radians(25)
