@@ -1,1 +1,1 @@
-/usr/bin/c++ -fPIC -shared -Wl,-soname,libgtest_main.so -o ../lib/libgtest_main.so CMakeFiles/gtest_main.dir/src/gtest_main.cc.o  -Wl,-rpath,/home/baqu/Self-Driving-Car-Cone-Keeping-Assistance-System/build/gtest/lib ../lib/libgtest.so -lpthread 
+/usr/bin/c++ -fPIC   -shared -Wl,-soname,libgtest_main.so -o ../lib/libgtest_main.so CMakeFiles/gtest_main.dir/src/gtest_main.cc.o  -Wl,-rpath,/home/lhs7358/Self-Driving-Car-Cone-Keeping-Assistance-System/build/gtest/lib ../lib/libgtest.so -lpthread 

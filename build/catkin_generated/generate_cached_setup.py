@@ -12,16 +12,16 @@ try:
     from catkin.environment_cache import generate_environment_script
 except ImportError:
     # search for catkin package in all workspaces and prepend to path
-    for workspace in '/home/baqu/Self-Driving-Car-Cone-Keeping-Assistance-System/devel;/home/baqu/catkin_ws/devel;/home/baqu/ouster/myworkspace/devel;/opt/ros/noetic'.split(';'):
+    for workspace in '/home/lhs7358/Self-Driving-Car-Cone-Keeping-Assistance-System-main/devel;/opt/ros/noetic'.split(';'):
         python_path = os.path.join(workspace, 'lib/python3/dist-packages')
         if os.path.isdir(os.path.join(python_path, 'catkin')):
             sys.path.insert(0, python_path)
             break
     from catkin.environment_cache import generate_environment_script
 
-code = generate_environment_script('/home/baqu/Self-Driving-Car-Cone-Keeping-Assistance-System/devel/env.sh')
+code = generate_environment_script('/home/lhs7358/Self-Driving-Car-Cone-Keeping-Assistance-System/devel/env.sh')
 
-output_filename = '/home/baqu/Self-Driving-Car-Cone-Keeping-Assistance-System/build/catkin_generated/setup_cached.sh'
+output_filename = '/home/lhs7358/Self-Driving-Car-Cone-Keeping-Assistance-System/build/catkin_generated/setup_cached.sh'
 with open(output_filename, 'w') as f:
     # print('Generate script for cached setup "%s"' % output_filename)
     f.write('\n'.join(code))
