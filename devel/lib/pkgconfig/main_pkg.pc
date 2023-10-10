@@ -1,0 +1,8 @@
+prefix=/home/baqu/Self-Driving-Car-Cone-Keeping-Assistance-System/devel
+
+Name: main_pkg
+Description: Description of main_pkg
+Version: 0.0.0
+Cflags: 
+Libs: -L${prefix}/lib 
+Requires: 

@@ -1,5 +1,0 @@
-float64 lidar_mid_X
-float64 lidar_mid_y
-float64 lidar_mid_z
-string lidar_con_name
-string lidar_con_color

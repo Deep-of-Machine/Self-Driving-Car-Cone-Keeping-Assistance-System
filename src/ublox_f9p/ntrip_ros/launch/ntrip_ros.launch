@@ -10,7 +10,7 @@
  	 <param name="ntrip_user" value="seoul"/>
  	 <param name="ntrip_pass" value="seoul"/>
  	 <param name="ntrip_stream" value="YONS-RTCM32-M5"/>
- 	 <param name="nmea_gga" value="$GPGGA,141037.813,3718.057,N,12650.067,E,1,12,1.0,0.0,M,0.0,M,,*6A"/>
+ 	 <param name="nmea_gga" value="$GPGGA,201511.857,3718.077,N,12650.088,E,1,12,1.0,0.0,M,0.0,M,,*6F"/>
   </node>
 </launch>
 

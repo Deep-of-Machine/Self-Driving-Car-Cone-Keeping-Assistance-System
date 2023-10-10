@@ -1,4 +1,4 @@
-#!/usr/bin/python3
+#!/usr/local/bin/python3
 # -*- coding: utf-8 -*-
 
 # Software License Agreement (BSD License)
@@ -54,14 +54,14 @@ PATH_TO_ADD_SUFFIX = ['bin']
 if IS_WINDOWS:
     # while catkin recommends putting dll's into bin, 3rd party packages often put dll's into lib
     # since Windows finds dll's via the PATH variable, prepend it with path to lib
-    PATH_TO_ADD_SUFFIX.extend([['lib', os.path.join('lib', 'aarch64-linux-gnu')]])
+    PATH_TO_ADD_SUFFIX.extend([['lib', os.path.join('lib', 'x86_64-linux-gnu')]])
 
 # subfolder of workspace prepended to CMAKE_PREFIX_PATH
 ENV_VAR_SUBFOLDERS = {
     'CMAKE_PREFIX_PATH': '',
-    'LD_LIBRARY_PATH' if not IS_DARWIN else 'DYLD_LIBRARY_PATH': ['lib', os.path.join('lib', 'aarch64-linux-gnu')],
+    'LD_LIBRARY_PATH' if not IS_DARWIN else 'DYLD_LIBRARY_PATH': ['lib', os.path.join('lib', 'x86_64-linux-gnu')],
     'PATH': PATH_TO_ADD_SUFFIX,
-    'PKG_CONFIG_PATH': [os.path.join('lib', 'pkgconfig'), os.path.join('lib', 'aarch64-linux-gnu', 'pkgconfig')],
+    'PKG_CONFIG_PATH': [os.path.join('lib', 'pkgconfig'), os.path.join('lib', 'x86_64-linux-gnu', 'pkgconfig')],
     'PYTHONPATH': 'lib/python3/dist-packages',
 }
 
@@ -268,7 +268,7 @@ if __name__ == '__main__':
 
         if not args.local:
             # environment at generation time
-            CMAKE_PREFIX_PATH = r'/home/lhs7358/Self-Driving-Car-Cone-Keeping-Assistance-System-main/devel;/opt/ros/noetic;/home/lhs7358/ros2_ws/install/xarm;/home/lhs7358/ros2_ws/install/urdf_simple_arm;/home/lhs7358/ros2_ws/install/puma_560;/home/lhs7358/ros2_ws/install/examples_rclcpp_multithreaded_executor;/home/lhs7358/ros2_ws/install/examples_rclcpp_minimal_timer;/home/lhs7358/ros2_ws/install/examples_rclcpp_minimal_subscriber;/home/lhs7358/ros2_ws/install/examples_rclcpp_minimal_service;/home/lhs7358/ros2_ws/install/examples_rclcpp_minimal_publisher;/home/lhs7358/ros2_ws/install/examples_rclcpp_minimal_composition;/home/lhs7358/ros2_ws/install/examples_rclcpp_minimal_client;/home/lhs7358/ros2_ws/install/examples_rclcpp_minimal_action_server;/home/lhs7358/ros2_ws/install/examples_rclcpp_minimal_action_client;/home/lhs7358/ros2_ws/install/cpp_pubsub'.split(';')
+            CMAKE_PREFIX_PATH = r'/home/baqu/Self-Driving-Car-Cone-Keeping-Assistance-System/devel;/opt/ros/noetic'.split(';')
         else:
             # don't consider any other prefix path than this one
             CMAKE_PREFIX_PATH = []

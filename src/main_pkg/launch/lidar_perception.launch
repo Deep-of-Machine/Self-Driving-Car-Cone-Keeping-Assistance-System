@@ -1,0 +1,5 @@
+<launch>
+    <node pkg="main_pkg" type="pcd_downsampling.py" name="pcd_downsampling"/>
+    <node pkg="main_pkg" type="pcd_clustering.py" name="pcd_clustering"/>
+    <node pkg="main_pkg" type="pcd_path_left_to_center.py" name="pcd_path_left_to_center"/>
+</launch>

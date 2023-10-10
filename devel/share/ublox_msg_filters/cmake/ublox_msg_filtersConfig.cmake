@@ -67,14 +67,14 @@ set(ublox_msg_filters_CONFIG_INCLUDED TRUE)
 
 # set variables for source/devel/install prefixes
 if("TRUE" STREQUAL "TRUE")
-  set(ublox_msg_filters_SOURCE_PREFIX /home/lhs7358/Self-Driving-Car-Cone-Keeping-Assistance-System/src/ublox/ublox_msg_filters)
-  set(ublox_msg_filters_DEVEL_PREFIX /home/lhs7358/Self-Driving-Car-Cone-Keeping-Assistance-System/devel)
+  set(ublox_msg_filters_SOURCE_PREFIX /home/baqu/Self-Driving-Car-Cone-Keeping-Assistance-System/src/ublox/ublox_msg_filters)
+  set(ublox_msg_filters_DEVEL_PREFIX /home/baqu/Self-Driving-Car-Cone-Keeping-Assistance-System/devel)
   set(ublox_msg_filters_INSTALL_PREFIX "")
   set(ublox_msg_filters_PREFIX ${ublox_msg_filters_DEVEL_PREFIX})
 else()
   set(ublox_msg_filters_SOURCE_PREFIX "")
   set(ublox_msg_filters_DEVEL_PREFIX "")
-  set(ublox_msg_filters_INSTALL_PREFIX /home/lhs7358/Self-Driving-Car-Cone-Keeping-Assistance-System/install)
+  set(ublox_msg_filters_INSTALL_PREFIX /home/baqu/Self-Driving-Car-Cone-Keeping-Assistance-System/install)
   set(ublox_msg_filters_PREFIX ${ublox_msg_filters_INSTALL_PREFIX})
 endif()
 
@@ -91,9 +91,9 @@ endif()
 # flag project as catkin-based to distinguish if a find_package()-ed project is a catkin project
 set(ublox_msg_filters_FOUND_CATKIN_PROJECT TRUE)
 
-if(NOT "/home/lhs7358/Self-Driving-Car-Cone-Keeping-Assistance-System/src/ublox/ublox_msg_filters/include " STREQUAL " ")
+if(NOT "/home/baqu/Self-Driving-Car-Cone-Keeping-Assistance-System/src/ublox/ublox_msg_filters/include " STREQUAL " ")
   set(ublox_msg_filters_INCLUDE_DIRS "")
-  set(_include_dirs "/home/lhs7358/Self-Driving-Car-Cone-Keeping-Assistance-System/src/ublox/ublox_msg_filters/include")
+  set(_include_dirs "/home/baqu/Self-Driving-Car-Cone-Keeping-Assistance-System/src/ublox/ublox_msg_filters/include")
   if(NOT " " STREQUAL " ")
     set(_report "Check the issue tracker '' and consider creating a ticket if the problem has not been reported yet.")
   elseif(NOT "http://ros.org/wiki/ublox " STREQUAL " ")
@@ -110,7 +110,7 @@ if(NOT "/home/lhs7358/Self-Driving-Car-Cone-Keeping-Assistance-System/src/ublox/
         message(FATAL_ERROR "Project 'ublox_msg_filters' specifies '${idir}' as an include dir, which is not found.  It does not exist in '${include}'.  ${_report}")
       endif()
     else()
-      message(FATAL_ERROR "Project 'ublox_msg_filters' specifies '${idir}' as an include dir, which is not found.  It does neither exist as an absolute directory nor in '/home/lhs7358/Self-Driving-Car-Cone-Keeping-Assistance-System/src/ublox/ublox_msg_filters/${idir}'.  ${_report}")
+      message(FATAL_ERROR "Project 'ublox_msg_filters' specifies '${idir}' as an include dir, which is not found.  It does neither exist as an absolute directory nor in '/home/baqu/Self-Driving-Car-Cone-Keeping-Assistance-System/src/ublox/ublox_msg_filters/${idir}'.  ${_report}")
     endif()
     _list_append_unique(ublox_msg_filters_INCLUDE_DIRS ${include})
   endforeach()
@@ -154,7 +154,7 @@ foreach(library ${libraries})
     set(lib_path "")
     set(lib "${library}-NOTFOUND")
     # since the path where the library is found is returned we have to iterate over the paths manually
-    foreach(path /home/lhs7358/Self-Driving-Car-Cone-Keeping-Assistance-System/devel/lib;/home/lhs7358/Self-Driving-Car-Cone-Keeping-Assistance-System-main/devel/lib;/opt/ros/noetic/lib)
+    foreach(path /home/baqu/Self-Driving-Car-Cone-Keeping-Assistance-System/devel/lib;/home/baqu/Self-Driving-Car-Cone-Keeping-Assistance-System/devel/lib;/opt/ros/noetic/lib)
       find_library(lib ${library}
         PATHS ${path}
         NO_DEFAULT_PATH NO_CMAKE_FIND_ROOT_PATH)

@@ -1,8 +1,8 @@
-# Install script for directory: /home/lhs7358/Self-Driving-Car-Cone-Keeping-Assistance-System/src/ublox/ublox_serialization
+# Install script for directory: /home/baqu/Self-Driving-Car-Cone-Keeping-Assistance-System/src/ublox/ublox_serialization
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
-  set(CMAKE_INSTALL_PREFIX "/home/lhs7358/Self-Driving-Car-Cone-Keeping-Assistance-System/install")
+  set(CMAKE_INSTALL_PREFIX "/home/baqu/Self-Driving-Car-Cone-Keeping-Assistance-System/install")
 endif()
 string(REGEX REPLACE "/$" "" CMAKE_INSTALL_PREFIX "${CMAKE_INSTALL_PREFIX}")
 
@@ -37,22 +37,27 @@ if(NOT DEFINED CMAKE_CROSSCOMPILING)
   set(CMAKE_CROSSCOMPILING "FALSE")
 endif()
 
-if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/pkgconfig" TYPE FILE FILES "/home/lhs7358/Self-Driving-Car-Cone-Keeping-Assistance-System/build/ublox/ublox_serialization/catkin_generated/installspace/ublox_serialization.pc")
+# Set default install directory permissions.
+if(NOT DEFINED CMAKE_OBJDUMP)
+  set(CMAKE_OBJDUMP "/usr/bin/objdump")
 endif()
 
-if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
+if(CMAKE_INSTALL_COMPONENT STREQUAL "Unspecified" OR NOT CMAKE_INSTALL_COMPONENT)
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/pkgconfig" TYPE FILE FILES "/home/baqu/Self-Driving-Car-Cone-Keeping-Assistance-System/build/ublox/ublox_serialization/catkin_generated/installspace/ublox_serialization.pc")
+endif()
+
+if(CMAKE_INSTALL_COMPONENT STREQUAL "Unspecified" OR NOT CMAKE_INSTALL_COMPONENT)
   file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/ublox_serialization/cmake" TYPE FILE FILES
-    "/home/lhs7358/Self-Driving-Car-Cone-Keeping-Assistance-System/build/ublox/ublox_serialization/catkin_generated/installspace/ublox_serializationConfig.cmake"
-    "/home/lhs7358/Self-Driving-Car-Cone-Keeping-Assistance-System/build/ublox/ublox_serialization/catkin_generated/installspace/ublox_serializationConfig-version.cmake"
+    "/home/baqu/Self-Driving-Car-Cone-Keeping-Assistance-System/build/ublox/ublox_serialization/catkin_generated/installspace/ublox_serializationConfig.cmake"
+    "/home/baqu/Self-Driving-Car-Cone-Keeping-Assistance-System/build/ublox/ublox_serialization/catkin_generated/installspace/ublox_serializationConfig-version.cmake"
     )
 endif()
 
-if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/ublox_serialization" TYPE FILE FILES "/home/lhs7358/Self-Driving-Car-Cone-Keeping-Assistance-System/src/ublox/ublox_serialization/package.xml")
+if(CMAKE_INSTALL_COMPONENT STREQUAL "Unspecified" OR NOT CMAKE_INSTALL_COMPONENT)
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/ublox_serialization" TYPE FILE FILES "/home/baqu/Self-Driving-Car-Cone-Keeping-Assistance-System/src/ublox/ublox_serialization/package.xml")
 endif()
 
-if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/include" TYPE DIRECTORY FILES "/home/lhs7358/Self-Driving-Car-Cone-Keeping-Assistance-System/src/ublox/ublox_serialization/include/" REGEX "/\\.svn$" EXCLUDE)
+if(CMAKE_INSTALL_COMPONENT STREQUAL "Unspecified" OR NOT CMAKE_INSTALL_COMPONENT)
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/include" TYPE DIRECTORY FILES "/home/baqu/Self-Driving-Car-Cone-Keeping-Assistance-System/src/ublox/ublox_serialization/include/" REGEX "/\\.svn$" EXCLUDE)
 endif()
 

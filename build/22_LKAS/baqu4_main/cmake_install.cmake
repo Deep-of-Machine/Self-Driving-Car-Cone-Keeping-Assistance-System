@@ -1,8 +1,8 @@
-# Install script for directory: /home/lhs7358/Self-Driving-Car-Cone-Keeping-Assistance-System/src/22_LKAS/baqu4_main
+# Install script for directory: /home/baqu/Self-Driving-Car-Cone-Keeping-Assistance-System/src/22_LKAS/baqu4_main
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
-  set(CMAKE_INSTALL_PREFIX "/home/lhs7358/Self-Driving-Car-Cone-Keeping-Assistance-System/install")
+  set(CMAKE_INSTALL_PREFIX "/home/baqu/Self-Driving-Car-Cone-Keeping-Assistance-System/install")
 endif()
 string(REGEX REPLACE "/$" "" CMAKE_INSTALL_PREFIX "${CMAKE_INSTALL_PREFIX}")
 
@@ -37,18 +37,23 @@ if(NOT DEFINED CMAKE_CROSSCOMPILING)
   set(CMAKE_CROSSCOMPILING "FALSE")
 endif()
 
-if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/pkgconfig" TYPE FILE FILES "/home/lhs7358/Self-Driving-Car-Cone-Keeping-Assistance-System/build/22_LKAS/baqu4_main/catkin_generated/installspace/baqu4_run.pc")
+# Set default install directory permissions.
+if(NOT DEFINED CMAKE_OBJDUMP)
+  set(CMAKE_OBJDUMP "/usr/bin/objdump")
 endif()
 
-if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
+if(CMAKE_INSTALL_COMPONENT STREQUAL "Unspecified" OR NOT CMAKE_INSTALL_COMPONENT)
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/pkgconfig" TYPE FILE FILES "/home/baqu/Self-Driving-Car-Cone-Keeping-Assistance-System/build/22_LKAS/baqu4_main/catkin_generated/installspace/baqu4_run.pc")
+endif()
+
+if(CMAKE_INSTALL_COMPONENT STREQUAL "Unspecified" OR NOT CMAKE_INSTALL_COMPONENT)
   file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/baqu4_run/cmake" TYPE FILE FILES
-    "/home/lhs7358/Self-Driving-Car-Cone-Keeping-Assistance-System/build/22_LKAS/baqu4_main/catkin_generated/installspace/baqu4_runConfig.cmake"
-    "/home/lhs7358/Self-Driving-Car-Cone-Keeping-Assistance-System/build/22_LKAS/baqu4_main/catkin_generated/installspace/baqu4_runConfig-version.cmake"
+    "/home/baqu/Self-Driving-Car-Cone-Keeping-Assistance-System/build/22_LKAS/baqu4_main/catkin_generated/installspace/baqu4_runConfig.cmake"
+    "/home/baqu/Self-Driving-Car-Cone-Keeping-Assistance-System/build/22_LKAS/baqu4_main/catkin_generated/installspace/baqu4_runConfig-version.cmake"
     )
 endif()
 
-if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/baqu4_run" TYPE FILE FILES "/home/lhs7358/Self-Driving-Car-Cone-Keeping-Assistance-System/src/22_LKAS/baqu4_main/package.xml")
+if(CMAKE_INSTALL_COMPONENT STREQUAL "Unspecified" OR NOT CMAKE_INSTALL_COMPONENT)
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/baqu4_run" TYPE FILE FILES "/home/baqu/Self-Driving-Car-Cone-Keeping-Assistance-System/src/22_LKAS/baqu4_main/package.xml")
 endif()
 
