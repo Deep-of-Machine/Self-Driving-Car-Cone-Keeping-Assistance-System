@@ -71,7 +71,7 @@ class StanleyController:
         print("path_yaw : ", path_yaw)
 
         if self.flag > 0:
-            self.pub_speed.publish(Int16(int(30)))  # 속도를 30으로 감속
+            self.pub_speed.publish(Int16(int(15)))  # 속도를 30으로 감속
             print('회생 후 느리게')
             self.flag -= 1
             self.voltage_brake_count -= 1000
@@ -79,12 +79,12 @@ class StanleyController:
             if np.abs(speed_yaw) < 0.3:
                 self.fast_change += 1
                 if self.fast_change > 10:
-                    self.pub_speed.publish(Int16(int(90)))  # 속도를 30으로 감속
+                    self.pub_speed.publish(Int16(int(80)))  # 속도를 30으로 감속
                     print('빠름')
                     self.voltage_brake_count = 0
                     self.flag -= 1
                 else:
-                    self.pub_speed.publish(Int16(int(50)))
+                    self.pub_speed.publish(Int16(int(40)))
                     print("느림")
                     self.voltage_brake_count += 1
                     self.flag -= 1
