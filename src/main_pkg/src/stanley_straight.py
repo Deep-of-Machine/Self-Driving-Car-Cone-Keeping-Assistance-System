@@ -31,7 +31,7 @@ class StanleyController:
         print(mapped_steering_angle)
         self.pub_steering.publish(Int16(data=int(mapped_steering_angle)))  # std_msgs/Int16 형식에 맞게 수정
         
-        self.pub_speed.publish(Int16(data=int(100)))
+        self.pub_speed.publish(Int16(data=int(80)))
         print(mapped_steering_angle)
 
 

@@ -9,7 +9,7 @@ from std_msgs.msg import Float64, Int16
 class StanleyController:
     def __init__(self):
         self.midpoints = None
-        self.k = 0.2      # 상수 k (튜닝이 필요) 원돌이 0.3 / 0.8요 - 0.7 추천 / 0.5요 - 0.5
+        self.k = 0.6      # 상수 k (튜닝이 필요) 원돌이 0.3 / 0.8요 - 0.7 추천 / 0.5요 - 0.5
         self.filtered_yaw = 0.0  # 초기화
         self.gps_speed = 0.0  # 초기화
         self.voltage_brake_count = 0
@@ -71,7 +71,7 @@ class StanleyController:
         print("path_yaw : ", path_yaw)
 
         if self.flag > 0:
-            self.pub_speed.publish(Int16(int(15)))  # 속도를 30으로 감속
+            self.pub_speed.publish(Int16(int(35)))  # 속도를 30으로 감속
             print('회생 후 느리게')
             self.flag -= 1
             self.voltage_brake_count -= 1000
@@ -79,12 +79,12 @@ class StanleyController:
             if np.abs(speed_yaw) < 0.3:
                 self.fast_change += 1
                 if self.fast_change > 10:
-                    self.pub_speed.publish(Int16(int(80)))  # 속도를 30으로 감속
+                    self.pub_speed.publish(Int16(int(45)))  # 속도를 30으로 감속
                     print('빠름')
                     self.voltage_brake_count = 0
                     self.flag -= 1
                 else:
-                    self.pub_speed.publish(Int16(int(40)))
+                    self.pub_speed.publish(Int16(int(35)))
                     print("느림")
                     self.voltage_brake_count += 1
                     self.flag -= 1
@@ -98,7 +98,7 @@ class StanleyController:
                     self.prev_value = current_value
                     
             else:
-                self.pub_speed.publish(Int16(int(50)))
+                self.pub_speed.publish(Int16(int(45)))
                 print("느림")
                 self.voltage_brake_count += 1
                 self.flag -= 1
@@ -123,13 +123,14 @@ class StanleyController:
         # else:
         #     speed_for_calculation = 5
 
-        speed_for_calculation = 5
+        speed_for_calculation = 1
 
         # print('뒤', (np.arctan2(self.k * x_error, speed_for_calculation)))
 
         # 선형 보간
-        self.k = np.interp(np.abs(path_yaw), [0, np.pi/2], [0.03, 1.0])
+        self.k = np.interp(np.abs(path_yaw), [0, np.pi/2], [0.03, 2.5])
 
+        path_yaw = path_yaw * 0.85
 
         steering_angle = path_yaw + np.arctan2(self.k * x_error, speed_for_calculation) #path_yaw+
 

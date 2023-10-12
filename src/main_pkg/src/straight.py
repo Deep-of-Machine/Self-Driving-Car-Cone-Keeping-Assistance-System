@@ -64,7 +64,7 @@ class StanleyController:
         delta_x = third_closest_point[0] - closest_point[0]
         path_yaw = np.arctan2(delta_y, delta_x)
 
-        self.pub_speed.publish(Int16(150))  # 속도를 30으로 감속
+        self.pub_speed.publish(Int16(80))  # 속도를 30으로 감속
 
         # print('앞', path_yaw)
         lookahead_point = self.midpoints[closest_idx]

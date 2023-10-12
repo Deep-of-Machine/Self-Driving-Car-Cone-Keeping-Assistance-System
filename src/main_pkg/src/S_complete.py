@@ -9,7 +9,7 @@ from std_msgs.msg import Float64, Int16
 class StanleyController:
     def __init__(self):
         self.midpoints = None
-        self.k = 0.3      # 상수 k (튜닝이 필요)
+        self.k = 0.9      # 상수 k (튜닝이 필요)
         self.filtered_yaw = 0.0  # 초기화
         self.gps_speed = 0.0  # 초기화
 
@@ -18,7 +18,7 @@ class StanleyController:
         self.sub_gps_speed = rospy.Subscriber('/gps_speed', Float64, self.gps_speed_callback)
         self.pub_steering = rospy.Publisher('/steering_angle', Int16, queue_size=1)
         self.pub_speed = rospy.Publisher('/decelerate_speed', Int16, queue_size=1)  # 감속 속도 publisher
-
+        self.pub_motor = rospy.Publisher('/motor', Int16, queue_size=1)
         
     def path_callback(self, msg):
         self.midpoints = np.array(list(pc2.read_points(msg, skip_nans=True, field_names=("x", "y", "z"))))
@@ -29,6 +29,7 @@ class StanleyController:
     
 
     def control(self):
+        self.pub_motor.publish(Int16(35))
         if self.midpoints is None:
             return
 
@@ -39,9 +40,9 @@ class StanleyController:
         if slope >= np.pi/8 and slope <= np.pi*7/8:
             # 감속 코드
             # print("감속")
-            self.pub_speed.publish(Int16(30))  # 속도를 30으로 감속
+            self.pub_speed.publish(Int16(35))  # 속도를 30으로 감속
         else:
-            self.pub_speed.publish(Int16(30))
+            self.pub_speed.publish(Int16(35))
             # print("가속")
         # print("slope : ",slope)
 

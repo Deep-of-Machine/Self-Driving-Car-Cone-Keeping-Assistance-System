@@ -70,7 +70,7 @@ void loop() {
   //  Serial.println(val);
   if (lora.available()) {
     lora.readBytes(myunion.b, 2);
-
+    Serial.println("dd");
     if (myunion.i == 3) {
       asms_status = 3;
 
@@ -82,19 +82,23 @@ void loop() {
   }
 
   if (asms_status == 1) {
+    Serial.println("aa");
     if (self_driving == 1) {
       asms_status = 3;
     }
     if (kill_B == 1 || kill_D == 1) {
       asms_status = 2;
+      Serial.println("kk");
     }
 
   } else {
     if (kill_B == 1|| kill_D == 1) {
       asms_status = 2;
+      Serial.println("dd");
     }
     if (self_driving == 1) {
       asms_status = 3;
+      Serial.println("cc");
     }
 
   }
